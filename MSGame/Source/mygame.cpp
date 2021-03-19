@@ -292,7 +292,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 繼續載入其他資料
 	//
 	//help.LoadBitmap(IDB_HELP,RGB(255,255,255));				// 載入說明的圖形
-	corner.LoadBitmap(IDB_CORNER);							// 載入角落圖形
+	//corner.LoadBitmap(IDB_CORNER);							// 載入角落圖形
 	//corner.ShowBitmap(background);							// 將corner貼到background
 	//bball.LoadBitmap();										// 載入圖形
 	//hits_left.LoadBitmap();									
@@ -381,9 +381,9 @@ void CGameStateRun::OnShow()
 	//
 	//  貼上左上及右下角落的圖
 	//
-	corner.SetTopLeft(0,0);
+	/*corner.SetTopLeft(0,0);
 	corner.ShowBitmap();
 	corner.SetTopLeft(SIZE_X-corner.Width(), SIZE_Y-corner.Height());
-	corner.ShowBitmap();
+	corner.ShowBitmap();*/
 }
 }
