@@ -206,7 +206,7 @@ void CGameStateRun::OnBeginState()
 	const int HITS_LEFT = 10;
 	const int HITS_LEFT_X = 590;
 	const int HITS_LEFT_Y = 0;
-	const int BACKGROUND_X = 60;
+	const int BACKGROUND_X = 40;
 	const int ANIMATION_SPEED = 15;
 	for (int i = 0; i < NUMBALLS; i++) {				// 設定球的起始座標
 		int x_pos = i % BALL_PER_ROW;
@@ -234,9 +234,9 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動背景圖的座標
 	//
-	if (background.Top() > SIZE_Y)
-		background.SetTopLeft(60 ,-background.Height());
-	background.SetTopLeft(background.Left(),background.Top()+1);
+	//if (background.Top() > SIZE_Y)
+		//background.SetTopLeft(60 ,-background.Height());
+	//background.SetTopLeft(background.Left(),background.Top()+1);
 	//
 	// 移動球
 	//
@@ -284,7 +284,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (i = 0; i < NUMBALLS; i++)	
 		ball[i].LoadBitmap();								// 載入第i個球的圖形
 	eraser.LoadBitmap();
-	background.LoadBitmap(IDB_BACKGROUND);					// 載入背景的圖形
+	background.LoadBitmap(IDB_STAGE1_BG);					// 載入背景的圖形
 	//
 	// 完成部分Loading動作，提高進度
 	//
@@ -295,7 +295,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	help.LoadBitmap(IDB_HELP,RGB(255,255,255));				// 載入說明的圖形
 	corner.LoadBitmap(IDB_CORNER);							// 載入角落圖形
-	corner.ShowBitmap(background);							// 將corner貼到background
+	//corner.ShowBitmap(background);							// 將corner貼到background
 	bball.LoadBitmap();										// 載入圖形
 	hits_left.LoadBitmap();									
 	CAudio::Instance()->Load(AUDIO_DING,  "sounds\\ding.wav");	// 載入編號0的聲音ding.wav

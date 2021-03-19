@@ -171,7 +171,10 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Resource\game.ico">
+    <Image Include="res\game.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Stage1BG.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

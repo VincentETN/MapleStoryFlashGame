@@ -21,7 +21,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B718B45943D8405AB363650301680398"
+        "MsmKey" = "8:_E372A9DDE541464BB84B4EEF2A377719"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -43,6 +43,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -96,10 +104,10 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B718B45943D8405AB363650301680398"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E372A9DDE541464BB84B4EEF2A377719"
             {
-            "SourcePath" = "8:..\\Resource\\game.ico"
-            "TargetName" = "8:game.ico"
+            "SourcePath" = "8:..\\Resource\\MAPLE.ICO"
+            "TargetName" = "8:MAPLE.ICO"
             "Tag" = "8:"
             "Folder" = "8:_956FA27F4AB2400E995391BB61784C30"
             "Condition" = "8:"
@@ -326,7 +334,7 @@
             "Target" = "8:_5737B6EF15794082B9E07F321EBC28F6"
             "Folder" = "8:_7612A0E792A446A9A39FB8ED25B9BB01"
             "WorkingFolder" = "8:_956FA27F4AB2400E995391BB61784C30"
-            "Icon" = "8:_B718B45943D8405AB363650301680398"
+            "Icon" = "8:_E372A9DDE541464BB84B4EEF2A377719"
             "Feature" = "8:"
             }
         }
