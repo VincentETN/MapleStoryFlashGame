@@ -188,14 +188,12 @@ void CGameStateOver::OnShow()
 /////////////////////////////////////////////////////////////////////////////
 
 CGameStateRun::CGameStateRun(CGame *g)
-: CGameState(g), NUMBALLS(28)
+: CGameState(g)
 {
-	ball = new CBall [NUMBALLS];
 }
 
 CGameStateRun::~CGameStateRun()
 {
-	delete [] ball;
 }
 
 void CGameStateRun::OnBeginState()
