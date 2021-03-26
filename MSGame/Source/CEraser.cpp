@@ -28,18 +28,18 @@ namespace game_framework {
 
 	int CEraser::GetX2()
 	{
-		return x + animation.Width();
+		return x + idle.Width();
 	}
 
 	int CEraser::GetY2()
 	{
-		return y + animation.Height();
+		return y + idle.Height();
 	}
 
 	void CEraser::Initialize()
 	{
-		const int X_POS = 280;
-		const int Y_POS = 400;
+		const int X_POS = 505;
+		const int Y_POS = 393;
 		x = X_POS;
 		y = Y_POS;
 		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = false;
@@ -47,24 +47,41 @@ namespace game_framework {
 
 	void CEraser::LoadBitmap()
 	{
-		animation.AddBitmap(IDB_ERASER1, RGB(255, 255, 255));
-		animation.AddBitmap(IDB_ERASER2, RGB(255, 255, 255));
-		animation.AddBitmap(IDB_ERASER3, RGB(255, 255, 255));
-		animation.AddBitmap(IDB_ERASER2, RGB(255, 255, 255));
-	}
+		idle.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
+		lie.AddBitmap(IDB_C_LIE, RGB(255, 0, 255));
+		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
+		walkLeft.AddBitmap(IDB_C_WL, RGB(255, 0, 255));
+		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
+		walkLeft.AddBitmap(IDB_C_WL, RGB(255, 0, 255));
+		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
+		walkLeft.AddBitmap(IDB_C_WL, RGB(255, 0, 255));
+		walkLeft.AddBitmap(IDB_C_WL2, RGB(255, 0, 255));
+		walkRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
+		walkRight.AddBitmap(IDB_C_WR, RGB(255, 0, 255));
+		walkRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
+		walkRight.AddBitmap(IDB_C_WR, RGB(255, 0, 255));
+		walkRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
+		walkRight.AddBitmap(IDB_C_WR, RGB(255, 0, 255));
+		walkRight.AddBitmap(IDB_C_WR2, RGB(255, 0, 255));
 
-	void CEraser::OnMove()
+
+	}		
+
+	void CEraser::OnMove()	//²¾°Ê
 	{
-		const int STEP_SIZE = 2;
-		animation.OnMove();
-		if (isMovingLeft)
+		const int STEP_SIZE = 5;
+		idle.OnMove();
+		lie.OnMove();
+		walkLeft.OnMove();
+		walkRight.OnMove();
+		if (isMovingLeft) 
 			x -= STEP_SIZE;
-		if (isMovingRight)
+		if (isMovingRight) 
 			x += STEP_SIZE;
-		if (isMovingUp)
-			y -= STEP_SIZE;
+		//if (isMovingUp)
+		//	y -= STEP_SIZE;
 		if (isMovingDown)
-			y += STEP_SIZE;
+			y += 0;
 	}
 
 	void CEraser::SetMovingDown(bool flag)
@@ -94,7 +111,20 @@ namespace game_framework {
 
 	void CEraser::OnShow()
 	{
-		animation.SetTopLeft(x, y);
-		animation.OnShow();
+		if (isMovingLeft) {
+			walkLeft.SetTopLeft(x, y);
+			walkLeft.OnShow();
+		}
+		else if (isMovingRight) {
+			walkRight.SetTopLeft(x, y);
+			walkRight.OnShow();
+		}
+		else if (isMovingDown) {
+			lie.SetTopLeft(x, y+25);
+			lie.OnShow();
+		}else {
+			idle.SetTopLeft(x, y);
+			idle.OnShow();
+		}
 	}
 }

@@ -213,7 +213,7 @@ void CGameStateRun::OnBeginState()
 	//	ball[i].SetDelay(x_pos);
 	//	ball[i].SetIsAlive(true);
 	//}
-	//eraser.Initialize();
+	eraser.Initialize();
 	background.SetTopLeft(BACKGROUND_X,0);				// 設定背景的起始座標
 	//help.SetTopLeft(0, SIZE_Y - help.Height());			// 設定說明圖的起始座標
 	//hits_left.SetInteger(HITS_LEFT);					// 指定剩下的撞擊數
@@ -244,7 +244,8 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// 移動擦子
 	//
-	//eraser.OnMove();
+	eraser.OnMove();
+
 	//
 	// 判斷擦子是否碰到球
 	//
@@ -281,7 +282,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	/*int i;
 	for (i = 0; i < NUMBALLS; i++)	
 		ball[i].LoadBitmap();*/								// 載入第i個球的圖形
-	/*eraser.LoadBitmap();*/
+	eraser.LoadBitmap();
 	background.LoadBitmap(IDB_STAGE1_BG);					// 載入背景的圖形
 	//
 	// 完成部分Loading動作，提高進度
@@ -306,34 +307,35 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 
 void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-	//const char KEY_LEFT  = 0x25; // keyboard左箭頭
-	//const char KEY_UP    = 0x26; // keyboard上箭頭
-	//const char KEY_RIGHT = 0x27; // keyboard右箭頭
-	//const char KEY_DOWN  = 0x28; // keyboard下箭頭
-	//if (nChar == KEY_LEFT)
-	//	eraser.SetMovingLeft(true);
-	//if (nChar == KEY_RIGHT)
-	//	eraser.SetMovingRight(true);
-	//if (nChar == KEY_UP)
-	//	eraser.SetMovingUp(true);
-	//if (nChar == KEY_DOWN)
-	//	eraser.SetMovingDown(true);
+	const char KEY_LEFT  = 0x25; // keyboard左箭頭
+	const char KEY_UP    = 0x26; // keyboard上箭頭
+	const char KEY_RIGHT = 0x27; // keyboard右箭頭
+	const char KEY_DOWN  = 0x28; // keyboard下箭頭
+	
+	if (nChar == KEY_LEFT) 
+		eraser.SetMovingLeft(true);
+	if (nChar == KEY_RIGHT) 
+		eraser.SetMovingRight(true);
+	if (nChar == KEY_UP)
+		eraser.SetMovingUp(true);
+	if (nChar == KEY_DOWN)
+		eraser.SetMovingDown(true);
 }
 
 void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
-	//const char KEY_LEFT  = 0x25; // keyboard左箭頭
-	//const char KEY_UP    = 0x26; // keyboard上箭頭
-	//const char KEY_RIGHT = 0x27; // keyboard右箭頭
-	//const char KEY_DOWN  = 0x28; // keyboard下箭頭
-	//if (nChar == KEY_LEFT)
-	//	eraser.SetMovingLeft(false);
-	//if (nChar == KEY_RIGHT)
-	//	eraser.SetMovingRight(false);
-	//if (nChar == KEY_UP)
-	//	eraser.SetMovingUp(false);
-	//if (nChar == KEY_DOWN)
-	//	eraser.SetMovingDown(false);
+	const char KEY_LEFT  = 0x25; // keyboard左箭頭
+	const char KEY_UP    = 0x26; // keyboard上箭頭
+	const char KEY_RIGHT = 0x27; // keyboard右箭頭
+	const char KEY_DOWN  = 0x28; // keyboard下箭頭
+	if (nChar == KEY_LEFT)
+		eraser.SetMovingLeft(false);
+	if (nChar == KEY_RIGHT)
+		eraser.SetMovingRight(false);
+	if (nChar == KEY_UP)
+		eraser.SetMovingUp(false);
+	if (nChar == KEY_DOWN)
+		eraser.SetMovingDown(false);
 }
 
 void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
@@ -377,7 +379,7 @@ void CGameStateRun::OnShow()
 	//for (int i=0; i < NUMBALLS; i++)
 	//	ball[i].OnShow();				// 貼上第i號球
 	//bball.OnShow();						// 貼上彈跳的球
-	//eraser.OnShow();					// 貼上擦子
+	eraser.OnShow();					// 貼上擦子
 	//
 	//  貼上左上及右下角落的圖
 	//

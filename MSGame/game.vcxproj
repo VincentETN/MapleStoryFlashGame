@@ -323,6 +323,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resource\Character\character_left_lie.bmp" />
+    <Image Include="Resource\Character\character_left_stand.bmp" />
+    <Image Include="Resource\Character\character_left_walk1.bmp" />
+    <Image Include="Resource\Character\character_left_walk2.bmp" />
+    <Image Include="Resource\Character\character_right_stand.bmp" />
+    <Image Include="Resource\Character\character_right_walk1.bmp" />
+    <Image Include="Resource\Character\character_right_walk2.bmp" />
     <Image Include="Resource\Stage1BG.bmp" />
     <Image Include="res\game.ico" />
   </ItemGroup>
