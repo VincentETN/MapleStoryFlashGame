@@ -106,19 +106,19 @@ IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
 
 IDB_STAGE1_BG           BITMAP                  "..\\Resource\\Stage1BG.bmp"
 
-IDB_C_SL                BITMAP                  "D:\\OOPL\\MSGame\\Resource\\Character\\character_left_stand.bmp"
+IDB_C_SL                BITMAP                  "..\\Resource\\Character\\character_left_stand.bmp"
 
-IDB_C_WL                BITMAP                  "D:\\OOPL\\MSGame\\Resource\\Character\\character_left_walk1.bmp"
+IDB_C_WL                BITMAP                  "..\\Resource\\Character\\character_left_walk1.bmp"
 
-IDB_C_WL2               BITMAP                  "D:\\OOPL\\MSGame\\Resource\\Character\\character_left_walk2.bmp"
+IDB_C_WL2               BITMAP                  "..\\Resource\\Character\\character_left_walk2.bmp"
 
-IDB_C_SR                BITMAP                  "D:\\OOPL\\MSGame\\Resource\\Character\\character_right_stand.bmp"
+IDB_C_SR                BITMAP                  "..\\Resource\\Character\\character_right_stand.bmp"
 
-IDB_C_WR                BITMAP                  "D:\\OOPL\\MSGame\\Resource\\Character\\character_right_walk1.bmp"
+IDB_C_WR                BITMAP                  "..\\Resource\\Character\\character_right_walk1.bmp"
 
-IDB_C_WR2               BITMAP                  "D:\\OOPL\\MSGame\\Resource\\Character\\character_right_walk2.bmp"
+IDB_C_WR2               BITMAP                  "..\\Resource\\Character\\character_right_walk2.bmp"
 
-IDB_C_LIE               BITMAP                  "D:\\OOPL\\MSGame\\Resource\\Character\\character_left_lie.bmp"
+IDB_C_LIE               BITMAP                  "..\\Resource\\Character\\character_left_lie.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
