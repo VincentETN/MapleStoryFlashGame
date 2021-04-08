@@ -51,7 +51,7 @@ namespace game_framework {
 		bool rising;			// true表上升、false表下降
 		int initialVel;	// 起跳初始速度
 		int jumpingVel;	// 跳在空中時的速度
-		int g = 4;	//加速度
+		int g = 1;	//加速度
 		Platform floor;
 	};
 }

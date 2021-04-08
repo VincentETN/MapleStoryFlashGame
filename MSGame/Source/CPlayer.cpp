@@ -48,13 +48,13 @@ namespace game_framework {
 
 	void CPlayer::Initialize()
 	{
-		const int X_POS = 514;
-		const int Y_POS = 200;
+		const int X_POS = 504;
+		const int Y_POS = 300;
 		x = X_POS;
 		y = Y_POS;
-		const int INITIAL_VELOCITY = 15;	// 初始上升速度
-		floor.setXY(40, 460, 600, 460);
-		fl = 385;
+		const int INITIAL_VELOCITY = 0;	// 初始上升速度
+		floor.setXY(40, 455, 600, 450);
+		fl = 455;
 		rising = true;
 		initialVel = INITIAL_VELOCITY;
 		jumpingVel = initialVel;
@@ -99,10 +99,14 @@ namespace game_framework {
 		walkRight.OnMove();
 		SetOnTheGround(floor);
 		SetInTheAir();
-		if (GetYFeet()< floor.getY1()-10) {  // 當y座標還沒碰到地板
+		if (GetYFeet() < (floor.getY1()-20)) {  // 當y座標還沒碰到地板
 			y += jumpingVel;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
 			jumpingVel += g;		// 受重力影響，下次的下降速度增加
 		}
+		else {
+			y = floor.getY1() - 60;
+		}
+		
 		if (isMovingLeft) 
 			x -= STEP_SIZE;
 		if (isMovingRight) 

@@ -101,7 +101,8 @@ namespace game_framework {
 		CPlayer		player;		// 
 		//CInteger		hits_left;	// 剩下的撞擊數
 		//CBouncingBall   bball;		// 反覆彈跳的球
-	};
+		CMovingBitmap	m1, m2, m3, m4, m5, m6 ,m7;
+	};  
 
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class為遊戲的結束狀態(Game Over)

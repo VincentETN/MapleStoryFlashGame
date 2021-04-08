@@ -340,6 +340,10 @@
     <Image Include="Resource\Character\character_right_stand.bmp" />
     <Image Include="Resource\Character\character_right_walk1.bmp" />
     <Image Include="Resource\Character\character_right_walk2.bmp" />
+    <Image Include="Resource\Monster\snail_left.bmp" />
+    <Image Include="Resource\Monster\snail_right.bmp" />
+    <Image Include="Resource\Monster\snake_left.bmp" />
+    <Image Include="Resource\Monster\snake_right.bmp" />
     <Image Include="Resource\Stage1BG.bmp" />
     <Image Include="res\bitmap3.bmp" />
     <Image Include="res\game.ico" />
