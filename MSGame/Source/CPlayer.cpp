@@ -43,7 +43,7 @@ namespace game_framework {
 
 	int CPlayer::GetYFeet()
 	{
-		return y + 65;
+		return y + idleLeft.Height();
 	}
 
 	void CPlayer::Initialize()
@@ -52,13 +52,14 @@ namespace game_framework {
 		const int Y_POS = 300;
 		x = X_POS;
 		y = Y_POS;
-		const int INITIAL_VELOCITY = 0;	// 初始上升速度
-		floor.setXY(40, 455, 600, 450);
+		//const int INITIAL_VELOCITY = 10;	// 初始上升速度
+		//floor.setXY(40, 455, 600, 450);
 		fl = 455;
-		rising = true;
-		initialVel = INITIAL_VELOCITY;
-		jumpingVel = initialVel;
-		isFacingLeft = isInTheAir = true;
+		rising = false;
+		g = 3;
+		initialVel = -14;
+		instantVelY = 0;
+		isFacingLeft = true;
 		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isFacingRight = isJumping = isOnTheGround = isClimbing = false;
 	}
 
@@ -97,14 +98,16 @@ namespace game_framework {
 		lieRight.OnMove();
 		walkLeft.OnMove();
 		walkRight.OnMove();
-		SetOnTheGround(floor);
-		SetInTheAir();
-		if (GetYFeet() < (floor.getY1()-20)) {  // 當y座標還沒碰到地板
-			y += jumpingVel;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
-			jumpingVel += g;		// 受重力影響，下次的下降速度增加
+		if (isInTheAir()) {  // 當y座標還沒碰到地板
+			y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
+			instantVelY += g;		// 受重力影響，下次的下降速度增加
+			if (instantVelY > 0) {
+				rising = false;
+			}
 		}
 		else {
-			y = floor.getY1() - 60;
+			instantVelY = 0;
+			y = floor.getY1() - idleLeft.Height();
 		}
 		
 		if (isMovingLeft) 
@@ -115,27 +118,37 @@ namespace game_framework {
 		//	y -= STEP_SIZE;
 		if (isMovingDown)
 			y += 0;
-		//if (isJumping)
+		if (isJumping) {
+			instantVelY = initialVel;
+			rising = true;
+			y += instantVelY;
+			SetJumping(false);
+		}
+			
+		//if (isJumping) {
+		//	SetJumping(false);
+		//	instantVelY = initialVel;
 		//	if (rising) {			// 上升狀態
-		//		if (jumpingVel > 0) {
-		//			y -= jumpingVel;	// 當速度 > 0時，y軸上升(移動velocity個點，velocity的單位為 點/次)
-		//			jumpingVel -=g;		// 受重力影響，下次的上升速度降低
+		//		if (instantVelY > 0) {
+		//			y -= instantVelY;	// 當速度 > 0時，y軸上升(移動velocity個點，velocity的單位為 點/次)
+		//			instantVelY -=g;		// 受重力影響，下次的上升速度降低
 		//		}
 		//		else {
 		//			rising = false; // 當速度 <= 0，上升終止，下次改為下降
-		//			jumpingVel = 1;	// 下降的初速(velocity)為1
+		//			instantVelY = 1;	// 下降的初速(velocity)為1
 		//		}
 		//	}
 		//	else {				// 下降狀態
-		//		if (y < floor - 1) {  // 當y座標還沒碰到地板
-		//			y += jumpingVel;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
-		//			jumpingVel +=g;		// 受重力影響，下次的下降速度增加
+		//		if (isInTheAir()) {  // 當y座標還沒碰到地板
+		//			y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
+		//			instantVelY +=g;		// 受重力影響，下次的下降速度增加
 		//		}
 		//		else {
-		//			jumpingVel = initialVel;
-		//			SetJumping(false);
+		//			instantVelY = initialVel;
+		//			//SetJumping(false);
 		//		}
 		//	}
+		//}
 	}
 
 	void CPlayer::SetMovingDown(bool flag)
@@ -225,8 +238,11 @@ namespace game_framework {
 
 	}
 	
-	void CPlayer::SetInTheAir()
+	bool CPlayer::isInTheAir()
 	{
-		isInTheAir = !(isOnTheGround && isClimbing);
+		if (rising) {
+			return(true);
+		}
+		return !floor.isFloor(GetXFeet(), GetYFeet());
 	}
 }

@@ -29,7 +29,7 @@ namespace game_framework {
 		void SetFacingRight(bool flag); 
 		void SetJumping(bool flag);
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
-		void SetInTheAir();
+		bool isInTheAir();
 		void SetOnTheGround(Platform  floor);
 		void SetClimbing(Ladder *ladder);
 
@@ -44,14 +44,13 @@ namespace game_framework {
 		bool isFacingLeft;			
 		bool isFacingRight;
 		bool isJumping;
-		bool isInTheAir;
 		bool isOnTheGround;
 		bool isClimbing;
 		int fl;
 		bool rising;			// true表上升、false表下降
 		int initialVel;	// 起跳初始速度
-		int jumpingVel;	// 跳在空中時的速度
-		int g = 1;	//加速度
+		int instantVelY;	// 跳在空中時的速度
+		int g;	//加速度
 		Platform floor;
 	};
 }
