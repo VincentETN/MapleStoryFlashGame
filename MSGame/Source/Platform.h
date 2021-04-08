@@ -12,10 +12,10 @@ namespace game_framework {
 		int getY2();
 		void setXY(int nx1, int ny1, int nx2, int ny2);
 		int movingSpeed();	//tell player step
-		bool isFloor(int tx, int ty);
+		bool isFloor(int tx, int ty, int vy);	//vy¥Î¨Ó¹w´ú = velocity of y
 	protected:
 		int x1, y1, x2, y2;
-		vector<tuple<int, int, int, int>> floor;
+		vector<tuple<int, int, int, int>> floors;
 		tuple<int, int, int, int> onThisFloor;
 	};
 }

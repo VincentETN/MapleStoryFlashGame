@@ -15,8 +15,8 @@ namespace game_framework {
 		int  GetY1();					// 玩家左上角 y 座標
 		int  GetX2();					// 玩家右下角 x 座標
 		int  GetY2();					// 玩家右下角 y 座標
-		int  GetXFeet();	            // 玩家腳底 x 座標
-		int  GetYFeet();				// 玩家腳底 y 座標
+		int  GetMidX();					// 玩家中心 x 座標
+		int  GetMidY();					// 玩家中心 y 座標
 		void Initialize();				// 設定擦子為初始值
 		void LoadBitmap();				// 載入圖形
 		void OnMove();					// 移動擦子
@@ -30,9 +30,8 @@ namespace game_framework {
 		void SetJumping(bool flag);
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
 		bool isInTheAir();
-		void SetOnTheGround(Platform  floor);
-		void SetClimbing(Ladder *ladder);
-
+		bool isOnTheGround();
+		void SetIsClimbing(bool flag);
 
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight;		// 擦子的動畫
@@ -44,13 +43,13 @@ namespace game_framework {
 		bool isFacingLeft;			
 		bool isFacingRight;
 		bool isJumping;
-		bool isOnTheGround;
 		bool isClimbing;
 		int fl;
 		bool rising;			// true表上升、false表下降
 		int initialVel;	// 起跳初始速度
 		int instantVelY;	// 跳在空中時的速度
 		int g;	//加速度
-		Platform floor;
+		Platform floors;
+		Ladder ladder;
 	};
 }

@@ -9,10 +9,19 @@
 namespace game_framework {
 	Platform::Platform() {
 		x1 = y1 = x2 = y2 = 0;
-		floor.push_back(tuple<int, int, int, int>(40, 460, 600, 480));
-		floor.push_back(tuple<int, int, int, int>(40, 420, 315, 480));
-		floor.push_back(tuple<int, int, int, int>(355, 387, 430, 395));
-		onThisFloor = tuple<int, int, int, int>(40, 480, 600, 480);
+		floors.push_back(tuple<int, int, int, int>(40, 460, 600, 480));		//f1
+		floors.push_back(tuple<int, int, int, int>(40, 420, 315, 480));		//f2
+		floors.push_back(tuple<int, int, int, int>(355, 387, 430, 397));	//f3
+		floors.push_back(tuple<int, int, int, int>(430, 355, 600, 365));	//f4
+		floors.push_back(tuple<int, int, int, int>(325, 284, 600, 294));	//f5
+		floors.push_back(tuple<int, int, int, int>(40, 284, 285, 294));		//f6
+		floors.push_back(tuple<int, int, int, int>(40, 177, 142, 187));		//f7
+		floors.push_back(tuple<int, int, int, int>(175, 177, 465, 187));	//f8
+		floors.push_back(tuple<int, int, int, int>(495, 177, 565, 187));	//f9
+		floors.push_back(tuple<int, int, int, int>(323, 74, 600, 84));		//f10
+		floors.push_back(tuple<int, int, int, int>(40, 74, 283, 84));		//f11
+
+		//onThisFloor = tuple<int, int, int, int>(40, 480, 600, 480);
 	}
 
 	int Platform::getX1() {
@@ -52,11 +61,11 @@ namespace game_framework {
 			return Vx, Vy;
 		}
 	}
-	bool Platform::isFloor(int tx, int ty)
+	bool Platform::isFloor(int tx, int ty, int vy)
 	{
-		for (int i = 0; i < int(floor.size()); i++) {
-			if (tx >= get<0>(floor[i]) && tx <= get<2>(floor[i]) && ty >= get<1>(floor[i])-5 && ty <= get<3>(floor[i])) {
-				onThisFloor = floor[i];
+		for (int i = 0; i < int(floors.size()); i++) {
+			if (tx >= get<0>(floors[i]) && tx <= get<2>(floors[i]) && ty >= get<1>(floors[i])-vy && ty <= get<3>(floors[i])) {
+				onThisFloor = floors[i];
 				return true;
 			}
 		}

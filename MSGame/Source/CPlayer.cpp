@@ -36,14 +36,14 @@ namespace game_framework {
 		return y + idleLeft.Height();
 	}
 	
-	int CPlayer::GetXFeet()
+	int CPlayer::GetMidX()
 	{
-		return x + 27;
+		return x + idleLeft.Width()/2;
 	}
 
-	int CPlayer::GetYFeet()
+	int CPlayer::GetMidY()
 	{
-		return y + idleLeft.Height();
+		return y + idleLeft.Height()/2;
 	}
 
 	void CPlayer::Initialize()
@@ -60,7 +60,7 @@ namespace game_framework {
 		initialVel = -14;
 		instantVelY = 0;
 		isFacingLeft = true;
-		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isFacingRight = isJumping = isOnTheGround = isClimbing = false;
+		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isFacingRight = isJumping = isClimbing = false;
 	}
 
 	void CPlayer::LoadBitmap()
@@ -105,19 +105,41 @@ namespace game_framework {
 				rising = false;
 			}
 		}
-		else {
+		else if(!isClimbing){
 			instantVelY = 0;
-			y = floor.getY1() - idleLeft.Height();
+			y = floors.getY1() - idleLeft.Height();
 		}
 		
-		if (isMovingLeft) 
+		if (isMovingLeft) {
 			x -= STEP_SIZE;
-		if (isMovingRight) 
+			SetFacingLeft(true);
+			SetFacingRight(false);
+		}
+		if (isMovingRight) {
 			x += STEP_SIZE;
-		//if (isMovingUp)
-		//	y -= STEP_SIZE;
-		if (isMovingDown)
-			y += 0;
+			SetFacingLeft(false);
+			SetFacingRight(true);
+		}
+		if (isMovingUp)
+			if (ladder.isLadder(GetMidX(), GetMidY())) {
+				SetIsClimbing(true);
+				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width()/2;
+				y -= STEP_SIZE;
+			}
+			else if (isClimbing && ladder.onTheTop(GetMidY())) {
+				SetIsClimbing(false);
+				y = ladder.getY1() - idleLeft.Height();
+			}
+		if (isMovingDown) {
+			if (ladder.isLadder(GetMidX(), GetY2())) {
+				SetIsClimbing(true);
+				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
+				y += STEP_SIZE;
+			}
+			else if (isClimbing && ladder.atTheBottom(GetY2())) {
+				SetIsClimbing(false);
+			}
+		}
 		if (isJumping) {
 			instantVelY = initialVel;
 			rising = true;
@@ -193,56 +215,67 @@ namespace game_framework {
 
 	void CPlayer::OnShow()
 	{
-		if (isMovingLeft) {
-			walkLeft.SetTopLeft(x, y);
-			walkLeft.OnShow();
-		}
-		else if (isMovingRight) {
-			walkRight.SetTopLeft(x, y);
-			walkRight.OnShow();
-		}
-		else if (isMovingDown) {
+		if (isInTheAir()) {
 			if (isFacingLeft) {
-				lieLeft.SetTopLeft(x, y + 25);
-				lieLeft.OnShow();
+				jumpLeft.SetTopLeft(x, y);
+				jumpLeft.OnShow();
 			}
 			else if (isFacingRight) {
-				lieRight.SetTopLeft(x, y + 25);
-				lieRight.OnShow();
+				jumpRight.SetTopLeft(x, y);
+				jumpRight.OnShow();
 			}
 		}
-		else if (isFacingLeft) {
-			idleLeft.SetTopLeft(x, y);
-			idleLeft.OnShow();
-		}
-		else if (isFacingRight) {
-			idleRight.SetTopLeft(x, y);
-			idleRight.OnShow();
-		}
-		
-	}
-	void CPlayer::SetOnTheGround(Platform  floor)
-	{
-
-		if (GetYFeet() <= floor.getY1()) {
-			isOnTheGround = true;
-		}
 		else {
-			isOnTheGround = false;
+			if (isMovingLeft) {
+				walkLeft.SetTopLeft(x, y);
+				walkLeft.OnShow();
+			}
+			else if (isMovingRight) {
+				walkRight.SetTopLeft(x, y);
+				walkRight.OnShow();
+			}
+			else if (isMovingDown) {
+				if (isClimbing) {
+					idleLeft.SetTopLeft(x, y);
+					idleLeft.OnShow();
+				}
+				else {
+					if (isFacingLeft) {
+						lieLeft.SetTopLeft(x, y + 25);
+						lieLeft.OnShow();
+					}
+					else if (isFacingRight) {
+						lieRight.SetTopLeft(x, y + 25);
+						lieRight.OnShow();
+					}
+				}
+			}
+			else if (isFacingLeft) {
+				idleLeft.SetTopLeft(x, y);
+				idleLeft.OnShow();
+			}
+			else if (isFacingRight) {
+				idleRight.SetTopLeft(x, y);
+				idleRight.OnShow();
+			}
 		}
-			
+	}
+
+	bool CPlayer::isOnTheGround()
+	{
+		return floors.isFloor(GetMidX(), GetY2(), instantVelY);
 	}
 	
-	void CPlayer::SetClimbing(Ladder *ladder) 
+	void CPlayer::SetIsClimbing(bool flag) 
 	{
-
+		isClimbing = flag;
 	}
 	
 	bool CPlayer::isInTheAir()
 	{
 		if (rising) {
-			return(true);
+			return true;
 		}
-		return !floor.isFloor(GetXFeet(), GetYFeet());
+		return !(isOnTheGround() || isClimbing);
 	}
 }

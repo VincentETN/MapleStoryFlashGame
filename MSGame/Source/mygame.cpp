@@ -329,12 +329,18 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_DOWN  = 0x28; // keyboard§UΩb¿Y
 	const int KEY_SPACE = 0x20;
 	
-	if (nChar == KEY_LEFT) 
+	if (nChar == KEY_LEFT) {
 		player.SetMovingLeft(true);
-	if (nChar == KEY_RIGHT) 
+		//player.SetFacingLeft(true);
+		//player.SetFacingRight(false);
+	}
+	if (nChar == KEY_RIGHT) {
 		player.SetMovingRight(true);
-	//if (nChar == KEY_UP)
-	//	player.SetMovingUp(true);
+		//player.SetFacingLeft(false);
+		//player.SetFacingRight(true);
+	}
+	if (nChar == KEY_UP)
+		player.SetMovingUp(true);
 	if (nChar == KEY_DOWN)
 		player.SetMovingDown(true);
 	if (nChar == KEY_SPACE) {
@@ -352,16 +358,16 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const int KEY_SPACE = 0x20;
 	if (nChar == KEY_LEFT) {
 		player.SetMovingLeft(false);
-		player.SetFacingLeft(true);
-		player.SetFacingRight(false);
+		//player.SetFacingLeft(true);
+		//player.SetFacingRight(false);
 	}
 	if (nChar == KEY_RIGHT) {
 		player.SetMovingRight(false);
-		player.SetFacingLeft(false);
-		player.SetFacingRight(true);
+		//player.SetFacingRight(true);
+		//player.SetFacingLeft(false);
 	}
-	//if (nChar == KEY_UP)
-	//	player.SetMovingUp(false);
+	if (nChar == KEY_UP)
+		player.SetMovingUp(false);
 	if (nChar == KEY_DOWN)
 		player.SetMovingDown(false);
 	if (nChar == KEY_SPACE)
