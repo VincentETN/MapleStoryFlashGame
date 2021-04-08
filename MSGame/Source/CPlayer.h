@@ -20,13 +20,24 @@ namespace game_framework {
 		void SetMovingLeft(bool flag);	// 設定是否正在往左移動
 		void SetMovingRight(bool flag); // 設定是否正在往右移動
 		void SetMovingUp(bool flag);	// 設定是否正在往上移動
+		void SetFacingLeft(bool flag);	
+		void SetFacingRight(bool flag); 
+		void SetJumping(bool flag);
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
 	protected:
-		CAnimation idle, lie, walkLeft, walkRight;		// 擦子的動畫
+		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight;		// 擦子的動畫
 		int x, y;					// 擦子左上角座標
 		bool isMovingDown;			// 是否正在往下移動
 		bool isMovingLeft;			// 是否正在往左移動
 		bool isMovingRight;			// 是否正在往右移動
 		bool isMovingUp;			// 是否正在往上移動
+		bool isFacingLeft;			
+		bool isFacingRight;
+		bool isJumping;
+		double floor;
+		bool rising;			// true表上升、false表下降
+		int initial_velocity;	// 初始速度
+		int velocity;			// 目前的速度(點/次)
+		int g = 4;	//加速度
 	};
 }

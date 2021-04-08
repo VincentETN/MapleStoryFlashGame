@@ -118,7 +118,13 @@ IDB_C_WR                BITMAP                  "..\\Resource\\Character\\charac
 
 IDB_C_WR2               BITMAP                  "..\\Resource\\Character\\character_right_walk2.bmp"
 
-IDB_C_LIE               BITMAP                  "..\\Resource\\Character\\character_left_lie.bmp"
+IDB_C_LL                BITMAP                  "..\\Resource\\Character\\character_left_lie.bmp"
+
+IDB_C_LR                BITMAP                  "..\\Resource\\Character\\character_right_lie.bmp"
+
+IDB_C_JL                BITMAP                  "..\\Resource\\Character\\character_left_jump.bmp"
+
+IDB_C_JR                BITMAP                  "..\\Resource\\Character\\character_right_jump.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -127,6 +133,8 @@ IDB_C_LIE               BITMAP                  "..\\Resource\\Character\\charac
 //
 
 IDC_GAMECURSOR          CURSOR                  "..\\res\\gamecurs.cur"
+
+IDC_CURSOR1             CURSOR                  "..\\res\\cursor1.cur"
 
 #endif    // 中文 (繁體，台灣) resources
 /////////////////////////////////////////////////////////////////////////////

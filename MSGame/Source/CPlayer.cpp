@@ -28,12 +28,12 @@ namespace game_framework {
 
 	int CPlayer::GetX2()
 	{
-		return x + idle.Width();
+		return x + idleLeft.Width();
 	}
 
 	int CPlayer::GetY2()
 	{
-		return y + idle.Height();
+		return y + idleLeft.Height();
 	}
 
 	void CPlayer::Initialize()
@@ -42,13 +42,23 @@ namespace game_framework {
 		const int Y_POS = 393;
 		x = X_POS;
 		y = Y_POS;
-		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = false;
+		const int INITIAL_VELOCITY = 15;	// 初始上升速度
+		floor = 385;
+		rising = true;
+		initial_velocity = INITIAL_VELOCITY;
+		velocity = initial_velocity;
+		isFacingLeft = true;
+		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isFacingRight = isJumping = false;
 	}
 
 	void CPlayer::LoadBitmap()
 	{
-		idle.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
-		lie.AddBitmap(IDB_C_LIE, RGB(255, 0, 255));
+		idleLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
+		idleRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
+		lieLeft.AddBitmap(IDB_C_LL, RGB(255, 0, 255));
+		lieRight.AddBitmap(IDB_C_LR, RGB(255, 0, 255));
+		jumpLeft.AddBitmap(IDB_C_JL, RGB(255, 0, 255));
+		jumpRight.AddBitmap(IDB_C_JR, RGB(255, 0, 255));
 		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
 		walkLeft.AddBitmap(IDB_C_WL, RGB(255, 0, 255));
 		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
@@ -70,8 +80,10 @@ namespace game_framework {
 	void CPlayer::OnMove()	//移動
 	{
 		const int STEP_SIZE = 5;
-		idle.OnMove();
-		lie.OnMove();
+		idleLeft.OnMove();
+		idleRight.OnMove();
+		lieLeft.OnMove();
+		lieRight.OnMove();
 		walkLeft.OnMove();
 		walkRight.OnMove();
 		if (isMovingLeft) 
@@ -82,6 +94,27 @@ namespace game_framework {
 		//	y -= STEP_SIZE;
 		if (isMovingDown)
 			y += 0;
+		if (isJumping)
+			if (rising) {			// 上升狀態
+				if (velocity > 0) {
+					y -= velocity;	// 當速度 > 0時，y軸上升(移動velocity個點，velocity的單位為 點/次)
+					velocity-=g;		// 受重力影響，下次的上升速度降低
+				}
+				else {
+					rising = false; // 當速度 <= 0，上升終止，下次改為下降
+					velocity = 1;	// 下降的初速(velocity)為1
+				}
+			}
+			else {				// 下降狀態
+				if (y < floor - 1) {  // 當y座標還沒碰到地板
+					y += velocity;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
+					velocity+=g;		// 受重力影響，下次的下降速度增加
+				}
+				else {
+					velocity = 10;
+					SetJumping(false);
+				}
+			}
 	}
 
 	void CPlayer::SetMovingDown(bool flag)
@@ -98,10 +131,25 @@ namespace game_framework {
 	{
 		isMovingRight = flag;
 	}
-
+	
+	void CPlayer::SetFacingLeft(bool flag)
+	{
+		isFacingLeft = flag;
+	}
+	
+	void CPlayer::SetFacingRight(bool flag)
+	{
+		isFacingRight = flag;
+	}
+	
 	void CPlayer::SetMovingUp(bool flag)
 	{
 		isMovingUp = flag;
+	}
+	
+	void CPlayer::SetJumping(bool flag)
+	{
+		isJumping = flag;
 	}
 
 	void CPlayer::SetXY(int nx, int ny)
@@ -120,11 +168,23 @@ namespace game_framework {
 			walkRight.OnShow();
 		}
 		else if (isMovingDown) {
-			lie.SetTopLeft(x, y+25);
-			lie.OnShow();
-		}else {
-			idle.SetTopLeft(x, y);
-			idle.OnShow();
+			if (isFacingLeft) {
+				lieLeft.SetTopLeft(x, y + 25);
+				lieLeft.OnShow();
+			}
+			else if (isFacingRight) {
+				lieRight.SetTopLeft(x, y + 25);
+				lieRight.OnShow();
+			}
 		}
+		else if (isFacingLeft) {
+			idleLeft.SetTopLeft(x, y);
+			idleLeft.OnShow();
+		}
+		else if (isFacingRight) {
+			idleRight.SetTopLeft(x, y);
+			idleRight.OnShow();
+		}
+		
 	}
 }

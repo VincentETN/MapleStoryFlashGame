@@ -244,6 +244,7 @@
     <None Include="RES\center.bmp" />
     <None Include="RES\continue.bmp" />
     <None Include="Res\corner.bmp" />
+    <None Include="res\cursor1.cur" />
     <None Include="RES\eraser1.bmp" />
     <None Include="RES\eraser2.bmp" />
     <None Include="RES\eraser3.bmp" />
@@ -325,14 +326,18 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resource\Character\character_left_jump.bmp" />
     <Image Include="Resource\Character\character_left_lie.bmp" />
     <Image Include="Resource\Character\character_left_stand.bmp" />
     <Image Include="Resource\Character\character_left_walk1.bmp" />
     <Image Include="Resource\Character\character_left_walk2.bmp" />
+    <Image Include="Resource\Character\character_right_jump.bmp" />
+    <Image Include="Resource\Character\character_right_lie.bmp" />
     <Image Include="Resource\Character\character_right_stand.bmp" />
     <Image Include="Resource\Character\character_right_walk1.bmp" />
     <Image Include="Resource\Character\character_right_walk2.bmp" />
     <Image Include="Resource\Stage1BG.bmp" />
+    <Image Include="res\bitmap3.bmp" />
     <Image Include="res\game.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

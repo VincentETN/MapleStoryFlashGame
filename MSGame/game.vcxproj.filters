@@ -91,6 +91,9 @@
     <None Include="res\Toolbar.bmp">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="res\cursor1.cur">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\audio.cpp">
@@ -202,6 +205,18 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resource\Character\character_left_lie.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_right_lie.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\bitmap3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_left_jump.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_right_jump.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
