@@ -59,6 +59,7 @@
 #include "gamelib.h"
 #include "mygame.h"
 
+
 namespace game_framework {
 /////////////////////////////////////////////////////////////////////////////
 // 這個class為遊戲的遊戲開頭畫面物件
@@ -267,6 +268,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// 移動彈跳的球
 	//
 	//bball.OnMove();
+	
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定

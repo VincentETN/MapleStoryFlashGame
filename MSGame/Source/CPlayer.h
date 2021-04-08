@@ -1,3 +1,6 @@
+#include "Platform.h"
+#include "Ladder.h"
+
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
 	// 這個class提供可以用鍵盤或滑鼠控制的擦子
@@ -26,6 +29,11 @@ namespace game_framework {
 		void SetFacingRight(bool flag); 
 		void SetJumping(bool flag);
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
+		void SetInTheAir();
+		void SetOnTheGround(Platform  floor);
+		void SetClimbing(Ladder *ladder);
+
+
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight;		// 擦子的動畫
 		int x, y;			// 玩家左上角座標
@@ -36,10 +44,14 @@ namespace game_framework {
 		bool isFacingLeft;			
 		bool isFacingRight;
 		bool isJumping;
-		int floor;
+		bool isInTheAir;
+		bool isOnTheGround;
+		bool isClimbing;
+		int fl;
 		bool rising;			// true表上升、false表下降
 		int initialVel;	// 起跳初始速度
 		int jumpingVel;	// 跳在空中時的速度
 		int g = 4;	//加速度
+		Platform floor;
 	};
 }
