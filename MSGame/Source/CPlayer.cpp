@@ -35,18 +35,28 @@ namespace game_framework {
 	{
 		return y + idleLeft.Height();
 	}
+	
+	int CPlayer::GetXFeet()
+	{
+		return x + 27;
+	}
+
+	int CPlayer::GetYFeet()
+	{
+		return y + 65;
+	}
 
 	void CPlayer::Initialize()
 	{
-		const int X_POS = 505;
-		const int Y_POS = 393;
+		const int X_POS = 514;
+		const int Y_POS = 396;
 		x = X_POS;
 		y = Y_POS;
 		const int INITIAL_VELOCITY = 15;	// 初始上升速度
 		floor = 385;
 		rising = true;
-		initial_velocity = INITIAL_VELOCITY;
-		velocity = initial_velocity;
+		initialVel = INITIAL_VELOCITY;
+		jumpingVel = initialVel;
 		isFacingLeft = true;
 		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isFacingRight = isJumping = false;
 	}
@@ -96,22 +106,22 @@ namespace game_framework {
 			y += 0;
 		if (isJumping)
 			if (rising) {			// 上升狀態
-				if (velocity > 0) {
-					y -= velocity;	// 當速度 > 0時，y軸上升(移動velocity個點，velocity的單位為 點/次)
-					velocity-=g;		// 受重力影響，下次的上升速度降低
+				if (jumpingVel > 0) {
+					y -= jumpingVel;	// 當速度 > 0時，y軸上升(移動velocity個點，velocity的單位為 點/次)
+					jumpingVel -=g;		// 受重力影響，下次的上升速度降低
 				}
 				else {
 					rising = false; // 當速度 <= 0，上升終止，下次改為下降
-					velocity = 1;	// 下降的初速(velocity)為1
+					jumpingVel = 1;	// 下降的初速(velocity)為1
 				}
 			}
 			else {				// 下降狀態
 				if (y < floor - 1) {  // 當y座標還沒碰到地板
-					y += velocity;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
-					velocity+=g;		// 受重力影響，下次的下降速度增加
+					y += jumpingVel;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
+					jumpingVel +=g;		// 受重力影響，下次的下降速度增加
 				}
 				else {
-					velocity = 10;
+					jumpingVel = initialVel;
 					SetJumping(false);
 				}
 			}

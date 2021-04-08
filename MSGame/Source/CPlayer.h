@@ -8,10 +8,12 @@ namespace game_framework {
 	{
 	public:
 		CPlayer();
-		int  GetX1();					// 擦子左上角 x 座標
-		int  GetY1();					// 擦子左上角 y 座標
-		int  GetX2();					// 擦子右下角 x 座標
-		int  GetY2();					// 擦子右下角 y 座標
+		int  GetX1();					// 玩家左上角 x 座標
+		int  GetY1();					// 玩家左上角 y 座標
+		int  GetX2();					// 玩家右下角 x 座標
+		int  GetY2();					// 玩家右下角 y 座標
+		int  GetXFeet();	            // 玩家腳底 x 座標
+		int  GetYFeet();				// 玩家腳底 y 座標
 		void Initialize();				// 設定擦子為初始值
 		void LoadBitmap();				// 載入圖形
 		void OnMove();					// 移動擦子
@@ -26,7 +28,7 @@ namespace game_framework {
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight;		// 擦子的動畫
-		int x, y;					// 擦子左上角座標
+		int x, y;			// 玩家左上角座標
 		bool isMovingDown;			// 是否正在往下移動
 		bool isMovingLeft;			// 是否正在往左移動
 		bool isMovingRight;			// 是否正在往右移動
@@ -34,10 +36,10 @@ namespace game_framework {
 		bool isFacingLeft;			
 		bool isFacingRight;
 		bool isJumping;
-		double floor;
+		int floor;
 		bool rising;			// true表上升、false表下降
-		int initial_velocity;	// 初始速度
-		int velocity;			// 目前的速度(點/次)
+		int initialVel;	// 起跳初始速度
+		int jumpingVel;	// 跳在空中時的速度
 		int g = 4;	//加速度
 	};
 }
