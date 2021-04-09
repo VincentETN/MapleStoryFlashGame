@@ -230,6 +230,10 @@ namespace game_framework {
 			}
 		}
 		else if (isClimbing) {
+			if (isMovingUp || isMovingDown)
+			{
+
+			}
 			climb.SetTopLeft(x, y);
 			climb.OnShow();
 		}
