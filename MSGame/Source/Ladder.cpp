@@ -11,6 +11,8 @@ namespace game_framework {
 		x1 = y1 = x2 = y2 = 0;
 		ladders.push_back(tuple<int, int, int, int>(400, 387, 420, 450));		//f1 to f3
 		ladders.push_back(tuple<int, int, int, int>(539, 284, 559, 345));
+		ladders.push_back(tuple<int, int, int, int>(83, 177, 103, 274));		//f6 to f7
+		ladders.push_back(tuple<int, int, int, int>(432, 74, 452, 167));		//f8 to f10
 	}
 
 	int Ladder::getX1() {

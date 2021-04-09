@@ -145,6 +145,7 @@ namespace game_framework {
 			rising = true;
 			y += instantVelY;
 			SetJumping(false);
+			SetIsClimbing(false);
 		}
 			
 		//if (isJumping) {
