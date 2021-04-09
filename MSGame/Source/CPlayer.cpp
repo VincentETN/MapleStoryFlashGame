@@ -49,7 +49,7 @@ namespace game_framework {
 	void CPlayer::Initialize()
 	{
 		const int X_POS = 504;
-		const int Y_POS = 300;
+		const int Y_POS = 400;
 		x = X_POS;
 		y = Y_POS;
 		//const int INITIAL_VELOCITY = 10;	// 初始上升速度
@@ -114,14 +114,18 @@ namespace game_framework {
 		}
 		
 		if (isMovingLeft) {
-			x -= STEP_SIZE;
-			SetFacingLeft(true);
-			SetFacingRight(false);
+			if (!isClimbing) {
+				x -= STEP_SIZE;
+				SetFacingLeft(true);
+				SetFacingRight(false);
+			}
 		}
 		if (isMovingRight) {
-			x += STEP_SIZE;
-			SetFacingLeft(false);
-			SetFacingRight(true);
+			if (!isClimbing) {
+				x += STEP_SIZE;
+				SetFacingLeft(false);
+				SetFacingRight(true);
+			}
 		}
 		if (isMovingUp)
 			if (ladder.isLadder(GetMidX(), GetMidY())) {
