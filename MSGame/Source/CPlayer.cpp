@@ -87,7 +87,7 @@ namespace game_framework {
 		walkRight.AddBitmap(IDB_C_WR2, RGB(255, 0, 255));
 		climb.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
 		climb.AddBitmap(IDB_C_C2, RGB(255, 0, 255));
-
+		ladderIdle.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
 
 	}		
 
@@ -232,10 +232,13 @@ namespace game_framework {
 		else if (isClimbing) {
 			if (isMovingUp || isMovingDown)
 			{
-
+				climb.SetTopLeft(x, y);
+				climb.OnShow();
 			}
-			climb.SetTopLeft(x, y);
-			climb.OnShow();
+			else {
+				ladderIdle.SetTopLeft(x, y);
+				ladderIdle.OnShow();
+			}
 		}
 		else {
 			if (isMovingLeft) {
