@@ -85,6 +85,8 @@ namespace game_framework {
 		walkRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
 		walkRight.AddBitmap(IDB_C_WR, RGB(255, 0, 255));
 		walkRight.AddBitmap(IDB_C_WR2, RGB(255, 0, 255));
+		climb.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
+		climb.AddBitmap(IDB_C_C2, RGB(255, 0, 255));
 
 
 	}		
@@ -96,6 +98,7 @@ namespace game_framework {
 		idleRight.OnMove();
 		lieLeft.OnMove();
 		lieRight.OnMove();
+		climb.OnMove();
 		walkLeft.OnMove();
 		walkRight.OnMove();
 		if (isInTheAir()) {  // 當y座標還沒碰到地板
@@ -226,6 +229,10 @@ namespace game_framework {
 				jumpRight.OnShow();
 			}
 		}
+		else if (isClimbing) {
+			climb.SetTopLeft(x, y);
+			climb.OnShow();
+		}
 		else {
 			if (isMovingLeft) {
 				walkLeft.SetTopLeft(x, y);
@@ -235,20 +242,14 @@ namespace game_framework {
 				walkRight.SetTopLeft(x, y);
 				walkRight.OnShow();
 			}
-			else if (isMovingDown) {
-				if (isClimbing) {
-					idleLeft.SetTopLeft(x, y);
-					idleLeft.OnShow();
+			else if (isMovingDown) {	
+				if (isFacingLeft) {
+					lieLeft.SetTopLeft(x, y + 25);
+					lieLeft.OnShow();
 				}
-				else {
-					if (isFacingLeft) {
-						lieLeft.SetTopLeft(x, y + 25);
-						lieLeft.OnShow();
-					}
-					else if (isFacingRight) {
-						lieRight.SetTopLeft(x, y + 25);
-						lieRight.OnShow();
-					}
+				else if (isFacingRight) {
+					lieRight.SetTopLeft(x, y + 25);
+					lieRight.OnShow();
 				}
 			}
 			else if (isFacingLeft) {

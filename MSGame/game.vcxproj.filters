@@ -243,5 +243,11 @@
     <Image Include="Resource\Monster\snake_right.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resource\Character\character_climb1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_climb2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

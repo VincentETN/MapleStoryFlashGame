@@ -134,6 +134,10 @@ IDB_SK_L                BITMAP                  "..\\Resource\\Monster\\snake_le
 
 IDB_SK_R                BITMAP                  "..\\Resource\\Monster\\snake_right.bmp"
 
+IDB_C_C1                BITMAP                  "..\\Resource\\Character\\character_climb1.bmp"
+
+IDB_C_C2                BITMAP                  "..\\Resource\\Character\\character_climb2.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

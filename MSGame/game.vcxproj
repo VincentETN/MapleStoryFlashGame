@@ -330,6 +330,8 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resource\Character\character_climb1.bmp" />
+    <Image Include="Resource\Character\character_climb2.bmp" />
     <Image Include="Resource\Character\character_left_jump.bmp" />
     <Image Include="Resource\Character\character_left_lie.bmp" />
     <Image Include="Resource\Character\character_left_stand.bmp" />
