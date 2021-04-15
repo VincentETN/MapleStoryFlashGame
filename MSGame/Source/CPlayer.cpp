@@ -103,14 +103,11 @@ namespace game_framework {
 		attackLeft.AddBitmap(IDB_C_AL7, RGB(255, 0, 255));
 		attackLeft.AddBitmap(IDB_C_AL7, RGB(255, 0, 255));
 
-
-
-
 	}		
 
 	void CPlayer::OnMove()	//²¾°Ê
 	{
-		const int STEP_SIZE = 5;
+		int STEP_SIZE = floors.movingSpeed();
 		idleLeft.OnMove();
 		idleRight.OnMove();
 		lieLeft.OnMove();
@@ -128,7 +125,7 @@ namespace game_framework {
 		}
 		else if(!isClimbing){
 			instantVelY = 0;
-			y = floors.getY1() - idleLeft.Height();
+			y = floors.getStandPointY(GetMidX()) - idleLeft.Height();
 		}
 		
 		if (isMovingLeft) {

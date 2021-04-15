@@ -9,67 +9,97 @@
 namespace game_framework {
 	Platform::Platform() {
 		x1 = y1 = x2 = y2 = 0;
-		floors.push_back(tuple<int, int, int, int>(40, 460, 600, 480));		//f1
-		floors.push_back(tuple<int, int, int, int>(40, 420, 315, 480));		//f2
-		floors.push_back(tuple<int, int, int, int>(355, 387, 430, 397));	//f3
-		floors.push_back(tuple<int, int, int, int>(430, 355, 600, 365));	//f4
-		floors.push_back(tuple<int, int, int, int>(325, 284, 600, 294));	//f5
-		floors.push_back(tuple<int, int, int, int>(40, 284, 285, 294));		//f6
-		floors.push_back(tuple<int, int, int, int>(40, 177, 142, 187));		//f7
-		floors.push_back(tuple<int, int, int, int>(175, 177, 465, 187));	//f8
-		floors.push_back(tuple<int, int, int, int>(495, 177, 565, 187));	//f9
-		floors.push_back(tuple<int, int, int, int>(323, 74, 600, 84));		//f10
-		floors.push_back(tuple<int, int, int, int>(40, 74, 283, 84));		//f11
+		floors.push_back(make_tuple("f", 380, 460, 600, 480));		//f1
+		floors.push_back(make_tuple("s", 315, 420, 380, 460));
+		floors.push_back(make_tuple("f", 40, 420, 315, 480));		//f2
+		floors.push_back(make_tuple("f", 355, 387, 430, 397));		//f3
+		floors.push_back(make_tuple("f", 430, 355, 600, 365));		//f4
+		floors.push_back(make_tuple("f", 325, 284, 600, 294));		//f5
+		floors.push_back(make_tuple("f", 40, 284, 285, 294));		//f6
+		floors.push_back(make_tuple("f", 40, 177, 142, 187));		//f7
+		floors.push_back(make_tuple("f", 175, 177, 465, 187));		//f8
+		floors.push_back(make_tuple("f", 495, 177, 565, 187));		//f9
+		floors.push_back(make_tuple("f", 323, 74, 600, 84));		//f10
+		floors.push_back(make_tuple("f", 40, 74, 283, 84));			//f11
 
 		//onThisFloor = tuple<int, int, int, int>(40, 480, 600, 480);
 	}
 
-	int Platform::getX1() {
+	/*int Platform::getX1() {
+		x1 = get<1>(onThisFloor);
 		return x1;
 	}
 
 	int Platform::getY1() {
-		return get<1>(onThisFloor);
+		y1 = get<2>(onThisFloor);
+		return y1;
 	}
 
 	int Platform::getX2() {
+		x2 = get<3>(onThisFloor);
 		return x2;
 	}
 
 	int Platform::getY2() {
+		y2 = get<4>(onThisFloor);
 		return y2;
-	}
+	}*/
 
-	void Platform::setXY(int nx1, int ny1, int nx2, int ny2) {
-		x1 = nx1;
-		y1 = ny1;
-		x2 = nx2;
-		y2 = ny2;
+	int Platform::getStandPointY(int tx) {
+		assignXY();
+		if (getType() == "s") {
+			return y1 + (y2 - y1)*(tx - x1) / (x2 - x1);
+		}
+		else {
+			return y1;
+		}
 	}
 
 	int Platform::movingSpeed() {
 		//向右走為正
-		if (y1 == y2) {
-			return 5, 0;
+		assignXY();
+		if (getType() == "s") {
+			return 4;
 		}
 		else {
-			double s = sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
-			double cos = (x2 - x1) / s;
-			double sin = (y2 - y1) / s;
-			int Vx = int(round(5 * cos));
-			int Vy = int(round(5 * sin));
-			return Vx, Vy;
+			return 5;
 		}
 	}
+
 	bool Platform::isFloor(int tx, int ty, int vy)
 	{
 		for (int i = 0; i < int(floors.size()); i++) {
-			if (tx >= get<0>(floors[i]) && tx <= get<2>(floors[i]) && ty >= get<1>(floors[i])-vy && ty <= get<3>(floors[i])) {
+			if (getType() == "f") {
+				if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty >= get<2>(floors[i]) - vy && ty <= get<4>(floors[i])) {
+					onThisFloor = floors[i];
+					return true;
+				}
+			}
+			else if (getType() == "s") {
 				onThisFloor = floors[i];
-				return true;
+				assignXY();
+				if (tx >= x1 && tx <= x2 && ty >= (y1 + (y2 - y1)*(tx - x1) / (x2 - x1)) - vy) {
+					if (y2 > y1 && ty <= y2) {
+						return true;
+					}
+					else if (y1 > y2 && ty <= y1) {
+						return true;
+					}
+				}
 			}
 		}
-		onThisFloor = tuple<int, int, int, int>(40, 480, 600, 480);
+		onThisFloor = make_tuple("f", 40, 480, 600, 480);
 		return false;
+	}
+
+	string Platform::getType() {
+		return get<0>(onThisFloor);
+	}
+
+	void Platform::assignXY() {
+		x1 = get<1>(onThisFloor);
+		y1 = get<2>(onThisFloor);
+		x2 = get<3>(onThisFloor);
+		y2 = get<4>(onThisFloor);
 	}
 }
