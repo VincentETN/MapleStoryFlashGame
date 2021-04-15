@@ -283,6 +283,7 @@
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='UnitTest|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
+    <ClCompile Include="Source\Monster.cpp" />
     <ClCompile Include="Source\Platform.cpp" />
     <ClCompile Include="Source\StdAfx.cpp">
       <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -316,6 +317,7 @@
     <ClInclude Include="Source\gameView.h" />
     <ClInclude Include="Source\Ladder.h" />
     <ClInclude Include="Source\MainFrm.h" />
+    <ClInclude Include="Source\Monster.h" />
     <ClInclude Include="Source\Platform.h" />
     <ClInclude Include="Source\Resource.h" />
     <ClInclude Include="Source\StdAfx.h" />
@@ -330,6 +332,13 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Resource\Character\attack\character_left_attack1_1.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack1_2.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack1_3.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack2_1.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack2_2.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack3_1.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack3_2.bmp" />
     <Image Include="Resource\Character\character_climb1.bmp" />
     <Image Include="Resource\Character\character_climb2.bmp" />
     <Image Include="Resource\Character\character_left_jump.bmp" />
@@ -342,8 +351,26 @@
     <Image Include="Resource\Character\character_right_stand.bmp" />
     <Image Include="Resource\Character\character_right_walk1.bmp" />
     <Image Include="Resource\Character\character_right_walk2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_die1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_die2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_die3.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_hurt.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_walk1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_walk2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_walk3.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_die1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_die2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_die3.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_hurt.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_walk1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_walk2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_walk3.bmp" />
     <Image Include="Resource\Monster\snail_left.bmp" />
     <Image Include="Resource\Monster\snail_right.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right.bmp" />
     <Image Include="Resource\Monster\snake_left.bmp" />
     <Image Include="Resource\Monster\snake_right.bmp" />
     <Image Include="Resource\Stage1BG.bmp" />

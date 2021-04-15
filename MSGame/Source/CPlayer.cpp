@@ -88,6 +88,23 @@ namespace game_framework {
 		climb.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
 		climb.AddBitmap(IDB_C_C2, RGB(255, 0, 255));
 		ladderIdle.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));	
+		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL3, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL3, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL4, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL4, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL5, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL5, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL6, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL6, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL7, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL7, RGB(255, 0, 255));
+
+
+
 
 	}		
 
@@ -101,6 +118,7 @@ namespace game_framework {
 		climb.OnMove();
 		walkLeft.OnMove();
 		walkRight.OnMove();
+		attackLeft.OnMove();
 		if (isInTheAir()) {  // 當y座標還沒碰到地板
 			y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
 			instantVelY += g;		// 受重力影響，下次的下降速度增加
@@ -255,7 +273,7 @@ namespace game_framework {
 			}
 			else if (isMovingDown) {	
 				if (isFacingLeft) {
-					lieLeft.SetTopLeft(x, y + 25);
+					lieLeft.SetTopLeft(x, y + 25 );
 					lieLeft.OnShow();
 				}
 				else if (isFacingRight) {

@@ -54,8 +54,29 @@
 #define IDB_SK_L                        182
 #define IDB_SK_R                        183
 #define IDB_C_C1                        184
-#define IDB_BITMAP5                     185
 #define IDB_C_C2                        185
+#define IDB_C_AL1                       186
+#define IDB_C_AL2                       188
+#define IDB_C_AL3                       189
+#define IDB_C_AL4                       190
+#define IDB_C_AL5                       191
+#define IDB_C_AL6                       192
+#define IDB_C_AL7                       193
+#define IDB_S_WL1                       194
+#define IDB_S_WL2                       195
+#define IDB_S_WL3                       196
+#define IDB_S_HL                        197
+#define IDB_S_DL1                       198
+#define IDB_S_DL2                       199
+#define IDB_S_DL3                       200
+#define IDB_S_WR1                       201
+#define IDB_S_WR2                       202
+#define IDB_S_WR3                       203
+#define IDB_S_HR                        204
+#define IDB_S_DR1                       205
+#define IDB_S_DR2                       206
+#define IDB_BITMAP5                     207
+#define IDB_S_DR3                       207
 #define IDC_README                      1001
 #define ID_FILE_PAUSE                   32771
 #define ID_TOGGLE_FULLSCREEN            32772
@@ -68,7 +89,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        186
+#define _APS_NEXT_RESOURCE_VALUE        208
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           101

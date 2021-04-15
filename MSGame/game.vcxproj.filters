@@ -138,6 +138,9 @@
     <ClCompile Include="Source\Ladder.cpp">
       <Filter>MyGame</Filter>
     </ClCompile>
+    <ClCompile Include="Source\Monster.cpp">
+      <Filter>MyGame</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\audio.h">
@@ -183,6 +186,9 @@
       <Filter>MyGame</Filter>
     </ClInclude>
     <ClInclude Include="Source\Ladder.h">
+      <Filter>MyGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Monster.h">
       <Filter>MyGame</Filter>
     </ClInclude>
   </ItemGroup>
@@ -247,6 +253,81 @@
       <Filter>Resource Files</Filter>
     </Image>
     <Image Include="Resource\Character\character_climb2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_left_attack1_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_left_attack1_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_left_attack1_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_left_attack2_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_left_attack2_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_left_attack3_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_left_attack3_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snake\snake_left.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snake\snake_right.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_left_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\snail\snail_right_die3.bmp">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
