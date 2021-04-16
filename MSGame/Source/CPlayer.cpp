@@ -60,7 +60,9 @@ namespace game_framework {
 		jumpVel = -14;
 		instantVelY = 0;
 		isFacingLeft = true;
-		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isFacingRight = isJumping = isClimbing = false;
+		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = false;
+		isFacingRight = isJumping = isClimbing = false;
+		attackKeyDown = isAttacking = false;
 	}
 
 	void CPlayer::LoadBitmap()
@@ -88,17 +90,14 @@ namespace game_framework {
 		climb.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
 		climb.AddBitmap(IDB_C_C2, RGB(255, 0, 255));
 		ladderIdle.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL4, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL4, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL5, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL5, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR4, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR4, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR5, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR5, RGB(255, 0, 255));
-
-
-
+		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
+		attackRight.AddBitmap(IDB_C_AR1, RGB(255, 0, 255));
+		attackRight.AddBitmap(IDB_C_AR1, RGB(255, 0, 255));
+		attackRight.AddBitmap(IDB_C_AR2, RGB(255, 0, 255));
+		attackRight.AddBitmap(IDB_C_AR2, RGB(255, 0, 255));
 	}		
 
 	void CPlayer::OnMove()	//移動
@@ -124,21 +123,32 @@ namespace game_framework {
 			instantVelY = 0;
 			y = floors.getStandPointY(GetMidX()) - idleLeft.Height();
 		}
-		
+
+		/*if (!attackKeyDown) {
+			if (isFacingLeft && attackLeft.IsFinalBitmap()) {
+				SetAttacking(false);
+			}
+			else if (isFacingRight && attackRight.IsFinalBitmap()) {
+				SetAttacking(false);
+			}
+		}*/
+
 		if (isMovingLeft) {
-			if (!isClimbing) {
+			if (!isClimbing && !isAttacking) {
 				x -= STEP_SIZE;
 				SetFacingLeft(true);
 				SetFacingRight(false);
 			}
 		}
+
 		if (isMovingRight) {
-			if (!isClimbing) {
+			if (!isClimbing && !isAttacking) {
 				x += STEP_SIZE;
 				SetFacingLeft(false);
 				SetFacingRight(true);
 			}
 		}
+
 		if (isMovingUp) {
 			if (ladder.isLadder(GetMidX(), GetMidY())) {
 				SetIsClimbing(true);
@@ -150,6 +160,7 @@ namespace game_framework {
 				y = ladder.getY1() - idleLeft.Height();
 			}
 		}
+
 		if (isMovingDown) {
 			SetJumping(false);		//暫不能往下跳
 			if (ladder.isLadder(GetMidX(), GetY2())) {
@@ -161,6 +172,7 @@ namespace game_framework {
 				SetIsClimbing(false);
 			}
 		}
+
 		if (isJumping) {
 			instantVelY = jumpVel;
 			rising = true;
@@ -205,6 +217,16 @@ namespace game_framework {
 		isJumping = flag;
 	}
 
+	void CPlayer::SetAttackKey(bool flag)
+	{
+		attackKeyDown = flag;
+	}
+
+	void CPlayer::SetAttacking(bool flag)
+	{
+		isAttacking = flag;
+	}
+
 	void CPlayer::SetXY(int nx, int ny)
 	{
 		x = nx; y = ny;
@@ -233,8 +255,26 @@ namespace game_framework {
 				ladderIdle.OnShow();
 			}
 		}
-		else {
-			if (isMovingLeft) {
+		else if(isOnTheGround()){
+			if (isAttacking) {
+				if (isFacingLeft) {
+					attackLeft.SetTopLeft(x, y);
+					attackLeft.OnShow();
+					if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
+						attackLeft.Reset();
+						SetAttacking(false);
+					}
+				}
+				else if (isFacingRight) {
+					attackRight.SetTopLeft(x, y);
+					attackRight.OnShow();
+					if (!attackKeyDown && attackRight.IsFinalBitmap()) {
+						attackRight.Reset();
+						SetAttacking(false);
+					}
+				}
+			}
+			else if (isMovingLeft) {
 				walkLeft.SetTopLeft(x, y);
 				walkLeft.OnShow();
 			}

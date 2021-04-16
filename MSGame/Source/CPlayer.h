@@ -28,13 +28,15 @@ namespace game_framework {
 		void SetFacingLeft(bool flag);	
 		void SetFacingRight(bool flag); 
 		void SetJumping(bool flag);
+		void SetAttackKey(bool flag);
+		void SetAttacking(bool flag);
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
 		bool isInTheAir();
 		bool isOnTheGround();
 		void SetIsClimbing(bool flag);
 
 	protected:
-		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 擦子的動畫
+		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
 		int x, y;			// 玩家左上角座標
 		bool isMovingDown;			// 是否正在往下移動
 		bool isMovingLeft;			// 是否正在往左移動
@@ -44,6 +46,8 @@ namespace game_framework {
 		bool isFacingRight;
 		bool isJumping;
 		bool isClimbing;
+		bool attackKeyDown;
+		bool isAttacking;
 		//int fl;
 		bool rising;			// true表上升、false表下降
 		int jumpVel;		// 起跳初始速度
