@@ -4,7 +4,9 @@ namespace game_framework {
 
 	class Monster {
 	public:
-		Monster(int id);
+		Monster(int id, int x, int y);
+		int GetX1();
+		int GetY1();
 		bool HittingPlayer(CPlayer *player);						// 是否碰到玩家
 		bool IsHurt();
 		bool IsAlive();											// 是否活著
