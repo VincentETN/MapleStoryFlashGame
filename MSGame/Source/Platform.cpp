@@ -92,6 +92,10 @@ namespace game_framework {
 		return false;
 	}
 
+	Platform::~Platform()
+	{
+	}
+
 	string Platform::getType() {
 		return get<0>(onThisFloor);
 	}
@@ -102,4 +106,5 @@ namespace game_framework {
 		x2 = get<3>(onThisFloor);
 		y2 = get<4>(onThisFloor);
 	}
+
 }

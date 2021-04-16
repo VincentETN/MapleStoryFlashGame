@@ -339,6 +339,13 @@
     <Image Include="Resource\Character\attack\character_left_attack2_2.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack3_1.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack3_2.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack1_1.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack1_2.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack1_3.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack2_1.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack2_2.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack3_1.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack3_2.bmp" />
     <Image Include="Resource\Character\character_climb1.bmp" />
     <Image Include="Resource\Character\character_climb2.bmp" />
     <Image Include="Resource\Character\character_left_jump.bmp" />
