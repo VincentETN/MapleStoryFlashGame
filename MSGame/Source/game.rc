@@ -180,6 +180,20 @@ IDB_S_DR2               BITMAP                  "..\\Resource\\Monster\\snail\\s
 
 IDB_S_DR3               BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_die3.bmp"
 
+IDB_C_AR1               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_1.bmp"
+
+IDB_C_AR2               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_2.bmp"
+
+IDB_C_AR3               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_3.bmp"
+
+IDB_C_AR4               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack2_1.bmp"
+
+IDB_C_AR5               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack2_2.bmp"
+
+IDB_C_AR6               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack3_1.bmp"
+
+IDB_C_AR7               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack3_2.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

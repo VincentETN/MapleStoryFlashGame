@@ -330,5 +330,26 @@
     <Image Include="Resource\Monster\snail\snail_right_die3.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resource\Character\attack\character_right_attack1_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_right_attack1_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_right_attack1_3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_right_attack2_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_right_attack2_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_right_attack3_1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\attack\character_right_attack3_2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
