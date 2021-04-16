@@ -7,8 +7,8 @@ namespace game_framework {
 		Monster(int id, int x, int y);
 		int GetX1();
 		int GetY1();
-		bool HittingPlayer(CPlayer *player);						// 是否碰到玩家
-		bool IsHurt();
+		//bool HittingPlayer(CPlayer *player);						// 是否碰到玩家
+		bool GetHurt(CPlayer *player);
 		bool IsAlive();											// 是否活著
 		void SetXY(int nx, int ny);
 		void LoadBitmap();										// 載入圖形
