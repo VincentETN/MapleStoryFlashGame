@@ -10,7 +10,12 @@
 namespace game_framework {
 	Monster::Monster(int id)
 	{
-		this->monsterID = id;
+		monsterID = id;
+	}
+	void Monster::SetXY(int nx, int ny)
+	{
+		x = nx;
+		y = ny;
 	}
 	void Monster::LoadBitmap()
 	{
@@ -20,10 +25,5 @@ namespace game_framework {
 	}
 	void Monster::OnShow()
 	{
-	}
-	void Monster::SetXY(int nx, int ny)
-	{
-		x = nx;
-		y = ny;
 	}
 }

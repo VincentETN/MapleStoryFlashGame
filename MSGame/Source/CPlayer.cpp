@@ -54,10 +54,10 @@ namespace game_framework {
 		y = Y_POS;
 		//const int INITIAL_VELOCITY = 10;	// 初始上升速度
 		//floor.setXY(40, 455, 600, 450);
-		fl = 455;
+		//fl = 455;
 		rising = false;
 		g = 3;
-		initialVel = -14;
+		jumpVel = -14;
 		instantVelY = 0;
 		isFacingLeft = true;
 		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isFacingRight = isJumping = isClimbing = false;
@@ -142,58 +142,35 @@ namespace game_framework {
 				SetFacingRight(true);
 			}
 		}
-		if (isMovingUp)
+		if (isMovingUp) {
 			if (ladder.isLadder(GetMidX(), GetMidY())) {
 				SetIsClimbing(true);
-				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width()/2;
-				y -= STEP_SIZE;
+				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
+				y -= 5;
 			}
 			else if (isClimbing && ladder.onTheTop(GetMidY())) {
 				SetIsClimbing(false);
 				y = ladder.getY1() - idleLeft.Height();
 			}
+		}
 		if (isMovingDown) {
+			SetJumping(false);		//暫不能往下跳
 			if (ladder.isLadder(GetMidX(), GetY2())) {
 				SetIsClimbing(true);
 				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
-				y += STEP_SIZE;
+				y += 5;
 			}
 			else if (isClimbing && ladder.atTheBottom(GetY2())) {
 				SetIsClimbing(false);
 			}
 		}
 		if (isJumping) {
-			instantVelY = initialVel;
+			instantVelY = jumpVel;
 			rising = true;
 			y += instantVelY;
 			SetJumping(false);
 			SetIsClimbing(false);
 		}
-			
-		//if (isJumping) {
-		//	SetJumping(false);
-		//	instantVelY = initialVel;
-		//	if (rising) {			// 上升狀態
-		//		if (instantVelY > 0) {
-		//			y -= instantVelY;	// 當速度 > 0時，y軸上升(移動velocity個點，velocity的單位為 點/次)
-		//			instantVelY -=g;		// 受重力影響，下次的上升速度降低
-		//		}
-		//		else {
-		//			rising = false; // 當速度 <= 0，上升終止，下次改為下降
-		//			instantVelY = 1;	// 下降的初速(velocity)為1
-		//		}
-		//	}
-		//	else {				// 下降狀態
-		//		if (isInTheAir()) {  // 當y座標還沒碰到地板
-		//			y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
-		//			instantVelY +=g;		// 受重力影響，下次的下降速度增加
-		//		}
-		//		else {
-		//			instantVelY = initialVel;
-		//			//SetJumping(false);
-		//		}
-		//	}
-		//}
 	}
 
 	void CPlayer::SetMovingDown(bool flag)

@@ -44,9 +44,9 @@ namespace game_framework {
 		bool isFacingRight;
 		bool isJumping;
 		bool isClimbing;
-		int fl;
+		//int fl;
 		bool rising;			// true表上升、false表下降
-		int initialVel;	// 起跳初始速度
+		int jumpVel;		// 起跳初始速度
 		int instantVelY;	// 跳在空中時的速度
 		int g;	//加速度
 		Platform floors;

@@ -13,6 +13,7 @@ namespace game_framework {
 		int getStandPointY(int tx);
 		int movingSpeed();	//tell player step
 		bool isFloor(int tx, int ty, int vy);	//vy¥Î¨Ó¹w´ú = velocity of y
+		~Platform();
 	protected:
 		string getType();
 		void assignXY();
