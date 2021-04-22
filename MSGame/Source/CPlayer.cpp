@@ -90,8 +90,11 @@ namespace game_framework {
 		climb.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
 		climb.AddBitmap(IDB_C_C2, RGB(255, 0, 255));
 		ladderIdle.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
+
 		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
 		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
+		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
 		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
 		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
 		attackRight.AddBitmap(IDB_C_AR1, RGB(255, 0, 255));
@@ -261,16 +264,16 @@ namespace game_framework {
 					attackLeft.SetTopLeft(x, y);
 					attackLeft.OnShow();
 					if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
-						attackLeft.Reset();
 						SetAttacking(false);
+						attackLeft.Reset();
 					}
 				}
 				else if (isFacingRight) {
 					attackRight.SetTopLeft(x, y);
 					attackRight.OnShow();
 					if (!attackKeyDown && attackRight.IsFinalBitmap()) {
-						attackRight.Reset();
 						SetAttacking(false);
+						attackRight.Reset();
 					}
 				}
 			}

@@ -4,7 +4,7 @@ namespace game_framework {
 
 	class Monster {
 	public:
-		Monster(int id, int x, int y);
+		Monster(int id, int lb, int rb, int y);
 		int GetX1();
 		int GetY1();
 		//bool HittingPlayer(CPlayer *player);						// 是否碰到玩家
@@ -15,7 +15,9 @@ namespace game_framework {
 		void OnMove();											// 移動
 		void OnShow();											// 將圖形貼到畫面
 	protected:
+		CAnimation moveLeft, moveRight;
 		int monsterID;
+		int leftBound, rightBound;
 		int x, y;
 		int HP;
 		int step;

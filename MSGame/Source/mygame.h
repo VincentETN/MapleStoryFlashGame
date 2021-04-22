@@ -41,6 +41,7 @@
 #include "CPlayer.h"
 #include "CBall.h"
 #include "CBouncingBall.h"
+#include "Monster.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -93,15 +94,9 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		//const int		NUMBALLS;	// 球的總數
-		CMovingBitmap	background;	// 背景圖
-		//CMovingBitmap	help;		// 說明圖
-		//CBall			*ball;		// 球的陣列
-		//CMovingBitmap	corner;		// 角落圖
-		CPlayer		player;		// 
-		//CInteger		hits_left;	// 剩下的撞擊數
-		//CBouncingBall   bball;		// 反覆彈跳的球
-		CMovingBitmap	m1, m2, m3, m4, m5, m6 ,m7;
+		CMovingBitmap	background;
+		CPlayer		player;
+		Monster m1 = Monster(1, 40, 315, 385);
 	};  
 
 	/////////////////////////////////////////////////////////////////////////////

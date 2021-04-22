@@ -214,7 +214,6 @@ void CGameStateRun::OnBeginState()
 	//	ball[i].SetDelay(x_pos);
 	//	ball[i].SetIsAlive(true);
 	//}
-	player.Initialize();
 	background.SetTopLeft(BACKGROUND_X,0);				// 設定背景的起始座標
 	//help.SetTopLeft(0, SIZE_Y - help.Height());			// 設定說明圖的起始座標
 	//hits_left.SetInteger(HITS_LEFT);					// 指定剩下的撞擊數
@@ -222,13 +221,8 @@ void CGameStateRun::OnBeginState()
 	//CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
 	//CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
 	//CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
-	m1.SetTopLeft(407, 426);
-	m2.SetTopLeft(104, 390);
-	m3.SetTopLeft(534, 252);
-	m4.SetTopLeft(129, 250);
-	m5.SetTopLeft(262, 147);
-	m6.SetTopLeft(382, 42);
-	m7.SetTopLeft(134, 40);
+	player.Initialize();
+	m1.SetXY(120, 385);
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -253,6 +247,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// 移動擦子
 	//
 	player.OnMove();
+	m1.OnMove();
 
 	//
 	// 判斷擦子是否碰到球
@@ -292,6 +287,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	for (i = 0; i < NUMBALLS; i++)	
 		ball[i].LoadBitmap();*/								// 載入第i個球的圖形
 	player.LoadBitmap();
+	m1.LoadBitmap();
 	background.LoadBitmap(IDB_STAGE1_BG);					// 載入背景的圖形
 	//
 	// 完成部分Loading動作，提高進度
@@ -301,13 +297,6 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 繼續載入其他資料
 	//
-	m1.LoadBitmap(IDB_S_L,RGB(255, 0, 255));
-	m2.LoadBitmap(IDB_S_L, RGB(255, 0, 255));
-	m3.LoadBitmap(IDB_SK_R, RGB(255, 0, 255));
-	m4.LoadBitmap(IDB_S_R, RGB(255, 0, 255));
-	m5.LoadBitmap(IDB_SK_L, RGB(255, 0, 255));
-	m6.LoadBitmap(IDB_S_L, RGB(255, 0, 255));
-	m7.LoadBitmap(IDB_SK_R, RGB(255, 0, 255));
 	//help.LoadBitmap(IDB_HELP,RGB(255,255,255));				// 載入說明的圖形
 	//corner.LoadBitmap(IDB_CORNER);							// 載入角落圖形
 	//corner.ShowBitmap(background);							// 將corner貼到background
@@ -425,13 +414,7 @@ void CGameStateRun::OnShow()
 	//	ball[i].OnShow();				// 貼上第i號球
 	//bball.OnShow();						// 貼上彈跳的球
 	player.OnShow();					// 貼上擦子
-	m1.ShowBitmap();
-	m2.ShowBitmap();
-	m3.ShowBitmap();
-	m4.ShowBitmap();
-	m5.ShowBitmap();
-	m6.ShowBitmap();
-	m7.ShowBitmap();
+	m1.OnShow();
 	//
 	//  貼上左上及右下角落的圖
 	//
