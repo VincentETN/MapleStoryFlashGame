@@ -4,8 +4,8 @@
 #include <ddraw.h>
 #include "audio.h"
 #include "gamelib.h"
-#include "CPlayer.h"
 #include "Monster.h"
+//#include "CPlayer.h"
 
 namespace game_framework {
 	Monster::Monster(int id, int lb, int rb, int y)
@@ -30,14 +30,28 @@ namespace game_framework {
 		return y;
 	}
 
-	/*bool Monster::HittingPlayer(CPlayer *player)
+	int Monster::GetX2()
 	{
-		return false;
-	}*/
+		return x + moveRight.Width();
+	}
 
-	bool Monster::GetHurt(CPlayer *player)
+	int Monster::GetY2()
 	{
-		return false;
+		return y + moveRight.Height();
+	}
+
+	bool Monster::isCollision(int tx1, int ty1, int tx2, int ty2)
+	{
+		if (GetX1() <= tx2 && GetY1() <= ty2 && GetX2() >= tx1 && GetY2() >= ty1)
+			return true;
+		else
+			return false;
+	}
+
+	void Monster::GetHurt(int dmg)
+	{
+		HP -= dmg;
+		isHurt = true;
 	}
 
 	bool Monster::IsAlive()

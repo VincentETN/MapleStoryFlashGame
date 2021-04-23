@@ -248,7 +248,9 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	player.OnMove();
 	m1.OnMove();
-
+	if (m1.isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
+		player.SetGetHurt(true);
+	}
 	//
 	// 判斷擦子是否碰到球
 	//

@@ -5,6 +5,7 @@
 #include "audio.h"
 #include "gamelib.h"
 #include "CPlayer.h"
+#include "Monster.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -52,17 +53,16 @@ namespace game_framework {
 		const int Y_POS = 400;
 		x = X_POS;
 		y = Y_POS;
-		//const int INITIAL_VELOCITY = 10;	// 初始上升速度
-		//floor.setXY(40, 455, 600, 450);
-		//fl = 455;
 		rising = false;
 		g = 3;
 		jumpVel = -14;
+		instantVelX = 0;
 		instantVelY = 0;
 		isFacingLeft = true;
 		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = false;
 		isFacingRight = isJumping = isClimbing = false;
 		attackKeyDown = isAttacking = false;
+		isHurt = false;
 	}
 
 	void CPlayer::LoadBitmap()
@@ -92,14 +92,8 @@ namespace game_framework {
 		ladderIdle.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
 
 		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
 		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
 		attackRight.AddBitmap(IDB_C_AR1, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR1, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR2, RGB(255, 0, 255));
 		attackRight.AddBitmap(IDB_C_AR2, RGB(255, 0, 255));
 	}		
 
@@ -115,6 +109,8 @@ namespace game_framework {
 		walkRight.OnMove();
 		attackLeft.OnMove();
 		attackRight.OnMove();
+		//x += instantVelX;
+		//y += instantVelY;
 		if (isInTheAir()) {  // 當y座標還沒碰到地板
 			y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
 			instantVelY += g;		// 受重力影響，下次的下降速度增加
@@ -125,22 +121,18 @@ namespace game_framework {
 		else if(!isClimbing){
 			instantVelY = 0;
 			y = floors.getStandPointY(GetMidX()) - idleLeft.Height();
+			if(!isMovingLeft && !isMovingRight){
+				instantVelX = 0;
+			}
 		}
-
-		/*if (!attackKeyDown) {
-			if (isFacingLeft && attackLeft.IsFinalBitmap()) {
-				SetAttacking(false);
-			}
-			else if (isFacingRight && attackRight.IsFinalBitmap()) {
-				SetAttacking(false);
-			}
-		}*/
 
 		if (isMovingLeft) {
 			if (!isClimbing && !isAttacking) {
 				x -= STEP_SIZE;
 				SetFacingLeft(true);
 				SetFacingRight(false);
+				//if (!isInTheAir())
+				//	instantVelX = -STEP_SIZE;
 			}
 		}
 
@@ -149,6 +141,8 @@ namespace game_framework {
 				x += STEP_SIZE;
 				SetFacingLeft(false);
 				SetFacingRight(true);
+				//if (!isInTheAir())
+				//	instantVelX = STEP_SIZE;
 			}
 		}
 
@@ -156,7 +150,8 @@ namespace game_framework {
 			if (ladder.isLadder(GetMidX(), GetMidY())) {
 				SetIsClimbing(true);
 				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
-				y -= 5;
+				y -= 4;
+				//instantVelY = -4;
 			}
 			else if (isClimbing && ladder.onTheTop(GetMidY())) {
 				SetIsClimbing(false);
@@ -169,7 +164,8 @@ namespace game_framework {
 			if (ladder.isLadder(GetMidX(), GetY2())) {
 				SetIsClimbing(true);
 				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
-				y += 5;
+				y += 4;
+				//instantVelY = 4;
 			}
 			else if (isClimbing && ladder.atTheBottom(GetY2())) {
 				SetIsClimbing(false);
@@ -178,10 +174,39 @@ namespace game_framework {
 
 		if (isJumping) {
 			instantVelY = jumpVel;
-			rising = true;
 			y += instantVelY;
+			rising = true;
 			SetJumping(false);
 			SetIsClimbing(false);
+		}
+
+		if (isHurt) {
+			instantVelY = -4;
+			y += instantVelY;
+			rising = true;
+			if (isFacingLeft) {
+				instantVelX = STEP_SIZE;
+			}
+			else {
+				instantVelX = -STEP_SIZE;
+			}
+			isHurt = false;
+		}
+
+		if (isAttacking) {
+			//instantVelX = 0;
+			if (isFacingLeft) {
+				if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
+					attackLeft.Reset();
+					SetAttacking(false);
+				}
+			}
+			else if (isFacingRight) {
+				if (!attackKeyDown && attackRight.IsFinalBitmap()) {
+					attackRight.Reset();
+					SetAttacking(false);
+				}
+			}
 		}
 	}
 
@@ -230,6 +255,11 @@ namespace game_framework {
 		isAttacking = flag;
 	}
 
+	void CPlayer::SetGetHurt(bool flag)
+	{
+		isHurt = flag;
+	}
+
 	void CPlayer::SetXY(int nx, int ny)
 	{
 		x = nx; y = ny;
@@ -262,19 +292,21 @@ namespace game_framework {
 			if (isAttacking) {
 				if (isFacingLeft) {
 					attackLeft.SetTopLeft(x, y);
+					attackLeft.SetDelayCount(8);
 					attackLeft.OnShow();
-					if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
+					/*if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
 						SetAttacking(false);
 						attackLeft.Reset();
-					}
+					}*/
 				}
 				else if (isFacingRight) {
 					attackRight.SetTopLeft(x, y);
+					attackRight.SetDelayCount(8);
 					attackRight.OnShow();
-					if (!attackKeyDown && attackRight.IsFinalBitmap()) {
+					/*if (!attackKeyDown && attackRight.IsFinalBitmap()) {
 						SetAttacking(false);
 						attackRight.Reset();
-					}
+					}*/
 				}
 			}
 			else if (isMovingLeft) {
