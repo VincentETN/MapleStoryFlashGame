@@ -68,20 +68,20 @@ namespace game_framework {
 
 	void Monster::LoadBitmap()
 	{
-		moveLeft.AddBitmap(IDB_S_WL1, RGB(255, 0, 255));
-		moveLeft.AddBitmap(IDB_S_WL2, RGB(255, 0, 255));
-		moveLeft.AddBitmap(IDB_S_WL3, RGB(255, 0, 255));
-		moveRight.AddBitmap(IDB_S_WR1, RGB(255, 0, 255));
-		moveRight.AddBitmap(IDB_S_WR2, RGB(255, 0, 255));
-		moveRight.AddBitmap(IDB_S_WR3, RGB(255, 0, 255));
-		getHurtLeft.AddBitmap(IDB_S_HL, RGB(255, 0, 255));
-		getHurtRight.AddBitmap(IDB_S_HR, RGB(255, 0, 255));
-		dyingLeft.AddBitmap(IDB_S_DL1, RGB(255, 0, 255));
-		dyingLeft.AddBitmap(IDB_S_DL2, RGB(255, 0, 255));
-		dyingLeft.AddBitmap(IDB_S_DL3, RGB(255, 0, 255));
-		dyingRight.AddBitmap(IDB_S_DR1, RGB(255, 0, 255));
-		dyingRight.AddBitmap(IDB_S_DR2, RGB(255, 0, 255));
-		dyingRight.AddBitmap(IDB_S_DR3, RGB(255, 0, 255));
+		moveLeft.AddBitmap(snail_left_walk1, RGB(255, 0, 255));
+		moveLeft.AddBitmap(snail_left_walk2, RGB(255, 0, 255));
+		moveLeft.AddBitmap(snail_left_walk3, RGB(255, 0, 255));
+		moveRight.AddBitmap(snail_right_walk1, RGB(255, 0, 255));
+		moveRight.AddBitmap(snail_right_walk2, RGB(255, 0, 255));
+		moveRight.AddBitmap(snail_right_walk3, RGB(255, 0, 255));
+		getHurtLeft.AddBitmap(snail_left_hurt, RGB(255, 0, 255));
+		getHurtRight.AddBitmap(snail_right_hurt, RGB(255, 0, 255));
+		dyingLeft.AddBitmap(snail_left_die1, RGB(255, 0, 255));
+		dyingLeft.AddBitmap(snail_left_die2, RGB(255, 0, 255));
+		dyingLeft.AddBitmap(snail_left_die3, RGB(255, 0, 255));
+		dyingRight.AddBitmap(snail_right_die1, RGB(255, 0, 255));
+		dyingRight.AddBitmap(snail_right_die2, RGB(255, 0, 255));
+		dyingRight.AddBitmap(snail_right_die3, RGB(255, 0, 255));
 	}
 
 	void Monster::OnMove()

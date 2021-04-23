@@ -104,97 +104,97 @@ IDB_HELP                BITMAP                  "..\\res\\help.bmp"
 
 IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
 
-STAGE1_BG               BITMAP                  "..\\Resource\\Stage1BG.bmp"
+stage1_background       BITMAP                  "..\\Resource\\Stage1BG.bmp"
 
-IDB_C_SL                BITMAP                  "..\\Resource\\Character\\character_left_stand.bmp"
+character_left_stand    BITMAP                  "..\\Resource\\Character\\character_left_stand.bmp"
 
-IDB_C_WL                BITMAP                  "..\\Resource\\Character\\character_left_walk1.bmp"
+character_left_walk1    BITMAP                  "..\\Resource\\Character\\character_left_walk1.bmp"
 
-IDB_C_WL2               BITMAP                  "..\\Resource\\Character\\character_left_walk2.bmp"
+character_left_walk2    BITMAP                  "..\\Resource\\Character\\character_left_walk2.bmp"
 
-IDB_C_SR                BITMAP                  "..\\Resource\\Character\\character_right_stand.bmp"
+character_right_stand   BITMAP                  "..\\Resource\\Character\\character_right_stand.bmp"
 
-IDB_C_WR                BITMAP                  "..\\Resource\\Character\\character_right_walk1.bmp"
+character_right_walk1   BITMAP                  "..\\Resource\\Character\\character_right_walk1.bmp"
 
-IDB_C_WR2               BITMAP                  "..\\Resource\\Character\\character_right_walk2.bmp"
+character_right_walk2   BITMAP                  "..\\Resource\\Character\\character_right_walk2.bmp"
 
-IDB_C_LL                BITMAP                  "..\\Resource\\Character\\character_left_lie.bmp"
+character_left_lie      BITMAP                  "..\\Resource\\Character\\character_left_lie.bmp"
 
-IDB_C_LR                BITMAP                  "..\\Resource\\Character\\character_right_lie.bmp"
+character_right_lie     BITMAP                  "..\\Resource\\Character\\character_right_lie.bmp"
 
-IDB_C_JL                BITMAP                  "..\\Resource\\Character\\character_left_jump.bmp"
+character_left_jump     BITMAP                  "..\\Resource\\Character\\character_left_jump.bmp"
 
-IDB_C_JR                BITMAP                  "..\\Resource\\Character\\character_right_jump.bmp"
+character_right_jump    BITMAP                  "..\\Resource\\Character\\character_right_jump.bmp"
 
-IDB_S_L                 BITMAP                  "..\\Resource\\Monster\\snail\\snail_left.bmp"
+snail_left              BITMAP                  "..\\Resource\\Monster\\snail\\snail_left.bmp"
 
-IDB_S_R                 BITMAP                  "..\\Resource\\Monster\\snail\\snail_right.bmp"
+snail_right             BITMAP                  "..\\Resource\\Monster\\snail\\snail_right.bmp"
 
-IDB_SK_L                BITMAP                  "..\\Resource\\Monster\\snake\\snake_left.bmp"
+snake_left              BITMAP                  "..\\Resource\\Monster\\snake\\snake_left.bmp"
 
-IDB_SK_R                BITMAP                  "..\\Resource\\Monster\\snake\\snake_right.bmp"
+snake_right             BITMAP                  "..\\Resource\\Monster\\snake\\snake_right.bmp"
 
-IDB_C_C1                BITMAP                  "..\\Resource\\Character\\character_climb1.bmp"
+character_climb1        BITMAP                  "..\\Resource\\Character\\character_climb1.bmp"
 
-IDB_C_C2                BITMAP                  "..\\Resource\\Character\\character_climb2.bmp"
+character_climb2        BITMAP                  "..\\Resource\\Character\\character_climb2.bmp"
 
-IDB_C_AL1               BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack1_1.bmp"
+character_left_attack1_1 BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack1_1.bmp"
 
-IDB_C_AL2               BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack1_2.bmp"
+character_left_attack1_3 BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack1_3.bmp"
 
-IDB_C_AL3               BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack1_3.bmp"
+character_left_attack2_1 BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack2_1.bmp"
 
-IDB_C_AL4               BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack2_1.bmp"
+character_left_attack2_2 BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack2_2.bmp"
 
-IDB_C_AL5               BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack2_2.bmp"
+character_left_attack3_1 BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack3_1.bmp"
 
-IDB_C_AL6               BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack3_1.bmp"
+character_left_attack3_2 BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack3_2.bmp"
 
-IDB_C_AL7               BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack3_2.bmp"
+snail_left_walk1        BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_walk1.bmp"
 
-IDB_S_WL1               BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_walk1.bmp"
+snail_left_walk2        BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_walk2.bmp"
 
-IDB_S_WL2               BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_walk2.bmp"
+snail_left_walk3        BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_walk3.bmp"
 
-IDB_S_WL3               BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_walk3.bmp"
+snail_left_hurt         BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_hurt.bmp"
 
-IDB_S_HL                BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_hurt.bmp"
+snail_left_die1         BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_die1.bmp"
 
-IDB_S_DL1               BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_die1.bmp"
+snail_left_die2         BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_die2.bmp"
 
-IDB_S_DL2               BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_die2.bmp"
+snail_left_die3         BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_die3.bmp"
 
-IDB_S_DL3               BITMAP                  "..\\Resource\\Monster\\snail\\snail_left_die3.bmp"
+snail_right_walk1       BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_walk1.bmp"
 
-IDB_S_WR1               BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_walk1.bmp"
+snail_right_walk2       BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_walk2.bmp"
 
-IDB_S_WR2               BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_walk2.bmp"
+snail_right_walk3       BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_walk3.bmp"
 
-IDB_S_WR3               BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_walk3.bmp"
+snail_right_hurt        BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_hurt.bmp"
 
-IDB_S_HR                BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_hurt.bmp"
+snail_right_die1        BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_die1.bmp"
 
-IDB_S_DR1               BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_die1.bmp"
+snail_right_die2        BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_die2.bmp"
 
-IDB_S_DR2               BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_die2.bmp"
+snail_right_die3        BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_die3.bmp"
 
-IDB_S_DR3               BITMAP                  "..\\Resource\\Monster\\snail\\snail_right_die3.bmp"
+character_right_attack1_1 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_1.bmp"
 
-IDB_C_AR1               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_1.bmp"
+character_right_attack1_3 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_3.bmp"
 
-IDB_C_AR2               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_2.bmp"
+character_right_attack2_1 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack2_1.bmp"
 
-IDB_C_AR3               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_3.bmp"
+character_right_attack2_2 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack2_2.bmp"
 
-IDB_C_AR4               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack2_1.bmp"
+character_right_attack3_1 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack3_1.bmp"
 
-IDB_C_AR5               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack2_2.bmp"
+character_right_attack3_2 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack3_2.bmp"
 
-IDB_C_AR6               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack3_1.bmp"
+stage2_background       BITMAP                  "..\\Resource\\Stage2BG.bmp"
 
-IDB_C_AR7               BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack3_2.bmp"
+character_left_attack1_2 BITMAP                  "..\\Resource\\Character\\attack\\character_left_attack1_2.bmp"
 
-IDB_STAGE2_BG           BITMAP                  "..\\Resource\\Stage2BG.bmp"
+character_right_attack1_2 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_2.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////

@@ -69,34 +69,34 @@ namespace game_framework {
 
 	void CPlayer::LoadBitmap()
 	{
-		idleLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
-		idleRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
-		lieLeft.AddBitmap(IDB_C_LL, RGB(255, 0, 255));
-		lieRight.AddBitmap(IDB_C_LR, RGB(255, 0, 255));
-		jumpLeft.AddBitmap(IDB_C_JL, RGB(255, 0, 255));
-		jumpRight.AddBitmap(IDB_C_JR, RGB(255, 0, 255));
-		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
-		walkLeft.AddBitmap(IDB_C_WL, RGB(255, 0, 255));
-		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
-		walkLeft.AddBitmap(IDB_C_WL, RGB(255, 0, 255));
-		walkLeft.AddBitmap(IDB_C_SL, RGB(255, 0, 255));
-		walkLeft.AddBitmap(IDB_C_WL, RGB(255, 0, 255));
-		walkLeft.AddBitmap(IDB_C_WL2, RGB(255, 0, 255));
-		walkRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
-		walkRight.AddBitmap(IDB_C_WR, RGB(255, 0, 255));
-		walkRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
-		walkRight.AddBitmap(IDB_C_WR, RGB(255, 0, 255));
-		walkRight.AddBitmap(IDB_C_SR, RGB(255, 0, 255));
-		walkRight.AddBitmap(IDB_C_WR, RGB(255, 0, 255));
-		walkRight.AddBitmap(IDB_C_WR2, RGB(255, 0, 255));
-		climb.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
-		climb.AddBitmap(IDB_C_C2, RGB(255, 0, 255));
-		ladderIdle.AddBitmap(IDB_C_C1, RGB(255, 0, 255));
+		idleLeft.AddBitmap(character_left_stand, RGB(255, 0, 255));
+		idleRight.AddBitmap(character_right_stand, RGB(255, 0, 255));
+		lieLeft.AddBitmap(character_left_lie, RGB(255, 0, 255));
+		lieRight.AddBitmap(character_right_lie, RGB(255, 0, 255));
+		jumpLeft.AddBitmap(character_left_jump, RGB(255, 0, 255));
+		jumpRight.AddBitmap(character_right_jump, RGB(255, 0, 255));
+		walkLeft.AddBitmap(character_left_stand, RGB(255, 0, 255));
+		walkLeft.AddBitmap(character_left_walk1, RGB(255, 0, 255));
+		walkLeft.AddBitmap(character_left_stand, RGB(255, 0, 255));
+		walkLeft.AddBitmap(character_left_walk1, RGB(255, 0, 255));
+		walkLeft.AddBitmap(character_left_stand, RGB(255, 0, 255));
+		walkLeft.AddBitmap(character_left_walk1, RGB(255, 0, 255));
+		walkLeft.AddBitmap(character_left_walk2, RGB(255, 0, 255));
+		walkRight.AddBitmap(character_right_stand, RGB(255, 0, 255));
+		walkRight.AddBitmap(character_right_walk1, RGB(255, 0, 255));
+		walkRight.AddBitmap(character_right_stand, RGB(255, 0, 255));
+		walkRight.AddBitmap(character_right_walk1, RGB(255, 0, 255));
+		walkRight.AddBitmap(character_right_stand, RGB(255, 0, 255));
+		walkRight.AddBitmap(character_right_walk1, RGB(255, 0, 255));
+		walkRight.AddBitmap(character_right_walk2, RGB(255, 0, 255));
+		climb.AddBitmap(character_climb1, RGB(255, 0, 255));
+		climb.AddBitmap(character_climb2, RGB(255, 0, 255));
+		ladderIdle.AddBitmap(character_climb1, RGB(255, 0, 255));
 
-		attackLeft.AddBitmap(IDB_C_AL1, RGB(255, 0, 255));
-		attackLeft.AddBitmap(IDB_C_AL2, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR1, RGB(255, 0, 255));
-		attackRight.AddBitmap(IDB_C_AR2, RGB(255, 0, 255));
+		attackLeft.AddBitmap(character_left_attack1_1, RGB(255, 0, 255));
+		attackLeft.AddBitmap(character_left_attack1_2, RGB(255, 0, 255));
+		attackRight.AddBitmap(character_right_attack1_1, RGB(255, 0, 255));
+		attackRight.AddBitmap(character_right_attack1_2, RGB(255, 0, 255));
 	}		
 
 	void CPlayer::OnMove()	//²¾°Ê
@@ -303,7 +303,7 @@ namespace game_framework {
 		else if(isOnTheGround()){
 			if (isAttacking) {
 				if (isFacingLeft) {
-					attackLeft.SetTopLeft(x, y);
+					attackLeft.SetTopLeft(x-40, y+5);
 					attackLeft.SetDelayCount(8);
 					attackLeft.OnShow();
 					/*if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
@@ -312,7 +312,7 @@ namespace game_framework {
 					}*/
 				}
 				else if (isFacingRight) {
-					attackRight.SetTopLeft(x, y);
+					attackRight.SetTopLeft(x+10, y+5);
 					attackRight.SetDelayCount(8);
 					attackRight.OnShow();
 					/*if (!attackKeyDown && attackRight.IsFinalBitmap()) {

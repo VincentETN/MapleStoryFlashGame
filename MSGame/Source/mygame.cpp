@@ -258,7 +258,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	player.LoadBitmap();
 	m1.LoadBitmap();
-	background.LoadBitmap(STAGE1_BG);					// 載入背景的圖形
+	background.LoadBitmap(stage1_background);					// 載入背景的圖形
 	//
 	// 完成部分Loading動作，提高進度
 	//
