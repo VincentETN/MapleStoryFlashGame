@@ -51,10 +51,13 @@ namespace game_framework {
 		bool isAttacking;
 		bool rising;			// true表上升、false表下降
 		bool isHurt;
+		bool superState;
 		int jumpVel;		// 起跳初始速度
 		int instantVelX;	// x軸瞬時速度
 		int instantVelY;	// y軸瞬時速度
-		int g;	//加速度
+		int g;				//加速度
+		int superStateCount;
+		int superStateCounter;
 		Platform floors;
 		Ladder ladder;
 	};
