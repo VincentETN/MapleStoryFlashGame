@@ -32,9 +32,10 @@ namespace game_framework {
 		void SetAttacking(bool flag);
 		void SetGetHurt(bool flag);
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
+		void SetIsClimbing(bool flag);
 		bool isInTheAir();
 		bool isOnTheGround();
-		void SetIsClimbing(bool flag);
+		bool Attacking();
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
 		int x, y;			// 玩家左上角座標

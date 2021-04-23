@@ -367,4 +367,8 @@ namespace game_framework {
 		}*/
 		return !(isOnTheGround() || isClimbing);
 	}
+
+	bool CPlayer::Attacking() {
+		return isAttacking;
+	}
 }
