@@ -25,26 +25,6 @@ namespace game_framework {
 		//onThisFloor = tuple<int, int, int, int>(40, 480, 600, 480);
 	}
 
-	/*int Platform::getX1() {
-		x1 = get<1>(onThisFloor);
-		return x1;
-	}
-
-	int Platform::getY1() {
-		y1 = get<2>(onThisFloor);
-		return y1;
-	}
-
-	int Platform::getX2() {
-		x2 = get<3>(onThisFloor);
-		return x2;
-	}
-
-	int Platform::getY2() {
-		y2 = get<4>(onThisFloor);
-		return y2;
-	}*/
-
 	int Platform::getStandPointY(int tx) {
 		assignXY();
 		if (getType() == "s") {
