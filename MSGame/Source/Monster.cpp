@@ -18,6 +18,7 @@ namespace game_framework {
 		step = 1;
 		isMovingLeft = isMovingRight = false;
 		isFacingRight = false;
+		isHurt = false;
 	}
 
 	int Monster::GetX1()
@@ -73,6 +74,8 @@ namespace game_framework {
 		moveRight.AddBitmap(IDB_S_WR1, RGB(255, 0, 255));
 		moveRight.AddBitmap(IDB_S_WR2, RGB(255, 0, 255));
 		moveRight.AddBitmap(IDB_S_WR3, RGB(255, 0, 255));
+		getHurtLeft.AddBitmap(IDB_S_HL);
+		getHurtRight.AddBitmap(IDB_S_HR);
 	}
 
 	void Monster::OnMove()
@@ -95,26 +98,44 @@ namespace game_framework {
 			isMovingLeft = false;
 			isMovingRight = false;
 		}
-		
-		if (isMovingLeft) {
-			x -= step;
-		}
-		else if (isMovingRight) {
-			x += step;
+		if (!isHurt) {
+			if (isMovingLeft) {
+				x -= step;
+			}
+			else if (isMovingRight) {
+				x += step;
+			}
 		}
 	}
 
 	void Monster::OnShow()
 	{
 		if (isFacingRight) {
-			moveRight.SetTopLeft(x, y);
-			moveRight.SetDelayCount(5);
-			moveRight.OnShow();
+			if (isHurt) {
+				getHurtLeft.SetTopLeft(x, y);
+				getHurtLeft.SetDelayCount(5);
+				getHurtLeft.OnShow();
+				isHurt = false;
+			}
+			else {
+				moveRight.SetTopLeft(x, y);
+				moveRight.SetDelayCount(5);
+				moveRight.OnShow();
+			}
+			
 		}
 		else {
-			moveLeft.SetTopLeft(x, y);
-			moveLeft.SetDelayCount(5);
-			moveLeft.OnShow();
+			if (isHurt) {
+				getHurtRight.SetTopLeft(x, y);
+				getHurtRight.SetDelayCount(5);
+				getHurtRight.OnShow();
+				isHurt = false;
+			}
+			else {
+				moveLeft.SetTopLeft(x, y);
+				moveLeft.SetDelayCount(5);
+				moveLeft.OnShow();
+			}
 		}
 	}
 }

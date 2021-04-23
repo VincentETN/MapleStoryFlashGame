@@ -17,7 +17,7 @@ namespace game_framework {
 		void OnMove();											// 移動
 		void OnShow();											// 將圖形貼到畫面
 	protected:
-		CAnimation moveLeft, moveRight;
+		CAnimation moveLeft, moveRight, getHurtLeft, getHurtRight;
 		int monsterID;
 		int leftBound, rightBound;
 		int x, y;
