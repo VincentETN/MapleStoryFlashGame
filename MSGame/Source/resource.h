@@ -37,6 +37,7 @@
 #define IDB_LOADING                     156
 #define IDB_BITMAP4                     158
 #define IDB_STAGE1_BG                   158
+#define STAGE1_BG                       158
 #define IDB_C_SL                        159
 #define IDB_C_WL                        160
 #define IDB_C_WL2                       161

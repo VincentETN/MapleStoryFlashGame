@@ -104,7 +104,7 @@ IDB_HELP                BITMAP                  "..\\res\\help.bmp"
 
 IDB_LOADING             BITMAP                  "..\\res\\loading.bmp"
 
-IDB_STAGE1_BG           BITMAP                  "..\\Resource\\Stage1BG.bmp"
+STAGE1_BG               BITMAP                  "..\\Resource\\Stage1BG.bmp"
 
 IDB_C_SL                BITMAP                  "..\\Resource\\Character\\character_left_stand.bmp"
 

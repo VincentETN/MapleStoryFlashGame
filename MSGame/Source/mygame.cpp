@@ -295,7 +295,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 		ball[i].LoadBitmap();*/								// 載入第i個球的圖形
 	player.LoadBitmap();
 	m1.LoadBitmap();
-	background.LoadBitmap(IDB_STAGE1_BG);					// 載入背景的圖形
+	background.LoadBitmap(STAGE1_BG);					// 載入背景的圖形
 	//
 	// 完成部分Loading動作，提高進度
 	//
