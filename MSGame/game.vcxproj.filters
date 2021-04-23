@@ -351,5 +351,8 @@
     <Image Include="Resource\Character\attack\character_right_attack3_2.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resource\Stage2BG.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
