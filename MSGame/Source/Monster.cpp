@@ -74,14 +74,22 @@ namespace game_framework {
 		moveRight.AddBitmap(IDB_S_WR1, RGB(255, 0, 255));
 		moveRight.AddBitmap(IDB_S_WR2, RGB(255, 0, 255));
 		moveRight.AddBitmap(IDB_S_WR3, RGB(255, 0, 255));
-		getHurtLeft.AddBitmap(IDB_S_HL);
-		getHurtRight.AddBitmap(IDB_S_HR);
+		getHurtLeft.AddBitmap(IDB_S_HL, RGB(255, 0, 255));
+		getHurtRight.AddBitmap(IDB_S_HR, RGB(255, 0, 255));
+		dyingLeft.AddBitmap(IDB_S_DL1, RGB(255, 0, 255));
+		dyingLeft.AddBitmap(IDB_S_DL2, RGB(255, 0, 255));
+		dyingLeft.AddBitmap(IDB_S_DL3, RGB(255, 0, 255));
+		dyingRight.AddBitmap(IDB_S_DR1, RGB(255, 0, 255));
+		dyingRight.AddBitmap(IDB_S_DR2, RGB(255, 0, 255));
+		dyingRight.AddBitmap(IDB_S_DR3, RGB(255, 0, 255));
 	}
 
 	void Monster::OnMove()
 	{
 		moveLeft.OnMove();
 		moveRight.OnMove();
+		dyingLeft.OnMove();
+		dyingRight.OnMove();
 		srand((unsigned int) time(NULL));
 		int randStatus = rand() % 3;
 		if (randStatus == 0 && x > leftBound) {
@@ -110,31 +118,43 @@ namespace game_framework {
 
 	void Monster::OnShow()
 	{
-		if (isFacingRight) {
-			if (isHurt) {
-				getHurtLeft.SetTopLeft(x, y);
-				getHurtLeft.SetDelayCount(5);
-				getHurtLeft.OnShow();
-				isHurt = false;
+		if (IsAlive()) {
+			if (isFacingRight) {
+				if (isHurt) {
+					getHurtRight.SetTopLeft(x, y);
+					getHurtRight.SetDelayCount(5);
+					getHurtRight.OnShow();
+					isHurt = false;
+				}
+				else {
+					moveRight.SetTopLeft(x, y);
+					moveRight.SetDelayCount(5);
+					moveRight.OnShow();
+				}
+
 			}
 			else {
-				moveRight.SetTopLeft(x, y);
-				moveRight.SetDelayCount(5);
-				moveRight.OnShow();
+				if (isHurt) {
+					getHurtLeft.SetTopLeft(x, y);
+					getHurtLeft.SetDelayCount(5);
+					getHurtLeft.OnShow();
+					isHurt = false;
+				}
+				else {
+					moveLeft.SetTopLeft(x, y);
+					moveLeft.SetDelayCount(5);
+					moveLeft.OnShow();
+				}
 			}
-			
 		}
 		else {
-			if (isHurt) {
-				getHurtRight.SetTopLeft(x, y);
-				getHurtRight.SetDelayCount(5);
-				getHurtRight.OnShow();
-				isHurt = false;
+			if (isFacingRight) {
+				dyingRight.SetTopLeft(x, y);
+				dyingRight.OnShow();
 			}
 			else {
-				moveLeft.SetTopLeft(x, y);
-				moveLeft.SetDelayCount(5);
-				moveLeft.OnShow();
+				dyingLeft.SetTopLeft(x, y);
+				dyingLeft.OnShow();
 			}
 		}
 	}
