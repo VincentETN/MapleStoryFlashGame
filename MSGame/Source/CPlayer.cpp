@@ -95,22 +95,15 @@ namespace game_framework {
 
 		attackLeft.AddBitmap(character_left_attack1_1, RGB(255, 0, 255));
 		attackLeft.AddBitmap(character_left_attack1_2, RGB(255, 0, 255));
+		attackLeft.AddBitmap(character_left_attack1_2, RGB(255, 0, 255));	//判斷用，不會顯示
 		attackRight.AddBitmap(character_right_attack1_1, RGB(255, 0, 255));
 		attackRight.AddBitmap(character_right_attack1_2, RGB(255, 0, 255));
+		attackRight.AddBitmap(character_right_attack1_2, RGB(255, 0, 255));	//判斷用，不會顯示
 	}		
 
 	void CPlayer::OnMove()	//移動
 	{
 		int STEP_SIZE = floors.movingSpeed();
-		idleLeft.OnMove();
-		idleRight.OnMove();
-		lieLeft.OnMove();
-		lieRight.OnMove();
-		climb.OnMove();
-		walkLeft.OnMove();
-		walkRight.OnMove();
-		attackLeft.OnMove();
-		attackRight.OnMove();
 		x += instantVelX;
 		y += instantVelY;
 		if (isInTheAir()) {  // 當y座標還沒碰到地板
@@ -207,7 +200,7 @@ namespace game_framework {
 
 		if (isAttacking) {
 			instantVelX = 0;
-			if (isFacingLeft) {
+			/*if (isFacingLeft) {
 				if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
 					attackLeft.Reset();
 					SetAttacking(false);
@@ -218,7 +211,7 @@ namespace game_framework {
 					attackRight.Reset();
 					SetAttacking(false);
 				}
-			}
+			}*/
 		}
 	}
 
@@ -294,6 +287,7 @@ namespace game_framework {
 			{
 				climb.SetTopLeft(x, y);
 				climb.OnShow();
+				climb.OnMove();
 			}
 			else {
 				ladderIdle.SetTopLeft(x, y);
@@ -304,30 +298,38 @@ namespace game_framework {
 			if (isAttacking) {
 				if (isFacingLeft) {
 					attackLeft.SetTopLeft(x-40, y+5);
-					attackLeft.SetDelayCount(8);
+					attackLeft.SetDelayCount(10);
 					attackLeft.OnShow();
-					/*if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
+					attackLeft.OnMove();
+					if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
 						SetAttacking(false);
+					}
+					if (attackLeft.IsFinalBitmap()) {
 						attackLeft.Reset();
-					}*/
+					}
 				}
 				else if (isFacingRight) {
 					attackRight.SetTopLeft(x+10, y+5);
-					attackRight.SetDelayCount(8);
+					attackRight.SetDelayCount(10);
 					attackRight.OnShow();
-					/*if (!attackKeyDown && attackRight.IsFinalBitmap()) {
+					attackRight.OnMove();
+					if (!attackKeyDown && attackRight.IsFinalBitmap()) {
 						SetAttacking(false);
+					}
+					if (attackRight.IsFinalBitmap()) {
 						attackRight.Reset();
-					}*/
+					}
 				}
 			}
 			else if (isMovingLeft) {
 				walkLeft.SetTopLeft(x, y);
 				walkLeft.OnShow();
+				walkLeft.OnMove();
 			}
 			else if (isMovingRight) {
 				walkRight.SetTopLeft(x, y);
 				walkRight.OnShow();
+				walkRight.OnMove();
 			}
 			else if (isMovingDown) {	
 				if (isFacingLeft) {
