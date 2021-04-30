@@ -218,6 +218,8 @@ void CGameStateRun::OnMove()							// ²¾°Ê¹CÀ¸¤¸¯À
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
 	player.OnMove();
+	player.IsOnTheGround();
+	player.IsInTheAir();
 	m1.OnMove();
 	if (m1.isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
 		player.SetGetHurt(true);
@@ -295,7 +297,7 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	if (nChar == KEY_DOWN)
 		player.SetMovingDown(true);
 	if (nChar == KEY_SPACE) {
-		if(!player.isInTheAir())
+		if(!player.IsInTheAir())
 			player.SetJumping(true);
 	}
 	if (nChar == KEY_Z) {

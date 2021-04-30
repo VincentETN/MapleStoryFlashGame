@@ -33,8 +33,8 @@ namespace game_framework {
 		void SetGetHurt(bool flag);
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
 		void SetIsClimbing(bool flag);
-		bool isInTheAir();
-		bool isOnTheGround();
+		bool IsInTheAir();
+		void IsOnTheGround();
 		bool Attacking();
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
@@ -47,7 +47,8 @@ namespace game_framework {
 		bool isFacingRight;
 		bool isJumping;
 		bool isClimbing;
-
+		bool isOnTheGround;
+		bool isInTheAir;
 		bool attackKeyDown;
 		bool isAttacking;
 		bool rising;			// true表上升、false表下降

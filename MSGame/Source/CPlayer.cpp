@@ -106,7 +106,7 @@ namespace game_framework {
 		int STEP_SIZE = floors.movingSpeed();
 		x += instantVelX;
 		y += instantVelY;
-		if (isInTheAir()) {  // 當y座標還沒碰到地板
+		if (isInTheAir) {  // 當y座標還沒碰到地板
 			//y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
 			instantVelY += g;		// 受重力影響，下次的下降速度增加
 			if (instantVelY > 0) {
@@ -115,6 +115,10 @@ namespace game_framework {
 		}
 		else if (isClimbing) {
 			instantVelX = 0;
+			if (isJumping && isMovingLeft || isJumping && isMovingRight) {
+				instantVelY = -10;
+				SetIsClimbing(false);
+			}
 		}
 		else if(!isClimbing){
 			instantVelY = 0;
@@ -149,7 +153,7 @@ namespace game_framework {
 				SetIsClimbing(true);
 				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
 				y -= 4;
-				//instantVelY = -4;
+				instantVelY = 0;
 			}
 			else if (isClimbing && ladder.onTheTop(GetMidY())) {
 				SetIsClimbing(false);
@@ -163,7 +167,7 @@ namespace game_framework {
 				SetIsClimbing(true);
 				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
 				y += 4;
-				//instantVelY = 4;
+				instantVelY = 0;
 			}
 			else if (isClimbing && ladder.atTheBottom(GetY2())) {
 				SetIsClimbing(false);
@@ -171,13 +175,11 @@ namespace game_framework {
 		}
 
 		if (isJumping) {
-			if (!isClimbing) {
+			if (isOnTheGround) {
 				instantVelY = jumpVel;
 				y += instantVelY;
 				//rising = true;
-				SetJumping(false);
 			}
-			//SetIsClimbing(false);
 		}
 
 		if (!superState && isHurt) {
@@ -260,7 +262,7 @@ namespace game_framework {
 
 	void CPlayer::OnShow()
 	{
-		if (isInTheAir()) {
+		if (isInTheAir) {
 			if (isFacingLeft) {
 				jumpLeft.SetTopLeft(x, y);
 				jumpLeft.OnShow();
@@ -282,7 +284,7 @@ namespace game_framework {
 				ladderIdle.OnShow();
 			}
 		}
-		else if(isOnTheGround()){
+		else if(isOnTheGround){
 			if (isAttacking) {
 				if (isFacingLeft) {
 					attackLeft.SetTopLeft(x-40, y+5);
@@ -340,9 +342,9 @@ namespace game_framework {
 		}
 	}
 
-	bool CPlayer::isOnTheGround()
+	void CPlayer::IsOnTheGround()
 	{
-		return floors.isFloor(GetMidX(), GetY2(), instantVelY);
+		isOnTheGround = floors.isFloor(GetMidX(), GetY2(), instantVelY);
 	}
 	
 	void CPlayer::SetIsClimbing(bool flag) 
@@ -350,12 +352,13 @@ namespace game_framework {
 		isClimbing = flag;
 	}
 	
-	bool CPlayer::isInTheAir()
+	bool CPlayer::IsInTheAir()
 	{
 		/*if (rising) {
 			return true;
 		}*/
-		return !(isOnTheGround() || isClimbing);
+		isInTheAir = !(isOnTheGround || isClimbing);
+		return isInTheAir;
 	}
 
 	bool CPlayer::Attacking() {
