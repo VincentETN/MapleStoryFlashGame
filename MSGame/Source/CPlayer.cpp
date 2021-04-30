@@ -200,18 +200,6 @@ namespace game_framework {
 
 		if (isAttacking) {
 			instantVelX = 0;
-			/*if (isFacingLeft) {
-				if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
-					attackLeft.Reset();
-					SetAttacking(false);
-				}
-			}
-			else if (isFacingRight) {
-				if (!attackKeyDown && attackRight.IsFinalBitmap()) {
-					attackRight.Reset();
-					SetAttacking(false);
-				}
-			}*/
 		}
 	}
 
