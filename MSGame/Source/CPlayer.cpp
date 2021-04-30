@@ -61,7 +61,7 @@ namespace game_framework {
 		instantVelY = 0;
 		isFacingLeft = true;
 		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = false;
-		isFacingRight = isJumping = isClimbing = false;
+		isJumping = isClimbing = false;
 		attackKeyDown = isAttacking = false;
 		isHurt = false;
 		superState = false;
@@ -132,7 +132,7 @@ namespace game_framework {
 			if (!isClimbing && !isAttacking) {
 				//x -= STEP_SIZE;
 				SetFacingLeft(true);
-				SetFacingRight(false);
+				//SetFacingRight(false);
 				if (!isHurt)
 					instantVelX = -STEP_SIZE;
 			}
@@ -142,7 +142,7 @@ namespace game_framework {
 			if (!isClimbing && !isAttacking) {
 				//x += STEP_SIZE;
 				SetFacingLeft(false);
-				SetFacingRight(true);
+				//SetFacingRight(true);
 				if (!isHurt)
 					instantVelX = STEP_SIZE;
 			}
@@ -225,10 +225,10 @@ namespace game_framework {
 		isFacingLeft = flag;
 	}
 	
-	void CPlayer::SetFacingRight(bool flag)
-	{
-		isFacingRight = flag;
-	}
+	//void CPlayer::SetFacingRight(bool flag)
+	//{
+	//	isFacingRight = flag;
+	//}
 	
 	void CPlayer::SetMovingUp(bool flag)
 	{
@@ -267,7 +267,7 @@ namespace game_framework {
 				jumpLeft.SetTopLeft(x, y);
 				jumpLeft.OnShow();
 			}
-			else if (isFacingRight) {
+			else {
 				jumpRight.SetTopLeft(x, y);
 				jumpRight.OnShow();
 			}
@@ -298,7 +298,7 @@ namespace game_framework {
 						attackLeft.Reset();
 					}
 				}
-				else if (isFacingRight) {
+				else {
 					attackRight.SetTopLeft(x+10, y+5);
 					attackRight.SetDelayCount(10);
 					attackRight.OnShow();
@@ -326,7 +326,7 @@ namespace game_framework {
 					lieLeft.SetTopLeft(x, y + 25 );
 					lieLeft.OnShow();
 				}
-				else if (isFacingRight) {
+				else {
 					lieRight.SetTopLeft(x, y + 25);
 					lieRight.OnShow();
 				}
@@ -335,7 +335,7 @@ namespace game_framework {
 				idleLeft.SetTopLeft(x, y);
 				idleLeft.OnShow();
 			}
-			else if (isFacingRight) {
+			else {
 				idleRight.SetTopLeft(x, y);
 				idleRight.OnShow();
 			}

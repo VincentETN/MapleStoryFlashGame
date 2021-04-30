@@ -26,7 +26,7 @@ namespace game_framework {
 		void SetMovingRight(bool flag); // 設定是否正在往右移動
 		void SetMovingUp(bool flag);	// 設定是否正在往上移動
 		void SetFacingLeft(bool flag);	
-		void SetFacingRight(bool flag); 
+		//void SetFacingRight(bool flag); 
 		void SetJumping(bool flag);
 		void SetAttackKey(bool flag);
 		void SetAttacking(bool flag);
@@ -44,7 +44,7 @@ namespace game_framework {
 		bool isMovingRight;			// 是否正在往右移動
 		bool isMovingUp;			// 是否正在往上移動
 		bool isFacingLeft;			
-		bool isFacingRight;
+		//bool isFacingRight;
 		bool isJumping;
 		bool isClimbing;
 		bool isOnTheGround;
