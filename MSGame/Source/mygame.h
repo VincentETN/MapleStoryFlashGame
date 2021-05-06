@@ -42,6 +42,7 @@
 #include "CBall.h"
 #include "CBouncingBall.h"
 #include "Monster.h"
+#include "StageMap.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -95,8 +96,9 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		CMovingBitmap	background;
-		CPlayer		player;
+		CPlayer			player;
 		Monster m1 = Monster(1, 40, 315, 385);
+		StageMap		map;
 	};  
 
 	/////////////////////////////////////////////////////////////////////////////

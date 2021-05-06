@@ -59,7 +59,7 @@ namespace game_framework {
 		jumpVel = -14;
 		instantVelX = 0;
 		instantVelY = 0;
-		isFacingLeft = true;
+		isFacingLeft = isOnTheGround = true;
 		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = false;
 		isJumping = isClimbing = false;
 		attackKeyDown = isAttacking = false;
@@ -103,10 +103,10 @@ namespace game_framework {
 
 	void CPlayer::OnMove()	//移動
 	{
-		int STEP_SIZE = floors.movingSpeed();
+		int STEP_SIZE = floors->movingSpeed();
 		x += instantVelX;
 		y += instantVelY;
-		if (isInTheAir) {  // 當y座標還沒碰到地板
+		if (IsInTheAir()) {  // 當y座標還沒碰到地板
 			//y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
 			instantVelY += g;		// 受重力影響，下次的下降速度增加
 			if (instantVelY > 0) {
@@ -122,7 +122,7 @@ namespace game_framework {
 		}
 		else if(!isClimbing){
 			instantVelY = 0;
-			y = floors.getStandPointY(GetMidX()) - idleLeft.Height();
+			y = floors->getStandPointY(GetMidX()) - idleLeft.Height();
 			if(!isMovingLeft && !isMovingRight){
 				instantVelX = 0;
 			}
@@ -149,33 +149,33 @@ namespace game_framework {
 		}
 
 		if (isMovingUp) {
-			if (ladder.isLadder(GetMidX(), GetMidY())) {
+			if (ladder->isLadder(GetMidX(), GetMidY())) {
 				SetIsClimbing(true);
-				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
+				x = (ladder->getX1() + ladder->getX2()) / 2 - idleLeft.Width() / 2;
 				y -= 4;
 				instantVelY = 0;
 			}
-			else if (isClimbing && ladder.onTheTop(GetMidY())) {
+			else if (isClimbing && ladder->onTheTop(GetMidY())) {
 				SetIsClimbing(false);
-				y = ladder.getY1() - idleLeft.Height();
+				y = ladder->getY1() - idleLeft.Height();
 			}
 		}
 
 		if (isMovingDown) {
 			//SetJumping(false);		//暫不能往下跳
-			if (ladder.isLadder(GetMidX(), GetY2())) {
+			if (ladder->isLadder(GetMidX(), GetY2())) {
 				SetIsClimbing(true);
-				x = (ladder.getX1() + ladder.getX2()) / 2 - idleLeft.Width() / 2;
+				x = (ladder->getX1() + ladder->getX2()) / 2 - idleLeft.Width() / 2;
 				y += 4;
 				instantVelY = 0;
 			}
-			else if (isClimbing && ladder.atTheBottom(GetY2())) {
+			else if (isClimbing && ladder->atTheBottom(GetY2())) {
 				SetIsClimbing(false);
 			}
 		}
 
 		if (isJumping) {
-			if (isOnTheGround) {
+			if (IsOnTheGround()) {
 				instantVelY = jumpVel;
 				y += instantVelY;
 				//rising = true;
@@ -342,9 +342,10 @@ namespace game_framework {
 		}
 	}
 
-	void CPlayer::IsOnTheGround()
+	bool CPlayer::IsOnTheGround()
 	{
-		isOnTheGround = floors.isFloor(GetMidX(), GetY2(), instantVelY);
+		isOnTheGround = floors->isFloor(GetMidX(), GetY2(), instantVelY);
+		return isOnTheGround;
 	}
 	
 	void CPlayer::SetIsClimbing(bool flag) 
@@ -357,11 +358,16 @@ namespace game_framework {
 		/*if (rising) {
 			return true;
 		}*/
-		isInTheAir = !(isOnTheGround || isClimbing);
+		isInTheAir = !(IsOnTheGround() || isClimbing);
 		return isInTheAir;
 	}
 
 	bool CPlayer::Attacking() {
 		return isAttacking;
+	}
+	void CPlayer::SetMap(Platform *plat, Ladder *lad)
+	{
+		floors = plat;
+		ladder = lad;
 	}
 }

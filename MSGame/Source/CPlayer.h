@@ -34,8 +34,9 @@ namespace game_framework {
 		void SetXY(int nx, int ny);		// 設定擦子左上角座標
 		void SetIsClimbing(bool flag);
 		bool IsInTheAir();
-		void IsOnTheGround();
+		bool IsOnTheGround();
 		bool Attacking();
+		void SetMap(Platform *plat, Ladder *lad);
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
 		int x, y;			// 玩家左上角座標
@@ -60,7 +61,7 @@ namespace game_framework {
 		int g;				//加速度
 		int superStateCount;
 		int superStateCounter;
-		Platform floors;
-		Ladder ladder;
+		Platform *floors;
+		Ladder *ladder;
 	};
 }

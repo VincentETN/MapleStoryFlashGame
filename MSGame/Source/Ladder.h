@@ -9,6 +9,7 @@ namespace game_framework {
 		int getY1();
 		int getX2();	//¥k¤U
 		int getY2();
+		void add(tuple<int, int, int, int> ladder);
 		void setXY(int nx1, int ny1, int nx2, int ny2);
 		//int movingSpeed();	//tell player step
 		bool isLadder(int tx, int ty);

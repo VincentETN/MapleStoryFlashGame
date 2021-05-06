@@ -218,8 +218,8 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
 	player.OnMove();
-	player.IsOnTheGround();
-	player.IsInTheAir();
+	//player.IsOnTheGround();
+	//player.IsInTheAir();
 	m1.OnMove();
 	if (m1.isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
 		player.SetGetHurt(true);
@@ -261,6 +261,8 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	player.LoadBitmap();
 	m1.LoadBitmap();
 	background.LoadBitmap(stage1_background);					// 載入背景的圖形
+	map.MapInit();
+	player.SetMap(map.GetPlatform(), map.GetLadder());
 	//
 	// 完成部分Loading動作，提高進度
 	//

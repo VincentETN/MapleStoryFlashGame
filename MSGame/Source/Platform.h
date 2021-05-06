@@ -5,6 +5,7 @@ namespace game_framework {
 	class Platform {
 	public:
 		Platform();
+		void add(tuple<string, int, int, int, int> plat);
 		int getStandPointY(int tx);
 		int movingSpeed();	//tell player step
 		bool isFloor(int tx, int ty, int vy);	//vy¥Î¨Ó¹w´ú = velocity of y

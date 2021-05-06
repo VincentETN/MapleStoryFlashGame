@@ -9,20 +9,24 @@
 namespace game_framework {
 	Platform::Platform() {
 		x1 = y1 = x2 = y2 = 0;
-		floors.push_back(make_tuple("f", 380, 460, 600, 480));		//f1
-		floors.push_back(make_tuple("s", 315, 420, 380, 460));
-		floors.push_back(make_tuple("f", 40, 420, 315, 480));		//f2
-		floors.push_back(make_tuple("f", 355, 387, 430, 397));		//f3
-		floors.push_back(make_tuple("f", 430, 355, 600, 365));		//f4
-		floors.push_back(make_tuple("f", 325, 284, 600, 294));		//f5
-		floors.push_back(make_tuple("f", 40, 284, 285, 294));		//f6
-		floors.push_back(make_tuple("f", 40, 177, 142, 187));		//f7
-		floors.push_back(make_tuple("f", 175, 177, 465, 187));		//f8
-		floors.push_back(make_tuple("f", 495, 177, 565, 187));		//f9
-		floors.push_back(make_tuple("f", 323, 74, 600, 84));		//f10
-		floors.push_back(make_tuple("f", 40, 74, 283, 84));			//f11
+		floors.reserve(20);
+		//floors.push_back(make_tuple("f", 380, 460, 600, 480));		//f1
+		//floors.push_back(make_tuple("s", 315, 420, 380, 460));
+		//floors.push_back(make_tuple("f", 40, 420, 315, 480));		//f2
+		//floors.push_back(make_tuple("f", 355, 387, 430, 397));		//f3
+		//floors.push_back(make_tuple("f", 430, 355, 600, 365));		//f4
+		//floors.push_back(make_tuple("f", 325, 284, 600, 294));		//f5
+		//floors.push_back(make_tuple("f", 40, 284, 285, 294));		//f6
+		//floors.push_back(make_tuple("f", 40, 177, 142, 187));		//f7
+		//floors.push_back(make_tuple("f", 175, 177, 465, 187));		//f8
+		//floors.push_back(make_tuple("f", 495, 177, 565, 187));		//f9
+		//floors.push_back(make_tuple("f", 323, 74, 600, 84));		//f10
+		//floors.push_back(make_tuple("f", 40, 74, 283, 84));			//f11
+	}
 
-		//onThisFloor = tuple<int, int, int, int>(40, 480, 600, 480);
+	void Platform::add(tuple<string, int, int, int, int> plat)
+	{
+		floors.push_back(plat);
 	}
 
 	int Platform::getStandPointY(int tx) {
