@@ -196,6 +196,8 @@ character_left_attack1_2 BITMAP                  "..\\Resource\\Character\\attac
 
 character_right_attack1_2 BITMAP                  "..\\Resource\\Character\\attack\\character_right_attack1_2.bmp"
 
+stage3_background       BITMAP                  "..\\Resource\\Stage3BG.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

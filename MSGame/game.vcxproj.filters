@@ -360,5 +360,8 @@
     <Image Include="Resource\Stage2BG.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resource\Stage3BG.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

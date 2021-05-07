@@ -384,6 +384,7 @@
     <Image Include="Resource\Monster\snake_right.bmp" />
     <Image Include="Resource\Stage1BG.bmp" />
     <Image Include="Resource\Stage2BG.bmp" />
+    <Image Include="Resource\Stage3BG.bmp" />
     <Image Include="res\bitmap3.bmp" />
     <Image Include="res\game.ico" />
   </ItemGroup>
