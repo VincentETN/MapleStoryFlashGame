@@ -10,11 +10,30 @@ namespace game_framework {
 	
 	StageMap::StageMap() {
 		stage = 1;
+		monsters.reserve(10);
 	}
 
 	void StageMap::MapInit() {
 		CreatePlatform();
 		CreateLadder();
+		CreateMonsters();
+	}
+
+	void StageMap::CheckStage()
+	{
+		bool isAllDead = false;
+		for (auto m = monsters.begin(); m != monsters.end(); m++) {
+			if (!m->IsDead()) {
+				isAllDead = false;
+				break;
+			}
+			else {
+				isAllDead = true;
+			}
+		}
+		if (isAllDead) {
+			stage = 2;
+		}
 	}
 
 	void StageMap::CreatePlatform() {
@@ -41,13 +60,18 @@ namespace game_framework {
 		ladder1.add(make_tuple(432, 74, 452, 167));		//f8 to f10
 	}
 
+	void StageMap::CreateMonsters()
+	{
+		monsters.push_back(Monster(1, 40, 315, 385));
+	}
+
 	Platform* StageMap::GetPlatform() {
 		switch (stage)
 		{
 		case 1:
 			return &plat1;
 		default:
-			return nullptr;
+			return &plat1;
 		}
 	}
 	Ladder * StageMap::GetLadder()
@@ -57,7 +81,36 @@ namespace game_framework {
 		case 1:
 			return &ladder1;
 		default:
-			return nullptr;
+			return &ladder1;
+		}
+	}
+	vector<Monster>* StageMap::GetMonsters()
+	{
+		return &monsters;
+	}
+	
+	void StageMap::LoadBitmap()
+	{
+		background1.LoadBitmap(stage1_background);
+		background1.SetTopLeft(40, 0);
+		background2.LoadBitmap(stage2_background);
+		background2.SetTopLeft(40, 0);
+	}
+
+	void StageMap::OnShow()
+	{
+		switch (stage)
+		{
+		case 1:
+			background1.SetTopLeft(40, 0);
+			background1.ShowBitmap();
+			break;
+		case 2:
+			background2.SetTopLeft(40, 0);
+			background2.ShowBitmap();
+			break;
+		default:
+			break;
 		}
 	}
 }

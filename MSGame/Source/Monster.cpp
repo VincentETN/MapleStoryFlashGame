@@ -14,11 +14,13 @@ namespace game_framework {
 		leftBound = lb;
 		rightBound = rb;
 		this->y = y;
-		HP = 2;
+		HP = 5;
 		step = 1;
 		isMovingLeft = isMovingRight = false;
 		isFacingRight = false;
 		isHurt = false;
+		isAlive = true;
+		isDead = false;
 	}
 
 	int Monster::GetX1()
@@ -60,6 +62,11 @@ namespace game_framework {
 		return HP > 0;
 	}
 
+	bool Monster::IsDead()
+	{
+		return isDead;
+	}
+
 	void Monster::SetXY(int nx, int ny)
 	{
 		x = nx;
@@ -79,8 +86,10 @@ namespace game_framework {
 		dyingLeft.AddBitmap(snail_left_die1, RGB(255, 0, 255));
 		dyingLeft.AddBitmap(snail_left_die2, RGB(255, 0, 255));
 		dyingLeft.AddBitmap(snail_left_die3, RGB(255, 0, 255));
+		dyingLeft.AddBitmap(snail_left_die3, RGB(255, 0, 255));
 		dyingRight.AddBitmap(snail_right_die1, RGB(255, 0, 255));
 		dyingRight.AddBitmap(snail_right_die2, RGB(255, 0, 255));
+		dyingRight.AddBitmap(snail_right_die3, RGB(255, 0, 255));
 		dyingRight.AddBitmap(snail_right_die3, RGB(255, 0, 255));
 	}
 
@@ -92,69 +101,81 @@ namespace game_framework {
 		dyingRight.OnMove();
 		srand((unsigned int) time(NULL));
 		int randStatus = rand() % 3;
-		if (randStatus == 0 && x > leftBound) {
-			isMovingLeft = true;
-			isMovingRight = false;
-			isFacingRight = false;
-		}
-		else if (randStatus == 1 && x+moveRight.Width() < rightBound) {
-			isMovingLeft = false;
-			isMovingRight = true;
-			isFacingRight = true;
-		}
-		else {
-			isMovingLeft = false;
-			isMovingRight = false;
-		}
-		if (!isHurt) {
-			if (isMovingLeft) {
-				x -= step;
+		if (IsAlive()) {
+			if (randStatus == 0 && x > leftBound) {
+				isMovingLeft = true;
+				isMovingRight = false;
+				isFacingRight = false;
 			}
-			else if (isMovingRight) {
-				x += step;
+			else if (randStatus == 1 && x + moveRight.Width() < rightBound) {
+				isMovingLeft = false;
+				isMovingRight = true;
+				isFacingRight = true;
+			}
+			else {
+				isMovingLeft = false;
+				isMovingRight = false;
+			}
+			if (!isHurt) {
+				if (isMovingLeft) {
+					x -= step;
+				}
+				else if (isMovingRight) {
+					x += step;
+				}
 			}
 		}
 	}
 
 	void Monster::OnShow()
 	{
-		if (IsAlive()) {
-			if (isFacingRight) {
-				if (isHurt) {
-					getHurtRight.SetTopLeft(x, y);
-					getHurtRight.SetDelayCount(5);
-					getHurtRight.OnShow();
-					isHurt = false;
-				}
-				else {
-					moveRight.SetTopLeft(x, y);
-					moveRight.SetDelayCount(5);
-					moveRight.OnShow();
-				}
+		if (!isDead) {
+			if (IsAlive()) {
+				if (isFacingRight) {
+					if (isHurt) {
+						getHurtRight.SetTopLeft(x, y);
+						getHurtRight.SetDelayCount(5);
+						getHurtRight.OnShow();
+						isHurt = false;
+					}
+					else {
+						moveRight.SetTopLeft(x, y);
+						moveRight.SetDelayCount(5);
+						moveRight.OnShow();
+					}
 
-			}
-			else {
-				if (isHurt) {
-					getHurtLeft.SetTopLeft(x, y);
-					getHurtLeft.SetDelayCount(5);
-					getHurtLeft.OnShow();
-					isHurt = false;
 				}
 				else {
-					moveLeft.SetTopLeft(x, y);
-					moveLeft.SetDelayCount(5);
-					moveLeft.OnShow();
+					if (isHurt) {
+						getHurtLeft.SetTopLeft(x, y);
+						getHurtLeft.SetDelayCount(5);
+						getHurtLeft.OnShow();
+						isHurt = false;
+					}
+					else {
+						moveLeft.SetTopLeft(x, y);
+						moveLeft.SetDelayCount(5);
+						moveLeft.OnShow();
+					}
 				}
 			}
-		}
-		else {
-			if (isFacingRight) {
-				dyingRight.SetTopLeft(x, y);
-				dyingRight.OnShow();
-			}
 			else {
-				dyingLeft.SetTopLeft(x, y);
-				dyingLeft.OnShow();
+				if (isFacingRight) {
+					dyingRight.SetTopLeft(x, y);
+					dyingRight.SetDelayCount(10);
+					dyingRight.OnShow();
+					if (dyingRight.IsFinalBitmap()) {
+						isDead = true;
+					}
+				}
+				else {
+					dyingLeft.SetTopLeft(x, y);
+					dyingLeft.SetDelayCount(10);
+					dyingLeft.OnShow();
+					if (dyingLeft.IsFinalBitmap()) {
+						isDead = true;
+					}
+				}
 			}
 		}
 	}

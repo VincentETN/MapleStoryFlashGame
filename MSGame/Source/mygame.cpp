@@ -201,7 +201,7 @@ void CGameStateRun::OnBeginState()
 {
 	const int BACKGROUND_X = 40;
 	const int ANIMATION_SPEED = 15;
-	background.SetTopLeft(BACKGROUND_X,0);				// 設定背景的起始座標
+	//background.SetTopLeft(BACKGROUND_X,0);				// 設定背景的起始座標
 
 	//CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
 	//CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
@@ -217,18 +217,22 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
+	map.CheckStage();
 	player.OnMove();
 	//player.IsOnTheGround();
 	//player.IsInTheAir();
-	m1.OnMove();
-	if (m1.isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
-		player.SetGetHurt(true);
+	//m1.OnMove();
+	for (vector<Monster>::iterator m = monsters->begin(); m != monsters->end(); m++) {
+		m->OnMove();
+		if (m->isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
+			player.SetGetHurt(true);
+		}else {
+			player.SetGetHurt(false);
+		}
+		if (player.Attacking() && m->isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2()))
+			m->GetHurt(1);
 	}
-	else {
-		player.SetGetHurt(false);
-	}
-	if (player.Attacking() && m1.isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2()))
-		m1.GetHurt(1);
+	
 	//
 	// 判斷擦子是否碰到球
 	//
@@ -259,10 +263,15 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 開始載入資料
 	//
 	player.LoadBitmap();
-	m1.LoadBitmap();
-	background.LoadBitmap(stage1_background);					// 載入背景的圖形
+	//m1.LoadBitmap();
+	//background.LoadBitmap(stage1_background);					// 載入背景的圖形
 	map.MapInit();
+	map.LoadBitmap();
 	player.SetMap(map.GetPlatform(), map.GetLadder());
+	monsters = map.GetMonsters();
+	for (size_t i = 0; i < monsters->size(); i++) {
+		monsters->at(i).LoadBitmap();
+	}
 	//
 	// 完成部分Loading動作，提高進度
 	//
@@ -365,9 +374,13 @@ void CGameStateRun::OnShow()
 	//        否則當視窗重新繪圖時(OnDraw)，物件就會移動，看起來會很怪。換個術語
 	//        說，Move負責MVC中的Model，Show負責View，而View不應更動Model。
 	//
-	background.ShowBitmap();			// 貼上背景圖
+	//background.ShowBitmap();			// 貼上背景圖
+	map.OnShow();
 	player.OnShow();
-	m1.OnShow();
+	//m1.OnShow();
+	for (size_t i = 0; i < monsters->size(); i++) {
+		monsters->at(i).OnShow();
+	}
 	//
 	//  貼上左上及右下角落的圖
 	//

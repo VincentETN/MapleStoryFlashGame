@@ -12,6 +12,7 @@ namespace game_framework {
 		bool isCollision(int tx1, int ty1, int tx2, int ty2);	//是否與target碰撞
 		void GetHurt(int dmg);
 		bool IsAlive();											// 是否活著
+		bool IsDead();
 		void SetXY(int nx, int ny);
 		void LoadBitmap();										// 載入圖形
 		void OnMove();											// 移動
@@ -29,5 +30,6 @@ namespace game_framework {
 		bool isMovingRight;
 		bool isFacingRight;			//面向右為true 面向左為false
 	private: 
+		bool isDead;
 	};
 }
