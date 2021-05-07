@@ -95,11 +95,10 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		//CMovingBitmap	background;
 		CPlayer			player;
-		Monster m1 = Monster(1, 40, 315, 385);
 		StageMap		map;
 		vector<Monster> *monsters;
+		void PlayerMonsterInteraction(CPlayer *player, vector<Monster> *monsters);
 	};  
 
 	/////////////////////////////////////////////////////////////////////////////

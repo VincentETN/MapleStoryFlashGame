@@ -33,6 +33,7 @@ namespace game_framework {
 		}
 		if (isAllDead) {
 			stage = 2;
+			isAllDead = false;
 		}
 	}
 
@@ -62,7 +63,8 @@ namespace game_framework {
 
 	void StageMap::CreateMonsters()
 	{
-		monsters.push_back(Monster(1, 40, 315, 385));
+		monsters.push_back(Monster(1, 40, 315, 200, 385));
+
 	}
 
 	Platform* StageMap::GetPlatform() {

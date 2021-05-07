@@ -8,13 +8,14 @@
 //#include "CPlayer.h"
 
 namespace game_framework {
-	Monster::Monster(int id, int lb, int rb, int y)
+	Monster::Monster(int id, int lb, int rb, int x, int y)
 	{
 		monsterID = id;
 		leftBound = lb;
 		rightBound = rb;
+		this->x = x;
 		this->y = y;
-		HP = 5;
+		HP = 100;
 		step = 1;
 		isMovingLeft = isMovingRight = false;
 		isFacingRight = false;
@@ -116,6 +117,7 @@ namespace game_framework {
 				isMovingLeft = false;
 				isMovingRight = false;
 			}
+
 			if (!isHurt) {
 				if (isMovingLeft) {
 					x -= step;
@@ -123,6 +125,11 @@ namespace game_framework {
 				else if (isMovingRight) {
 					x += step;
 				}
+			}
+			else {
+				isMovingLeft = false;
+				isMovingRight = false;
+				isHurt = false;
 			}
 		}
 	}
@@ -136,7 +143,6 @@ namespace game_framework {
 						getHurtRight.SetTopLeft(x, y);
 						getHurtRight.SetDelayCount(5);
 						getHurtRight.OnShow();
-						isHurt = false;
 					}
 					else {
 						moveRight.SetTopLeft(x, y);
@@ -150,7 +156,6 @@ namespace game_framework {
 						getHurtLeft.SetTopLeft(x, y);
 						getHurtLeft.SetDelayCount(5);
 						getHurtLeft.OnShow();
-						isHurt = false;
 					}
 					else {
 						moveLeft.SetTopLeft(x, y);

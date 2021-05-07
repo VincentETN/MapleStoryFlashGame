@@ -207,7 +207,6 @@ void CGameStateRun::OnBeginState()
 	//CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
 	//CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
 	player.Initialize();
-	m1.SetXY(120, 385);
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -219,19 +218,15 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	map.CheckStage();
 	player.OnMove();
-	//player.IsOnTheGround();
-	//player.IsInTheAir();
-	//m1.OnMove();
 	for (vector<Monster>::iterator m = monsters->begin(); m != monsters->end(); m++) {
 		m->OnMove();
-		if (m->isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
+		/*if (m->isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
 			player.SetGetHurt(true);
-		}else {
-			player.SetGetHurt(false);
 		}
 		if (player.Attacking() && m->isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2()))
-			m->GetHurt(1);
+			m->GetHurt(1);*/
 	}
+	PlayerMonsterInteraction(&player, monsters);
 	
 	//
 	// 判斷擦子是否碰到球
@@ -263,8 +258,6 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 開始載入資料
 	//
 	player.LoadBitmap();
-	//m1.LoadBitmap();
-	//background.LoadBitmap(stage1_background);					// 載入背景的圖形
 	map.MapInit();
 	map.LoadBitmap();
 	player.SetMap(map.GetPlatform(), map.GetLadder());
@@ -374,10 +367,8 @@ void CGameStateRun::OnShow()
 	//        否則當視窗重新繪圖時(OnDraw)，物件就會移動，看起來會很怪。換個術語
 	//        說，Move負責MVC中的Model，Show負責View，而View不應更動Model。
 	//
-	//background.ShowBitmap();			// 貼上背景圖
 	map.OnShow();
 	player.OnShow();
-	//m1.OnShow();
 	for (size_t i = 0; i < monsters->size(); i++) {
 		monsters->at(i).OnShow();
 	}
@@ -385,4 +376,21 @@ void CGameStateRun::OnShow()
 	//  貼上左上及右下角落的圖
 	//
 }
+
+void CGameStateRun::PlayerMonsterInteraction(CPlayer * player, vector<Monster>* monsters)
+{
+	tuple<int, int, int, int> playerAR = player->GetAttackRange();
+	for (auto m = monsters->begin(); m != monsters->end(); m++) {
+		if (m->isCollision(player->GetX1(), player->GetY1(), player->GetX2(), player->GetY2())) {
+			player->SetGetHurt(true);
+		}
+		if (player->Attacking()) {
+			if (m->isCollision(get<0>(playerAR), get<1>(playerAR), get<2>(playerAR), get<3>(playerAR))) {
+				m->GetHurt(1);
+			}
+		}
+	}
+
+}
+
 }

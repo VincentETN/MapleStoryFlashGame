@@ -4,7 +4,7 @@ namespace game_framework {
 
 	class Monster {
 	public:
-		Monster(int id, int lb, int rb, int y);
+		Monster(int id, int lb, int rb, int x, int y);
 		int GetX1();
 		int GetY1();
 		int GetX2();

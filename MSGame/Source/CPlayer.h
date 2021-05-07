@@ -36,6 +36,7 @@ namespace game_framework {
 		bool IsInTheAir();
 		bool IsOnTheGround();
 		bool Attacking();
+		tuple<int, int, int, int> GetAttackRange();
 		void SetMap(Platform *plat, Ladder *lad);
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫

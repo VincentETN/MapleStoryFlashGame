@@ -103,6 +103,11 @@ namespace game_framework {
 
 	void CPlayer::OnMove()	//²¾°Ê
 	{
+		climb.OnMove();
+		attackLeft.OnMove();
+		attackRight.OnMove();
+		walkLeft.OnMove();
+		walkRight.OnMove();
 		int STEP_SIZE = floors->movingSpeed();
 		x += instantVelX;
 		y += instantVelY;
@@ -195,10 +200,13 @@ namespace game_framework {
 				instantVelX = -STEP_SIZE;
 			}
 		}
+		else if (superState) {
+			isHurt = false;
+		}
 
-		if (--superStateCounter <= 0)
+		if (--superStateCounter <= 0) {
 			superState = false;
-		
+		}
 
 		if (isAttacking) {
 			instantVelX = 0;
@@ -277,7 +285,6 @@ namespace game_framework {
 			{
 				climb.SetTopLeft(x, y);
 				climb.OnShow();
-				climb.OnMove();
 			}
 			else {
 				ladderIdle.SetTopLeft(x, y);
@@ -290,7 +297,6 @@ namespace game_framework {
 					attackLeft.SetTopLeft(x-40, y+5);
 					attackLeft.SetDelayCount(10);
 					attackLeft.OnShow();
-					attackLeft.OnMove();
 					if (!attackKeyDown && attackLeft.IsFinalBitmap()) {
 						SetAttacking(false);
 					}
@@ -302,7 +308,6 @@ namespace game_framework {
 					attackRight.SetTopLeft(x+10, y+5);
 					attackRight.SetDelayCount(10);
 					attackRight.OnShow();
-					attackRight.OnMove();
 					if (!attackKeyDown && attackRight.IsFinalBitmap()) {
 						SetAttacking(false);
 					}
@@ -314,12 +319,10 @@ namespace game_framework {
 			else if (isMovingLeft) {
 				walkLeft.SetTopLeft(x, y);
 				walkLeft.OnShow();
-				walkLeft.OnMove();
 			}
 			else if (isMovingRight) {
 				walkRight.SetTopLeft(x, y);
 				walkRight.OnShow();
-				walkRight.OnMove();
 			}
 			else if (isMovingDown) {	
 				if (isFacingLeft) {
@@ -365,6 +368,21 @@ namespace game_framework {
 	bool CPlayer::Attacking() {
 		return isAttacking;
 	}
+	tuple<int, int, int, int> CPlayer::GetAttackRange()
+	{
+		if (isAttacking) {
+			if (isFacingLeft) {
+				return make_tuple(x-30, y+30, x, y+60);
+			}
+			else {
+				return make_tuple(GetX2(), y + 30, GetX2()+30, y + 60);
+			}
+		}
+		else {
+			return make_tuple(NULL, NULL, NULL, NULL);
+		}
+	}
+
 	void CPlayer::SetMap(Platform *plat, Ladder *lad)
 	{
 		floors = plat;
