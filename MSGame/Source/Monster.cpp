@@ -15,7 +15,7 @@ namespace game_framework {
 		rightBound = rb;
 		this->x = x;
 		this->y = y;
-		HP = 100;
+		HP = 60;
 		step = 1;
 		isMovingLeft = isMovingRight = false;
 		isFacingRight = false;

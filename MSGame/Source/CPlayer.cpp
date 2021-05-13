@@ -50,7 +50,7 @@ namespace game_framework {
 	void CPlayer::Initialize()
 	{
 		const int X_POS = 504;
-		const int Y_POS = 400;
+		const int Y_POS = 360;
 		superStateCount = 50;
 		x = X_POS;
 		y = Y_POS;
@@ -109,11 +109,15 @@ namespace game_framework {
 		walkLeft.OnMove();
 		walkRight.OnMove();
 		int STEP_SIZE = floors->movingSpeed();
-		x += instantVelX;
+		if (GetMidX()+instantVelX > 40 && GetMidX()+instantVelX < 600) {
+			x += instantVelX;
+		}
 		y += instantVelY;
 		if (IsInTheAir()) {  // 當y座標還沒碰到地板
 			//y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
-			instantVelY += g;		// 受重力影響，下次的下降速度增加
+			if (instantVelY < 20) {
+				instantVelY += g;		// 受重力影響，下次的下降速度增加
+			}
 			if (instantVelY > 0) {
 				rising = false;
 			}
@@ -125,7 +129,8 @@ namespace game_framework {
 				SetIsClimbing(false);
 			}
 		}
-		else if(!isClimbing){
+		
+		if(IsOnTheGround()){
 			instantVelY = 0;
 			y = floors->getStandPointY(GetMidX()) - idleLeft.Height();
 			if(!isMovingLeft && !isMovingRight){
@@ -183,7 +188,7 @@ namespace game_framework {
 			if (IsOnTheGround()) {
 				instantVelY = jumpVel;
 				y += instantVelY;
-				//rising = true;
+				rising = true;
 			}
 		}
 

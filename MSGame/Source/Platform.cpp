@@ -53,20 +53,22 @@ namespace game_framework {
 	bool Platform::isFloor(int tx, int ty, int vy)
 	{
 		for (int i = 0; i < int(floors.size()); i++) {
-			if (getType() == "f") {
-				if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty >= get<2>(floors[i]) - vy && ty <= get<4>(floors[i])) {
-					onThisFloor = floors[i];
-					return true;
-				}
-			}
-			else if (getType() == "s") {
-				onThisFloor = floors[i];
-				assignXY();
-				if (tx >= x1 && tx <= x2 && ty >= (y1 + (y2 - y1)*(tx - x1) / (x2 - x1)) - vy) {
-					if (y2 > y1 && ty <= y2) {
+			if (get<0>(floors[i]) == "f") {
+				if (ty <= get<2>(floors[i])) {
+					if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty+vy >= get<2>(floors[i]) && ty <= get<4>(floors[i])) {
+						onThisFloor = floors[i];
 						return true;
 					}
-					else if (y1 > y2 && ty <= y1) {
+				}
+			}
+			else if (get<0>(floors[i]) == "s") {
+				if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty+vy >= (get<2>(floors[i]) + (get<4>(floors[i]) - get<2>(floors[i]))*(tx - get<1>(floors[i])) / (get<3>(floors[i]) - get<1>(floors[i])))) {
+					if (get<4>(floors[i]) > get<2>(floors[i]) && ty <= get<4>(floors[i])) {
+						onThisFloor = floors[i];
+						return true;
+					}
+					else if (get<2>(floors[i]) > get<4>(floors[i]) && ty <= get<2>(floors[i])) {
+						onThisFloor = floors[i];
 						return true;
 					}
 				}
