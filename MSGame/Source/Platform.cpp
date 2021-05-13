@@ -8,7 +8,7 @@
 
 namespace game_framework {
 	Platform::Platform() {
-		x1 = y1 = x2 = y2 = 0;
+		onThisFloor = make_tuple("f", 40, 480, 600, 480);;
 		floors.reserve(20);
 		//floors.push_back(make_tuple("f", 380, 460, 600, 480));		//f1
 		//floors.push_back(make_tuple("s", 315, 420, 380, 460));

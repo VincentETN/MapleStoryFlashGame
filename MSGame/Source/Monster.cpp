@@ -46,6 +46,8 @@ namespace game_framework {
 
 	bool Monster::isCollision(int tx1, int ty1, int tx2, int ty2)
 	{
+		if (!IsAlive())
+			return false;
 		if (GetX1() <= tx2 && GetY1() <= ty2 && GetX2() >= tx1 && GetY2() >= ty1)
 			return true;
 		else

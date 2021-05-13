@@ -216,7 +216,7 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	//
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
-	map.CheckStage();
+	CheckStage();
 	player.OnMove();
 	for (vector<Monster>::iterator m = monsters->begin(); m != monsters->end(); m++) {
 		m->OnMove();
@@ -260,11 +260,12 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	player.LoadBitmap();
 	map.MapInit();
 	map.LoadBitmap();
+	map.LoadMonsterBitmap();
 	player.SetMap(map.GetPlatform(), map.GetLadder());
 	monsters = map.GetMonsters();
-	for (size_t i = 0; i < monsters->size(); i++) {
+	/*for (size_t i = 0; i < monsters->size(); i++) {
 		monsters->at(i).LoadBitmap();
-	}
+	}*/
 	//
 	// 完成部分Loading動作，提高進度
 	//
@@ -375,6 +376,30 @@ void CGameStateRun::OnShow()
 	//
 	//  貼上左上及右下角落的圖
 	//
+}
+
+void CGameStateRun::CheckStage()
+{
+	bool isAllDead = false;
+	for (auto m = monsters->begin(); m != monsters->end(); m++) {
+		if (!m->IsDead()) {
+			isAllDead = false;
+			break;
+		}
+		else {
+			isAllDead = true;
+		}
+	}
+	if (isAllDead) {
+		map.ChangeStage();
+		monsters = map.GetMonsters();
+		player.SetMap(map.GetPlatform(), map.GetLadder());
+		player.Initialize();
+		isAllDead = false;
+	}
+	if (map.GetStage() >= 3) {
+		GotoGameState(GAME_STATE_OVER);
+	}
 }
 
 void CGameStateRun::PlayerMonsterInteraction(CPlayer * player, vector<Monster>* monsters)

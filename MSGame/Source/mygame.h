@@ -98,6 +98,7 @@ namespace game_framework {
 		CPlayer			player;
 		StageMap		map;
 		vector<Monster> *monsters;
+		void CheckStage();
 		void PlayerMonsterInteraction(CPlayer *player, vector<Monster> *monsters);
 	};  
 
