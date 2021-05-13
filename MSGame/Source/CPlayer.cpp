@@ -50,13 +50,13 @@ namespace game_framework {
 	void CPlayer::Initialize()
 	{
 		const int X_POS = 504;
-		const int Y_POS = 360;
+		const int Y_POS = 380;
 		superStateCount = 50;
 		x = X_POS;
 		y = Y_POS;
 		rising = false;
 		g = 3;
-		jumpVel = -14;
+		jumpVel = -12;
 		instantVelX = 0;
 		instantVelY = 0;
 		isFacingLeft = isOnTheGround = true;

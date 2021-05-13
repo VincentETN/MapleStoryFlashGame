@@ -9,12 +9,12 @@
 namespace game_framework {
 	
 	StageMap::StageMap() {
-		stage = 1;
 		monsters1.reserve(10);
 		monsters2.reserve(10);
 	}
 
 	void StageMap::MapInit() {
+		stage = 1;
 		CreatePlatform();
 		CreateLadder();
 		CreateMonsters();
@@ -40,13 +40,13 @@ namespace game_framework {
 		plat1.add(make_tuple("f", 40, 420, 315, 480));		//f2
 		plat1.add(make_tuple("f", 355, 387, 430, 397));		//f3
 		plat1.add(make_tuple("f", 430, 355, 600, 365));		//f4
-		plat1.add(make_tuple("f", 325, 284, 600, 294));		//f5
-		plat1.add(make_tuple("f", 40, 284, 285, 294));		//f6
-		plat1.add(make_tuple("f", 40, 177, 142, 187));		//f7
-		plat1.add(make_tuple("f", 175, 177, 465, 187));		//f8
+		plat1.add(make_tuple("f", 320, 284, 600, 294));		//f5
+		plat1.add(make_tuple("f", 40, 284, 290, 294));		//f6
+		plat1.add(make_tuple("f", 40, 177, 145, 187));		//f7
+		plat1.add(make_tuple("f", 170, 177, 465, 187));		//f8
 		plat1.add(make_tuple("f", 495, 177, 565, 187));		//f9
-		plat1.add(make_tuple("f", 323, 74, 600, 84));		//f10
-		plat1.add(make_tuple("f", 40, 74, 283, 84));		//f11
+		plat1.add(make_tuple("f", 320, 74, 600, 84));		//f10
+		plat1.add(make_tuple("f", 40, 74, 285, 84));		//f11
 		//stage 2 map
 		plat2.add(make_tuple("f", 40, 459, 600, 480));		//f1
 		plat2.add(make_tuple("s", 73, 461, 182, 388));		//s1
@@ -80,9 +80,18 @@ namespace game_framework {
 
 	void StageMap::CreateMonsters()
 	{
-		monsters1.push_back(Monster(1, 40, 315, 200, 385));
+		monsters1.push_back(Monster(1, 40, 315, 200, 383));		//f2
+		monsters1.push_back(Monster(1, 320, 600, 350, 244));	//f5
+		monsters1.push_back(Monster(1, 40, 290, 50, 244));		//f6
+		monsters1.push_back(Monster(1, 170, 465, 400, 137));	//f8
+		monsters1.push_back(Monster(1, 320, 600, 350, 34));		//f10
+		//monsters1.push_back(Monster(1, 40, 285, 60, 34));		//f11
 
-		monsters2.push_back(Monster(1, 40, 600, 200, 425));
+		monsters2.push_back(Monster(1, 40, 600, 380, 420));		//f1
+		monsters2.push_back(Monster(1, 180, 250, 210, 350));	//f2
+		monsters2.push_back(Monster(1, 40, 400, 180, 245));		//f7
+		monsters2.push_back(Monster(1, 40, 230, 190, 140));		//f8
+		monsters2.push_back(Monster(1, 250, 600, 500, 140));		//f9
 	}
 
 	Platform* StageMap::GetPlatform() {

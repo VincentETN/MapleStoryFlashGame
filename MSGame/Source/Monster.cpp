@@ -15,13 +15,17 @@ namespace game_framework {
 		rightBound = rb;
 		this->x = x;
 		this->y = y;
-		HP = 60;
+		HP = 30;
 		step = 1;
 		isMovingLeft = isMovingRight = false;
 		isFacingRight = false;
 		isHurt = false;
 		isAlive = true;
 		isDead = false;
+	}
+
+	void Monster::initialize()
+	{
 	}
 
 	int Monster::GetX1()

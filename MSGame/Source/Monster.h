@@ -5,6 +5,7 @@ namespace game_framework {
 	class Monster {
 	public:
 		Monster(int id, int lb, int rb, int x, int y);
+		void initialize();
 		int GetX1();
 		int GetY1();
 		int GetX2();
