@@ -363,5 +363,14 @@
     <Image Include="Resource\Stage3BG.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resource\menu.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\startbutton.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\startbutton2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

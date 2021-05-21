@@ -360,6 +360,7 @@
     <Image Include="Resource\Character\character_right_stand.bmp" />
     <Image Include="Resource\Character\character_right_walk1.bmp" />
     <Image Include="Resource\Character\character_right_walk2.bmp" />
+    <Image Include="Resource\menu.bmp" />
     <Image Include="Resource\Monster\snail\snail_left.bmp" />
     <Image Include="Resource\Monster\snail\snail_left_die1.bmp" />
     <Image Include="Resource\Monster\snail\snail_left_die2.bmp" />
@@ -385,6 +386,8 @@
     <Image Include="Resource\Stage1BG.bmp" />
     <Image Include="Resource\Stage2BG.bmp" />
     <Image Include="Resource\Stage3BG.bmp" />
+    <Image Include="Resource\startbutton.bmp" />
+    <Image Include="Resource\startbutton2.bmp" />
     <Image Include="res\bitmap3.bmp" />
     <Image Include="res\game.ico" />
   </ItemGroup>

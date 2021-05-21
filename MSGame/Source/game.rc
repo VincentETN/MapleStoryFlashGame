@@ -198,6 +198,12 @@ character_right_attack1_2 BITMAP                  "..\\Resource\\Character\\atta
 
 stage3_background       BITMAP                  "..\\Resource\\Stage3BG.bmp"
 
+menu_background         BITMAP                  "..\\Resource\\menu.bmp"
+
+start_button            BITMAP                  "..\\Resource\\startbutton.bmp"
+
+start_button2           BITMAP                  "..\\Resource\\startbutton2.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
