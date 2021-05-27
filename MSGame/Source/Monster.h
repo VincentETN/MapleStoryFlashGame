@@ -4,7 +4,7 @@ namespace game_framework {
 
 	class Monster {
 	public:
-		Monster(int id, int lb, int rb, int x, int y);
+		Monster(int id, int num, int lb, int rb, int x, int y);
 		void initialize();
 		int GetX1();
 		int GetY1();
@@ -20,7 +20,7 @@ namespace game_framework {
 		void OnShow();											// 將圖形貼到畫面
 	protected:
 		CAnimation moveLeft, moveRight, getHurtLeft, getHurtRight, dyingLeft, dyingRight;
-		int monsterID;
+		int monsterID, number;
 		int leftBound, rightBound;
 		int x, y;
 		int HP;

@@ -80,18 +80,18 @@ namespace game_framework {
 
 	void StageMap::CreateMonsters()
 	{
-		monsters1.push_back(Monster(1, 40, 315, 200, 383));		//f2
-		monsters1.push_back(Monster(1, 320, 600, 350, 244));	//f5
-		monsters1.push_back(Monster(1, 40, 290, 50, 244));		//f6
-		monsters1.push_back(Monster(1, 170, 465, 400, 137));	//f8
-		monsters1.push_back(Monster(1, 320, 600, 350, 34));		//f10
+		monsters1.push_back(Monster(1, 1, 40, 315, 200, 383));		//f2
+		monsters1.push_back(Monster(1, 2, 320, 600, 350, 244));	//f5
+		monsters1.push_back(Monster(1, 3, 40, 290, 50, 244));		//f6
+		monsters1.push_back(Monster(1, 4, 170, 465, 400, 137));	//f8
+		monsters1.push_back(Monster(1, 5, 320, 600, 350, 34));		//f10
 		//monsters1.push_back(Monster(1, 40, 285, 60, 34));		//f11
 
-		monsters2.push_back(Monster(1, 40, 600, 380, 420));		//f1
-		monsters2.push_back(Monster(1, 180, 250, 210, 350));	//f2
-		monsters2.push_back(Monster(1, 40, 400, 180, 245));		//f7
-		monsters2.push_back(Monster(1, 40, 230, 190, 140));		//f8
-		monsters2.push_back(Monster(1, 250, 600, 500, 140));		//f9
+		monsters2.push_back(Monster(1, 1, 40, 600, 380, 420));		//f1
+		monsters2.push_back(Monster(1, 2, 180, 250, 210, 350));	//f2
+		monsters2.push_back(Monster(1, 3, 40, 400, 180, 245));		//f7
+		monsters2.push_back(Monster(1, 4, 40, 230, 190, 140));		//f8
+		monsters2.push_back(Monster(1, 5, 250, 600, 500, 140));		//f9
 	}
 
 	Platform* StageMap::GetPlatform() {

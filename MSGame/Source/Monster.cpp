@@ -8,9 +8,10 @@
 //#include "CPlayer.h"
 
 namespace game_framework {
-	Monster::Monster(int id, int lb, int rb, int x, int y)
+	Monster::Monster(int id, int num, int lb, int rb, int x, int y)
 	{
 		monsterID = id;
+		number = num;
 		leftBound = lb;
 		rightBound = rb;
 		this->x = x;
@@ -106,7 +107,7 @@ namespace game_framework {
 		moveRight.OnMove();
 		dyingLeft.OnMove();
 		dyingRight.OnMove();
-		srand((unsigned int) time(NULL));
+		srand(number*(unsigned int)time(NULL));
 		int randStatus = rand() % 3;
 		if (IsAlive()) {
 			if (randStatus == 0 && x > leftBound) {
