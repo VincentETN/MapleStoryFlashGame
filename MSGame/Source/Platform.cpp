@@ -55,19 +55,19 @@ namespace game_framework {
 		for (int i = 0; i < int(floors.size()); i++) {
 			if (get<0>(floors[i]) == "f") {
 				if (ty <= get<2>(floors[i])) {
-					if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty+vy >= get<2>(floors[i]) && ty <= get<4>(floors[i])) {
+					if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty+vy >= get<2>(floors[i])) {
 						onThisFloor = floors[i];
 						return true;
 					}
 				}
 			}
 			else if (get<0>(floors[i]) == "s") {
-				if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty+vy >= (get<2>(floors[i]) + (get<4>(floors[i]) - get<2>(floors[i]))*(tx - get<1>(floors[i])) / (get<3>(floors[i]) - get<1>(floors[i])))) {
-					if (get<4>(floors[i]) > get<2>(floors[i]) && ty <= get<4>(floors[i])) {
+				if (tx >= get<1>(floors[i]) && tx <= get<3>(floors[i]) && ty+vy >= -4+(get<2>(floors[i]) + (get<4>(floors[i]) - get<2>(floors[i]))*(tx - get<1>(floors[i])) / (get<3>(floors[i]) - get<1>(floors[i])))) {
+					if (get<4>(floors[i]) > get<2>(floors[i]) && ty <= 4+(get<2>(floors[i]) + (get<4>(floors[i]) - get<2>(floors[i]))*(tx - get<1>(floors[i])) / (get<3>(floors[i]) - get<1>(floors[i])))) {
 						onThisFloor = floors[i];
 						return true;
 					}
-					else if (get<2>(floors[i]) > get<4>(floors[i]) && ty <= get<2>(floors[i])) {
+					else if (get<2>(floors[i]) > get<4>(floors[i]) && ty <= 4+(get<2>(floors[i]) + (get<4>(floors[i]) - get<2>(floors[i]))*(tx - get<1>(floors[i])) / (get<3>(floors[i]) - get<1>(floors[i])))) {
 						onThisFloor = floors[i];
 						return true;
 					}

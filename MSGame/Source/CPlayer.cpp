@@ -14,7 +14,7 @@ namespace game_framework {
 
 	CPlayer::CPlayer()
 	{
-		Initialize();
+		//Initialize();
 	}
 
 	int CPlayer::GetX1()

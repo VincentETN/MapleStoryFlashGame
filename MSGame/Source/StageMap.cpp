@@ -36,7 +36,7 @@ namespace game_framework {
 	void StageMap::CreatePlatform() {
 		//stage 1 map
 		plat1.add(make_tuple("f", 380, 460, 600, 480));		//f1
-		plat1.add(make_tuple("s", 313, 418, 382, 462));		//s1
+		plat1.add(make_tuple("s", 310, 417, 380, 460));		//s1
 		plat1.add(make_tuple("f", 40, 420, 315, 480));		//f2
 		plat1.add(make_tuple("f", 355, 387, 430, 397));		//f3
 		plat1.add(make_tuple("f", 430, 355, 600, 365));		//f4
@@ -48,8 +48,8 @@ namespace game_framework {
 		plat1.add(make_tuple("f", 320, 74, 600, 84));		//f10
 		plat1.add(make_tuple("f", 40, 74, 285, 84));		//f11
 		//stage 2 map
-		plat2.add(make_tuple("f", 40, 459, 600, 480));		//f1
-		plat2.add(make_tuple("s", 73, 461, 182, 388));		//s1
+		plat2.add(make_tuple("f", 40, 460, 600, 480));		//f1
+		plat2.add(make_tuple("s", 75, 460, 183, 388));		//s1
 		plat2.add(make_tuple("f", 178, 390, 250, 400));		//f2
 		plat2.add(make_tuple("f", 280, 390, 365, 400));		//f3
 		plat2.add(make_tuple("f", 385, 390, 470, 400));		//f4
