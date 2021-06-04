@@ -10,7 +10,7 @@ namespace game_framework {
 		StageMap();
 		void MapInit();
 		int GetStage();
-		void ChangeStage();
+		void ChangeStage(int s);
 		void CreatePlatform();
 		void CreateLadder();
 		void CreateMonsters();
@@ -25,14 +25,18 @@ namespace game_framework {
 		int stage;
 		CMovingBitmap background1;
 		CMovingBitmap background2;
+		CMovingBitmap background3;
 		Platform * ppointer;
 		Ladder * lpointer;
 		vector<Monster> * mpointer;
 		Platform plat1;
 		Platform plat2;
+		Platform plat3;
 		Ladder ladder1;
 		Ladder ladder2;
+		Ladder ladder3;
 		vector<Monster> monsters1;
 		vector<Monster> monsters2;
+		vector<Monster> monsters3;
 	};
 }

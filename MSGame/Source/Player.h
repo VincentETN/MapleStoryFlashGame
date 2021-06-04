@@ -41,7 +41,7 @@ namespace game_framework {
 		void SetMap(Platform *plat, Ladder *lad);
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
-		int x, y;			// 玩家左上角座標
+
 		bool isMovingDown;			// 是否正在往下移動
 		bool isMovingLeft;			// 是否正在往左移動
 		bool isMovingRight;			// 是否正在往右移動
@@ -65,5 +65,10 @@ namespace game_framework {
 		int superStateCounter;
 		Platform *floors;
 		Ladder *ladder;
+	
+	private:
+		int x, y;			// 玩家左上角座標
+		int x2, y2;			// 玩家右下角座標
+		int mid_x, mid_y;	// 玩家中心點座標
 	};
 }

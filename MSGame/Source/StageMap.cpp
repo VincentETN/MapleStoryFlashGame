@@ -28,9 +28,9 @@ namespace game_framework {
 		return stage;
 	}
 
-	void StageMap::ChangeStage()
+	void StageMap::ChangeStage(int s)
 	{
-		stage += 1;
+		stage = s;
 	}
 
 	void StageMap::CreatePlatform() {
@@ -63,6 +63,12 @@ namespace game_framework {
 		plat2.add(make_tuple("f", 280, 75, 365, 85));		//f12
 		plat2.add(make_tuple("f", 175, 75, 260, 85));		//f13
 		plat2.add(make_tuple("f", 40, 75, 150, 85));		//f14
+		//stage 3 map
+		plat3.add(make_tuple("f", 40, 460, 600, 480));		//f1
+		plat3.add(make_tuple("f", 40, 360, 150, 370));		//f2
+		plat3.add(make_tuple("f", 40, 285, 600, 295));		//f3
+		plat3.add(make_tuple("f", 40, 180, 600, 190));		//f4
+		plat3.add(make_tuple("f", 40, 75, 600, 85));		//f5
 	}
 
 	void StageMap::CreateLadder()
@@ -76,22 +82,37 @@ namespace game_framework {
 		ladder2.add(make_tuple(537, 285, 557, 370));	//f5 to f6
 		ladder2.add(make_tuple(82, 180, 102, 265));		//f7 to f8
 		ladder2.add(make_tuple(572, 75, 592, 165));		//f9 to f10
+		// stage 3 ladders
+		ladder3.add(make_tuple(437, 300, 447, 440));	//
+		ladder3.add(make_tuple(402, 300, 412, 440));	//
+		ladder3.add(make_tuple(367, 300, 377, 440));	//
+		ladder3.add(make_tuple(334, 300, 344, 440));	//
+		ladder3.add(make_tuple(299, 300, 309, 440));	//
+		ladder3.add(make_tuple(263, 300, 273, 440));	//
+		ladder3.add(make_tuple(229, 300, 239, 440));	//
+		ladder3.add(make_tuple(195, 300, 205, 440));	//
+		ladder3.add(make_tuple(158, 300, 168, 440));	//
+		ladder3.add(make_tuple(117, 285, 137, 340));	//f2 to f3
+		ladder3.add(make_tuple(468, 180, 488, 263));	//f3 to f4
+		ladder3.add(make_tuple(538, 75, 558, 160));		//f4 to f5
 	}
 
 	void StageMap::CreateMonsters()
 	{
 		monsters1.push_back(Monster(1, 1, 40, 315, 200, 383));		//f2
-		monsters1.push_back(Monster(1, 2, 320, 600, 350, 244));	//f5
-		monsters1.push_back(Monster(1, 3, 40, 290, 50, 244));		//f6
-		monsters1.push_back(Monster(1, 4, 170, 465, 400, 137));	//f8
-		monsters1.push_back(Monster(1, 5, 320, 600, 350, 34));		//f10
+		//monsters1.push_back(Monster(1, 2, 320, 600, 350, 244));	//f5
+		//monsters1.push_back(Monster(1, 3, 40, 290, 50, 244));		//f6
+		//monsters1.push_back(Monster(1, 4, 170, 465, 400, 137));	//f8
+		//monsters1.push_back(Monster(1, 5, 320, 600, 350, 34));		//f10
 		//monsters1.push_back(Monster(1, 40, 285, 60, 34));		//f11
 
 		monsters2.push_back(Monster(1, 1, 40, 600, 380, 420));		//f1
-		monsters2.push_back(Monster(1, 2, 180, 250, 210, 350));	//f2
-		monsters2.push_back(Monster(1, 3, 40, 400, 180, 245));		//f7
-		monsters2.push_back(Monster(1, 4, 40, 230, 190, 140));		//f8
-		monsters2.push_back(Monster(1, 5, 250, 600, 500, 140));		//f9
+		//monsters2.push_back(Monster(1, 2, 180, 250, 210, 350));	//f2
+		//monsters2.push_back(Monster(1, 3, 40, 400, 180, 245));		//f7
+		//monsters2.push_back(Monster(1, 4, 40, 230, 190, 140));		//f8
+		//monsters2.push_back(Monster(1, 5, 250, 600, 500, 140));		//f9
+
+		monsters3.push_back(Monster(1, 1, 40, 600, 380, 420));		//f1
 	}
 
 	Platform* StageMap::GetPlatform() {
@@ -101,8 +122,10 @@ namespace game_framework {
 			return &plat1;
 		case 2:
 			return &plat2;
+		case 3:
+			return &plat3;
 		default:
-			return &plat2;
+			return &plat1;
 		}
 		//return ppointer;
 	}
@@ -114,8 +137,10 @@ namespace game_framework {
 			return &ladder1;
 		case 2:
 			return &ladder2;
+		case 3:
+			return &ladder3;
 		default:
-			return &ladder2;
+			return &ladder1;
 		}
 		//return lpointer;
 	}
@@ -125,8 +150,10 @@ namespace game_framework {
 			return &monsters1;
 		else if (stage == 2)
 			return &monsters2;
+		else if (stage == 3)
+			return &monsters3;
 		else
-			return &monsters2;
+			return &monsters1;
 		//return mpointer;
 	}
 	
@@ -136,6 +163,8 @@ namespace game_framework {
 		background1.SetTopLeft(40, 0);
 		background2.LoadBitmap(stage2_background);
 		background2.SetTopLeft(40, 0);
+		background3.LoadBitmap(stage3_background);
+		background3.SetTopLeft(40, 0);
 	}
 
 	void StageMap::LoadMonsterBitmap()
@@ -145,6 +174,9 @@ namespace game_framework {
 		}
 		for (size_t i = 0; i < monsters2.size(); i++) {
 			monsters2.at(i).LoadBitmap();
+		}
+		for (size_t i = 0; i < monsters3.size(); i++) {
+			monsters3.at(i).LoadBitmap();
 		}
 	}
 
@@ -157,6 +189,9 @@ namespace game_framework {
 			break;
 		case 2:
 			background2.ShowBitmap();
+			break;
+		case 3:
+			background3.ShowBitmap();
 			break;
 		default:
 			break;

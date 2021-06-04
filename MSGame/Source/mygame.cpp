@@ -250,24 +250,6 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			m->GetHurt(1);*/
 	}
 	PlayerMonsterInteraction(&player, monsters);
-	
-	//
-	// 判斷擦子是否碰到球
-	//
-	//for (i=0; i < NUMBALLS; i++)
-	//	if (ball[i].IsAlive() && ball[i].HitEraser(&eraser)) {
-	//		ball[i].SetIsAlive(false);
-	//		CAudio::Instance()->Play(AUDIO_DING);
-	//		hits_left.Add(-1);
-	//		//
-	//		// 若剩餘碰撞次數為0，則跳到Game Over狀態
-	//		//
-	//		if (hits_left.GetInteger() <= 0) {
-	//			CAudio::Instance()->Stop(AUDIO_LAKE);	// 停止 WAVE
-	//			CAudio::Instance()->Stop(AUDIO_NTUT);	// 停止 MIDI
-	//			GotoGameState(GAME_STATE_OVER);
-	//		}
-	//	}
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -293,7 +275,7 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	// 完成部分Loading動作，提高進度
 	//
 	ShowInitProgress(50);
-	Sleep(300); // 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
+	//Sleep(500); // 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	//
 	// 繼續載入其他資料
 	//									
@@ -396,9 +378,6 @@ void CGameStateRun::OnShow()
 	for (size_t i = 0; i < monsters->size(); i++) {
 		monsters->at(i).OnShow();
 	}
-	//
-	//  貼上左上及右下角落的圖
-	//
 }
 
 void CGameStateRun::CheckStage()
@@ -414,13 +393,14 @@ void CGameStateRun::CheckStage()
 		}
 	}
 	if (isAllDead) {
-		map.ChangeStage();
+		map.ChangeStage(map.GetStage()+1);
 		monsters = map.GetMonsters();
 		player.SetMap(map.GetPlatform(), map.GetLadder());
 		player.Initialize();
 		isAllDead = false;
 	}
-	if (map.GetStage() >= 3) {
+	if (map.GetStage() > 3) {
+		map.ChangeStage(1);
 		GotoGameState(GAME_STATE_OVER);
 	}
 }
