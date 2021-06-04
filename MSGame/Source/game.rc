@@ -70,8 +70,6 @@ IDB_BACKGROUND          BITMAP                  "..\\res\\ntutcsie.bmp"
 
 IDB_CORNER              BITMAP                  "..\\res\\corner.bmp"
 
-IDB_0                   BITMAP                  "..\\res\\bmp0.bmp"
-
 IDB_1                   BITMAP                  "..\\res\\bmp1.bmp"
 
 IDB_2                   BITMAP                  "..\\res\\bmp2.bmp"
@@ -129,10 +127,6 @@ character_right_jump    BITMAP                  "..\\Resource\\Character\\charac
 snail_left              BITMAP                  "..\\Resource\\Monster\\snail\\snail_left.bmp"
 
 snail_right             BITMAP                  "..\\Resource\\Monster\\snail\\snail_right.bmp"
-
-snake_left              BITMAP                  "..\\Resource\\Monster\\snake\\snake_left.bmp"
-
-snake_right             BITMAP                  "..\\Resource\\Monster\\snake\\snake_right.bmp"
 
 character_climb1        BITMAP                  "..\\Resource\\Character\\character_climb1.bmp"
 
@@ -204,6 +198,140 @@ start_button            BITMAP                  "..\\Resource\\startbutton.bmp"
 
 start_button2           BITMAP                  "..\\Resource\\startbutton2.bmp"
 
+IDB_0                   BITMAP                  "..\\res\\bmp0.bmp"
+
+snake_left_die1         BITMAP                  "..\\Resource\\Monster\\snake\\snake_left_die1.bmp"
+
+snake_left_die2         BITMAP                  "..\\Resource\\Monster\\snake\\snake_left_die2.bmp"
+
+snake_left_die3         BITMAP                  "..\\Resource\\Monster\\snake\\snake_left_die3.bmp"
+
+snake_left_hurt         BITMAP                  "..\\Resource\\Monster\\snake\\snake_left_hurt.bmp"
+
+snake_left_walk1        BITMAP                  "..\\Resource\\Monster\\snake\\snake_left_walk1.bmp"
+
+snake_left_walk2        BITMAP                  "..\\Resource\\Monster\\snake\\snake_left_walk2.bmp"
+
+snake_left_walk3        BITMAP                  "..\\Resource\\Monster\\snake\\snake_left_walk3.bmp"
+
+snake_left1             BITMAP                  "..\\Resource\\Monster\\snake\\snake_left1.bmp"
+
+snake_left2             BITMAP                  "..\\Resource\\Monster\\snake\\snake_left2.bmp"
+
+snake_right_die1        BITMAP                  "..\\Resource\\Monster\\snake\\snake_right_die1.bmp"
+
+snake_right_die2        BITMAP                  "..\\Resource\\Monster\\snake\\snake_right_die2.bmp"
+
+snake_right_die3        BITMAP                  "..\\Resource\\Monster\\snake\\snake_right_die3.bmp"
+
+snake_right_hurt        BITMAP                  "..\\Resource\\Monster\\snake\\snake_right_hurt.bmp"
+
+snake_right_walk1       BITMAP                  "..\\Resource\\Monster\\snake\\snake_right_walk1.bmp"
+
+snake_right_walk2       BITMAP                  "..\\Resource\\Monster\\snake\\snake_right_walk2.bmp"
+
+snake_right_walk3       BITMAP                  "..\\Resource\\Monster\\snake\\snake_right_walk3.bmp"
+
+snake_right1            BITMAP                  "..\\Resource\\Monster\\snake\\snake_right1.bmp"
+
+snake_right2            BITMAP                  "..\\Resource\\Monster\\snake\\snake_right2.bmp"
+
+mushroom_left_die1      BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left_die1.bmp"
+
+mushroom_left_die2      BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left_die2.bmp"
+
+mushroom_left_die3      BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left_die3.bmp"
+
+mushroom_left_hurt      BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left_hurt.bmp"
+
+mushroom_left_walk1     BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left_walk1.bmp"
+
+mushroom_left_walk2     BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left_walk2.bmp"
+
+mushroom_left_walk3     BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left_walk3.bmp"
+
+mushroom_left1          BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left1.bmp"
+
+mushroom_left2          BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_left2.bmp"
+
+mushroom_right_die1     BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right_die1.bmp"
+
+mushroom_right_die2     BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right_die2.bmp"
+
+mushroom_right_die3     BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right_die3.bmp"
+
+mushroom_right_hurt     BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right_hurt.bmp"
+
+mushroom_right_walk1    BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right_walk1.bmp"
+
+mushroom_right_walk2    BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right_walk2.bmp"
+
+mushroom_right_walk3    BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right_walk3.bmp"
+
+mushroom_right1         BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right1.bmp"
+
+mushroom_right2         BITMAP                  "..\\Resource\\Monster\\mushroom\\mushroom_right2.bmp"
+
+green_left_die1         BITMAP                  "..\\Resource\\Monster\\green\\green_left_die1.bmp"
+
+green_left_die2         BITMAP                  "..\\Resource\\Monster\\green\\green_left_die2.bmp"
+
+green_left_die3         BITMAP                  "..\\Resource\\Monster\\green\\green_left_die3.bmp"
+
+green_left_die4         BITMAP                  "..\\Resource\\Monster\\green\\green_left_die4.bmp"
+
+green_left_hurt         BITMAP                  "..\\Resource\\Monster\\green\\green_left_hurt.bmp"
+
+green_left_walk1        BITMAP                  "..\\Resource\\Monster\\green\\green_left_walk1.bmp"
+
+green_left_walk2        BITMAP                  "..\\Resource\\Monster\\green\\green_left_walk2.bmp"
+
+green_left_walk3        BITMAP                  "..\\Resource\\Monster\\green\\green_left_walk3.bmp"
+
+green_left_walk4        BITMAP                  "..\\Resource\\Monster\\green\\green_left_walk4.bmp"
+
+green_left_walk5        BITMAP                  "..\\Resource\\Monster\\green\\green_left_walk5.bmp"
+
+green_left_walk6        BITMAP                  "..\\Resource\\Monster\\green\\green_left_walk6.bmp"
+
+green_left_walk7        BITMAP                  "..\\Resource\\Monster\\green\\green_left_walk7.bmp"
+
+green_left1             BITMAP                  "..\\Resource\\Monster\\green\\green_left1.bmp"
+
+green_left2             BITMAP                  "..\\Resource\\Monster\\green\\green_left2.bmp"
+
+green_right_die1        BITMAP                  "..\\Resource\\Monster\\green\\green_right_die1.bmp"
+
+green_right_die2        BITMAP                  "..\\Resource\\Monster\\green\\green_right_die2.bmp"
+
+green_right_die3        BITMAP                  "..\\Resource\\Monster\\green\\green_right_die3.bmp"
+
+green_right_die4        BITMAP                  "..\\Resource\\Monster\\green\\green_right_die4.bmp"
+
+green_right_hurt        BITMAP                  "..\\Resource\\Monster\\green\\green_right_hurt.bmp"
+
+green_right_walk1       BITMAP                  "..\\Resource\\Monster\\green\\green_right_walk1.bmp"
+
+green_right_walk2       BITMAP                  "..\\Resource\\Monster\\green\\green_right_walk2.bmp"
+
+green_right_walk3       BITMAP                  "..\\Resource\\Monster\\green\\green_right_walk3.bmp"
+
+green_right_walk4       BITMAP                  "..\\Resource\\Monster\\green\\green_right_walk4.bmp"
+
+green_right_walk5       BITMAP                  "..\\Resource\\Monster\\green\\green_right_walk5.bmp"
+
+green_right_walk6       BITMAP                  "..\\Resource\\Monster\\green\\green_right_walk6.bmp"
+
+green_right_walk7       BITMAP                  "..\\Resource\\Monster\\green\\green_right_walk7.bmp"
+
+green_right1            BITMAP                  "..\\Resource\\Monster\\green\\green_right1.bmp"
+
+green_right2            BITMAP                  "..\\Resource\\Monster\\green\\green_right2.bmp"
+
+stage1_text             BITMAP                  "..\\Resource\\stage1text.bmp"
+
+stage2text              BITMAP                  "..\\Resource\\stage2text.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -213,6 +341,14 @@ start_button2           BITMAP                  "..\\Resource\\startbutton2.bmp"
 IDC_GAMECURSOR          CURSOR                  "..\\res\\gamecurs.cur"
 
 IDC_CURSOR1             CURSOR                  "..\\res\\cursor1.cur"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// PNG
+//
+
+IDB_PNG1                PNG                     "D:\\OOPL\\MSGame\\Resource\\gameover.png"
 
 #endif    // 中文 (繁體，台灣) resources
 /////////////////////////////////////////////////////////////////////////////
