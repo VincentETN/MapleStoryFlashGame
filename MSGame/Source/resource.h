@@ -204,6 +204,14 @@
 #define stage1_text                     291
 #define IDB_BITMAP8                     292
 #define stage2text                      292
+#define gameover_background             293
+#define stage3text                      294
+#define success_background              295
+#define character_left_die1             296
+#define character_left_die2             297
+#define character_right_die1            298
+#define IDB_BITMAP7                     299
+#define character_right_die2            299
 #define IDC_README                      1001
 #define ID_FILE_PAUSE                   32771
 #define ID_TOGGLE_FULLSCREEN            32772
@@ -216,7 +224,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        293
+#define _APS_NEXT_RESOURCE_VALUE        300
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           101

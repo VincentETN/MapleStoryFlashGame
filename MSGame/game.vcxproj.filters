@@ -579,5 +579,26 @@
     <Image Include="Resource\stage2text.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resource\gameover.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\stage3text.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\success.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_left_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_left_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_right_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Character\character_right_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

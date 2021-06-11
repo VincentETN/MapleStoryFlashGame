@@ -332,6 +332,20 @@ stage1_text             BITMAP                  "..\\Resource\\stage1text.bmp"
 
 stage2text              BITMAP                  "..\\Resource\\stage2text.bmp"
 
+gameover_background     BITMAP                  "..\\Resource\\gameover.bmp"
+
+stage3text              BITMAP                  "..\\Resource\\stage3text.bmp"
+
+success_background      BITMAP                  "..\\Resource\\success.bmp"
+
+character_left_die1     BITMAP                  "..\\Resource\\Character\\character_left_die1.bmp"
+
+character_left_die2     BITMAP                  "..\\Resource\\Character\\character_left_die2.bmp"
+
+character_right_die1    BITMAP                  "..\\Resource\\Character\\character_right_die1.bmp"
+
+character_right_die2    BITMAP                  "..\\Resource\\Character\\character_right_die2.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -341,13 +355,6 @@ stage2text              BITMAP                  "..\\Resource\\stage2text.bmp"
 IDC_GAMECURSOR          CURSOR                  "..\\res\\gamecurs.cur"
 
 IDC_CURSOR1             CURSOR                  "..\\res\\cursor1.cur"
-
-
-/////////////////////////////////////////////////////////////////////////////
-//
-// PNG
-//
-
 
 #endif    // 中文 (繁體，台灣) resources
 /////////////////////////////////////////////////////////////////////////////
