@@ -60,7 +60,7 @@ namespace game_framework {
 		int instantVelX;	// x軸瞬時速度
 		int instantVelY;	// y軸瞬時速度
 		int g;				//加速度
-		int superStateCount;
+		const int superStateCount = 50;
 		int superStateCounter;
 		Platform *floors;
 		Ladder *ladder;

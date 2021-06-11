@@ -240,6 +240,7 @@ void CGameStateRun::OnMove()							// ²¾°Ê¹CÀ¸¤¸¯À
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
 	CheckStage();
+	map.OnMove();
 	player.OnMove();
 	for (vector<Monster>::iterator m = monsters->begin(); m != monsters->end(); m++) {
 		m->OnMove();

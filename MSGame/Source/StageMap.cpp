@@ -21,6 +21,9 @@ namespace game_framework {
 		ppointer = &plat1;
 		lpointer = &ladder1;
 		mpointer = &monsters1;
+
+		titleShow = true;
+		titleCounter = titleCount;
 	}
 
 	int StageMap::GetStage()
@@ -31,6 +34,8 @@ namespace game_framework {
 	void StageMap::ChangeStage(int s)
 	{
 		stage = s;
+		titleShow = true;
+		titleCounter = titleCount;
 	}
 
 	void StageMap::CreatePlatform() {
@@ -160,11 +165,10 @@ namespace game_framework {
 	void StageMap::LoadBitmap()
 	{
 		background1.LoadBitmap(stage1_background);
-		background1.SetTopLeft(40, 0);
 		background2.LoadBitmap(stage2_background);
-		background2.SetTopLeft(40, 0);
 		background3.LoadBitmap(stage3_background);
-		background3.SetTopLeft(40, 0);
+
+		stageTitle1.LoadBitmap(stage1_text, RGB(255, 0, 255));
 	}
 
 	void StageMap::LoadMonsterBitmap()
@@ -180,21 +184,35 @@ namespace game_framework {
 		}
 	}
 
+	void StageMap::OnMove() {
+		if (--titleCounter <= 0) {
+			titleShow = false;
+		}
+	}
+
 	void StageMap::OnShow()
 	{
 		switch (stage)
 		{
 		case 1:
+			background1.SetTopLeft(40, 0);
 			background1.ShowBitmap();
+			if (titleShow) {
+				stageTitle1.SetTopLeft(263, 225);
+				stageTitle1.ShowBitmap();
+			}
 			break;
 		case 2:
+			background2.SetTopLeft(40, 0);
 			background2.ShowBitmap();
 			break;
 		case 3:
+			background3.SetTopLeft(40, 0);
 			background3.ShowBitmap();
 			break;
 		default:
 			break;
 		}
+
 	}
 }

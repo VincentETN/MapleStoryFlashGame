@@ -51,7 +51,6 @@ namespace game_framework {
 	{
 		const int X_POS = 504;
 		const int Y_POS = 380;
-		superStateCount = 50;
 		x = X_POS;
 		y = Y_POS;
 		rising = false;

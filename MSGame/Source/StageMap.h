@@ -19,6 +19,7 @@ namespace game_framework {
 		vector<Monster>* GetMonsters();
 		void LoadBitmap();
 		void LoadMonsterBitmap();
+		void OnMove();
 		void OnShow();
 
 	private:
@@ -26,6 +27,7 @@ namespace game_framework {
 		CMovingBitmap background1;
 		CMovingBitmap background2;
 		CMovingBitmap background3;
+		CMovingBitmap stageTitle1;
 		Platform * ppointer;
 		Ladder * lpointer;
 		vector<Monster> * mpointer;
@@ -38,5 +40,9 @@ namespace game_framework {
 		vector<Monster> monsters1;
 		vector<Monster> monsters2;
 		vector<Monster> monsters3;
+
+		const int titleCount = 20;	// 2¬í
+		int titleCounter;
+		bool titleShow;
 	};
 }
