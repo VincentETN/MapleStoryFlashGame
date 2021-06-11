@@ -65,6 +65,7 @@ namespace game_framework {
 		attackKeyDown = isAttacking = false;
 		isHurt = false;
 		superState = false;
+		hp = 3;
 	}
 
 	void CPlayer::LoadBitmap()
