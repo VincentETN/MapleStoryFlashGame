@@ -573,7 +573,6 @@
     <Image Include="Resource\Monster\green\green_right2.bmp">
       <Filter>Resource Files</Filter>
     </Image>
-    <Image Include="Resource\gameover.png" />
     <Image Include="Resource\stage1text.bmp">
       <Filter>Resource Files</Filter>
     </Image>

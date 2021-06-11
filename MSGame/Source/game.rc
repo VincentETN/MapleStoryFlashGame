@@ -348,7 +348,6 @@ IDC_CURSOR1             CURSOR                  "..\\res\\cursor1.cur"
 // PNG
 //
 
-IDB_PNG1                PNG                     "D:\\OOPL\\MSGame\\Resource\\gameover.png"
 
 #endif    // 中文 (繁體，台灣) resources
 /////////////////////////////////////////////////////////////////////////////

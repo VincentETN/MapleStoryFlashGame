@@ -362,7 +362,6 @@
     <Image Include="Resource\Character\character_right_stand.bmp" />
     <Image Include="Resource\Character\character_right_walk1.bmp" />
     <Image Include="Resource\Character\character_right_walk2.bmp" />
-    <Image Include="Resource\gameover.png" />
     <Image Include="Resource\menu.bmp" />
     <Image Include="Resource\Monster\green\green_left1.bmp" />
     <Image Include="Resource\Monster\green\green_left2.bmp" />
