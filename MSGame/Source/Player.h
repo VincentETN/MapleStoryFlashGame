@@ -1,74 +1,83 @@
 #pragma once
 
-#include "Platform.h"
-#include "Ladder.h"
-
 namespace game_framework {
 	class Player
 	{
 	public:
 		Player();
-		/*************************************************/
-		int  GetX1();					// 玩家左上角 x 座標
-		int  GetY1();					// 玩家左上角 y 座標
-		int  GetX2();					// 玩家右下角 x 座標
-		int  GetY2();					// 玩家右下角 y 座標
-		int  GetMidX();					// 玩家中心 x 座標
-		int  GetMidY();					// 玩家中心 y 座標
-		/*************************************************/
-		void Initialize();				// 設定初始值
+		/***************遊戲進行***************/
+		void initialize();				// 設定初始值
 		void LoadBitmap();				// 載入圖形
-		void OnMove();					// 移動擦子
-		void OnShow();					// 將擦子圖形貼到畫面
+		void OnMove();					// 移動
+		void OnShow();					// 將圖形貼到畫面
+		/***************取得屬性 get function***************/
+		int getX1();					// 玩家左上角 x 座標
+		int getY1();					// 玩家左上角 y 座標
+		int getX2();					// 玩家右下角 x 座標
+		int getY2();					// 玩家右下角 y 座標
+		int getMidX();					// 玩家中心 x 座標
+		int getMidY();					// 玩家中心 y 座標
+		int getHP();
+		tuple<int, int, int, int> getAttackRange();
+		/***************取得狀態 is function***************/
+		//bool isAttacking();
+		/***************狀態設定 set function***************/
+		void setXY(int nx, int ny);		// 設定左上角座標
+		void setMovingLeft(bool flag);	// 設定是否正在往左移動
+		void setMovingRight(bool flag); // 設定是否正在往右移動
+		void setMovingDown(bool flag);	// 設定是否正在往下移動
+		void setMovingUp(bool flag);	// 設定是否正在往上移動
+		void setJumping(bool flag);
+		void setAttacking(bool flag);
+		void setClimbing(bool flag);
+		void setOnTheGround(bool flag);
+		void setInTheAir(bool flag);
 
-		void SetMovingDown(bool flag);	// 設定是否正在往下移動
-		void SetMovingLeft(bool flag);	// 設定是否正在往左移動
-		void SetMovingRight(bool flag); // 設定是否正在往右移動
-		void SetMovingUp(bool flag);	// 設定是否正在往上移動
-		void SetFacingLeft(bool flag);
-		//void SetFacingRight(bool flag); 
-		void SetJumping(bool flag);
-		void SetAttackKey(bool flag);
-		void SetAttacking(bool flag);
-		void SetGetHurt(bool flag);
-		void SetXY(int nx, int ny);		// 設定擦子左上角座標
-		void SetIsClimbing(bool flag);
+		//void setAttackKey(bool flag);
+		//void setGetHurt(bool flag);
 
-		bool IsInTheAir();
-		bool IsOnTheGround();
-		bool Attacking();
-		tuple<int, int, int, int> GetAttackRange();
-		void SetMap(Platform *plat, Ladder *lad);
+
+		//void SetMap(Platform *plat, Ladder *lad);
+
 	protected:
-		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
+		/***************被動狀態設定 set function***************/
+		void setFacingLeft(bool flag);
 
-		bool isMovingDown;			// 是否正在往下移動
+	private:
+		/**************玩家屬性**************/
+		int x, y;				// 玩家左上角座標
+		int hp;					// 生命
+		int instantVX;			// x軸瞬時速度
+		int instantVY;			// y軸瞬時速度
+		const int g = 3;			// 重力加速度
+		const int jumpInitV = -12;	// 起跳初始速度
+		/**************玩家動畫**************/
+		CAnimation idleLeft, idleRight;
+		CAnimation lieLeft, lieRight;
+		CAnimation jumpLeft, jumpRight;
+		CAnimation walkLeft, walkRight;
+		CAnimation climb, climbIdle;
+		CAnimation attackLeft, attackRight;
+		/**************玩家狀態**************/
 		bool isMovingLeft;			// 是否正在往左移動
 		bool isMovingRight;			// 是否正在往右移動
+		bool isMovingDown;			// 是否正在往下移動
 		bool isMovingUp;			// 是否正在往上移動
-		bool isFacingLeft;
-		//bool isFacingRight;
 		bool isJumping;
+		bool isAttacking;
+		bool isFacingLeft;
 		bool isClimbing;
 		bool isOnTheGround;
 		bool isInTheAir;
-		bool attackKeyDown;
-		bool isAttacking;
-		bool rising;			// true表上升、false表下降
-		bool isHurt;
-		bool superState;
-		int jumpVel;		// 起跳初始速度
-		int instantVelX;	// x軸瞬時速度
-		int instantVelY;	// y軸瞬時速度
-		int g;				//加速度
-		int superStateCount;
-		int superStateCounter;
-		Platform *floors;
-		Ladder *ladder;
-	
-	private:
-		int x, y;			// 玩家左上角座標
-		int x2, y2;			// 玩家右下角座標
-		int mid_x, mid_y;	// 玩家中心點座標
+		bool isInSuperState;
+		const int superStateCount = 50;	// 無敵狀態時間
+		int superStateCounter;		// 無敵狀態計時
+		//bool attackKeyDown;
+		//bool rising;			// true表上升、false表下降
+		//bool isHurt;
+
+		//Platform *floors;
+		//Ladder *ladder;
+
 	};
 }
