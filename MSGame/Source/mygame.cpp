@@ -186,6 +186,7 @@ void CGameStateOver::OnInit()
 	// 開始載入資料
 	//
 	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
+	success_bg.LoadBitmap(success_background);
 	//
 	// 最終進度為100%
 	//
@@ -194,6 +195,8 @@ void CGameStateOver::OnInit()
 
 void CGameStateOver::OnShow()
 {
+	success_bg.SetTopLeft(40, 0);
+	success_bg.ShowBitmap();
 	CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
 	CFont f,*fp;
 	f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字

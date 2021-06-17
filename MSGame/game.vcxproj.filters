@@ -600,5 +600,209 @@
     <Image Include="Resource\Character\character_right_die2.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left_walk4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_left2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right_walk4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\crab\crab_right2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_die5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_walk4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_walk5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_left_walk6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_die1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_die2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_die3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_die4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_die5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_hurt.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_walk1.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_walk2.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_walk3.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_walk4.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_walk5.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Resource\Monster\star\star_right_walk6.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
