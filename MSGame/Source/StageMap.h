@@ -28,6 +28,8 @@ namespace game_framework {
 		CMovingBitmap background2;
 		CMovingBitmap background3;
 		CMovingBitmap stageTitle1;
+		CMovingBitmap stageTitle2;
+		CMovingBitmap stageTitle3;
 		Platform * ppointer;
 		Ladder * lpointer;
 		vector<Monster> * mpointer;

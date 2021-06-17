@@ -83,22 +83,138 @@ namespace game_framework {
 
 	void Monster::LoadBitmap()
 	{
-		moveLeft.AddBitmap(snail_left_walk1, RGB(255, 0, 255));
-		moveLeft.AddBitmap(snail_left_walk2, RGB(255, 0, 255));
-		moveLeft.AddBitmap(snail_left_walk3, RGB(255, 0, 255));
-		moveRight.AddBitmap(snail_right_walk1, RGB(255, 0, 255));
-		moveRight.AddBitmap(snail_right_walk2, RGB(255, 0, 255));
-		moveRight.AddBitmap(snail_right_walk3, RGB(255, 0, 255));
-		getHurtLeft.AddBitmap(snail_left_hurt, RGB(255, 0, 255));
-		getHurtRight.AddBitmap(snail_right_hurt, RGB(255, 0, 255));
-		dyingLeft.AddBitmap(snail_left_die1, RGB(255, 0, 255));
-		dyingLeft.AddBitmap(snail_left_die2, RGB(255, 0, 255));
-		dyingLeft.AddBitmap(snail_left_die3, RGB(255, 0, 255));
-		dyingLeft.AddBitmap(snail_left_die3, RGB(255, 0, 255));
-		dyingRight.AddBitmap(snail_right_die1, RGB(255, 0, 255));
-		dyingRight.AddBitmap(snail_right_die2, RGB(255, 0, 255));
-		dyingRight.AddBitmap(snail_right_die3, RGB(255, 0, 255));
-		dyingRight.AddBitmap(snail_right_die3, RGB(255, 0, 255));
+		if(monsterID == 1){
+			moveLeft.AddBitmap(snail_left_walk1, RGB(255, 0, 255));
+			moveLeft.AddBitmap(snail_left_walk2, RGB(255, 0, 255));
+			moveLeft.AddBitmap(snail_left_walk3, RGB(255, 0, 255));
+			moveRight.AddBitmap(snail_right_walk1, RGB(255, 0, 255));
+			moveRight.AddBitmap(snail_right_walk2, RGB(255, 0, 255));
+			moveRight.AddBitmap(snail_right_walk3, RGB(255, 0, 255));
+			getHurtLeft.AddBitmap(snail_left_hurt, RGB(255, 0, 255));
+			getHurtRight.AddBitmap(snail_right_hurt, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snail_left_die1, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snail_left_die2, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snail_left_die3, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snail_left_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snail_right_die1, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snail_right_die2, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snail_right_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snail_right_die3, RGB(255, 0, 255));
+		}
+		else if(monsterID == 2){
+			moveLeft.AddBitmap(snake_left_walk1, RGB(255, 0, 255));
+			moveLeft.AddBitmap(snake_left_walk2, RGB(255, 0, 255));
+			moveLeft.AddBitmap(snake_left_walk3, RGB(255, 0, 255));
+			moveRight.AddBitmap(snake_right_walk1, RGB(255, 0, 255));
+			moveRight.AddBitmap(snake_right_walk2, RGB(255, 0, 255));
+			moveRight.AddBitmap(snake_right_walk3, RGB(255, 0, 255));
+			getHurtLeft.AddBitmap(snake_left_hurt, RGB(255, 0, 255));
+			getHurtRight.AddBitmap(snake_right_hurt, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snake_left_die1, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snake_left_die2, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snake_left_die3, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(snake_left_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snake_right_die1, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snake_right_die2, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snake_right_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(snake_right_die3, RGB(255, 0, 255));
+		}
+		else if (monsterID == 3) {
+			moveLeft.AddBitmap(mushroom_left_walk1, RGB(255, 0, 255));
+			moveLeft.AddBitmap(mushroom_left_walk2, RGB(255, 0, 255));
+			moveLeft.AddBitmap(mushroom_left_walk3, RGB(255, 0, 255));
+			moveRight.AddBitmap(mushroom_right_walk1, RGB(255, 0, 255));
+			moveRight.AddBitmap(mushroom_right_walk2, RGB(255, 0, 255));
+			moveRight.AddBitmap(mushroom_right_walk3, RGB(255, 0, 255));
+			getHurtLeft.AddBitmap(mushroom_left_hurt, RGB(255, 0, 255));
+			getHurtRight.AddBitmap(mushroom_right_hurt, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(mushroom_left_die1, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(mushroom_left_die2, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(mushroom_left_die3, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(mushroom_left_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(mushroom_right_die1, RGB(255, 0, 255));
+			dyingRight.AddBitmap(mushroom_right_die2, RGB(255, 0, 255));
+			dyingRight.AddBitmap(mushroom_right_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(mushroom_right_die3, RGB(255, 0, 255));
+		}
+		else if (monsterID == 4) {
+			moveLeft.AddBitmap(green_left_walk1, RGB(255, 0, 255));
+			moveLeft.AddBitmap(green_left_walk2, RGB(255, 0, 255));
+			moveLeft.AddBitmap(green_left_walk3, RGB(255, 0, 255));
+			moveLeft.AddBitmap(green_left_walk4, RGB(255, 0, 255));
+			moveLeft.AddBitmap(green_left_walk5, RGB(255, 0, 255));
+			moveLeft.AddBitmap(green_left_walk6, RGB(255, 0, 255));
+			moveLeft.AddBitmap(green_left_walk7, RGB(255, 0, 255));
+			moveRight.AddBitmap(green_right_walk1, RGB(255, 0, 255));
+			moveRight.AddBitmap(green_right_walk2, RGB(255, 0, 255));
+			moveRight.AddBitmap(green_right_walk3, RGB(255, 0, 255));
+			moveRight.AddBitmap(green_right_walk4, RGB(255, 0, 255));
+			moveRight.AddBitmap(green_right_walk5, RGB(255, 0, 255));
+			moveRight.AddBitmap(green_right_walk6, RGB(255, 0, 255));
+			moveRight.AddBitmap(green_right_walk7, RGB(255, 0, 255));
+			getHurtLeft.AddBitmap(green_left_hurt, RGB(255, 0, 255));
+			getHurtRight.AddBitmap(green_right_hurt, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(green_left_die1, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(green_left_die2, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(green_left_die3, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(green_left_die4, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(green_left_die4, RGB(255, 0, 255));
+			dyingRight.AddBitmap(green_right_die1, RGB(255, 0, 255));
+			dyingRight.AddBitmap(green_right_die2, RGB(255, 0, 255));
+			dyingRight.AddBitmap(green_right_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(green_right_die4, RGB(255, 0, 255));
+			dyingRight.AddBitmap(green_right_die4, RGB(255, 0, 255));
+		}
+		else if (monsterID == 5) {
+			moveLeft.AddBitmap(crab_left_walk1, RGB(255, 0, 255));
+			moveLeft.AddBitmap(crab_left_walk2, RGB(255, 0, 255));
+			moveLeft.AddBitmap(crab_left_walk3, RGB(255, 0, 255));
+			moveLeft.AddBitmap(crab_left_walk4, RGB(255, 0, 255));
+			moveRight.AddBitmap(crab_right_walk1, RGB(255, 0, 255));
+			moveRight.AddBitmap(crab_right_walk2, RGB(255, 0, 255));
+			moveRight.AddBitmap(crab_right_walk3, RGB(255, 0, 255));
+			moveRight.AddBitmap(crab_right_walk4, RGB(255, 0, 255));
+			getHurtLeft.AddBitmap(crab_left_hurt, RGB(255, 0, 255));
+			getHurtRight.AddBitmap(crab_right_hurt, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(crab_left_die1, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(crab_left_die2, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(crab_left_die3, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(crab_left_die4, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(crab_left_die4, RGB(255, 0, 255));
+			dyingRight.AddBitmap(crab_right_die1, RGB(255, 0, 255));
+			dyingRight.AddBitmap(crab_right_die2, RGB(255, 0, 255));
+			dyingRight.AddBitmap(crab_right_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(crab_right_die4, RGB(255, 0, 255));
+			dyingRight.AddBitmap(crab_right_die4, RGB(255, 0, 255));
+		}
+		else if (monsterID == 6) {
+			moveLeft.AddBitmap(star_left_walk1, RGB(255, 0, 255));
+			moveLeft.AddBitmap(star_left_walk2, RGB(255, 0, 255));
+			moveLeft.AddBitmap(star_left_walk3, RGB(255, 0, 255));
+			moveLeft.AddBitmap(star_left_walk4, RGB(255, 0, 255));
+			moveLeft.AddBitmap(star_left_walk5, RGB(255, 0, 255));
+			moveLeft.AddBitmap(star_left_walk6, RGB(255, 0, 255));
+			moveRight.AddBitmap(star_right_walk1, RGB(255, 0, 255));
+			moveRight.AddBitmap(star_right_walk2, RGB(255, 0, 255));
+			moveRight.AddBitmap(star_right_walk3, RGB(255, 0, 255));
+			moveRight.AddBitmap(star_right_walk4, RGB(255, 0, 255));
+			moveRight.AddBitmap(star_right_walk5, RGB(255, 0, 255));
+			moveRight.AddBitmap(star_right_walk6, RGB(255, 0, 255));
+			getHurtLeft.AddBitmap(star_left_hurt, RGB(255, 0, 255));
+			getHurtRight.AddBitmap(star_right_hurt, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(star_left_die1, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(star_left_die2, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(star_left_die3, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(star_left_die4, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(star_left_die5, RGB(255, 0, 255));
+			dyingLeft.AddBitmap(star_left_die5, RGB(255, 0, 255));
+			dyingRight.AddBitmap(star_right_die1, RGB(255, 0, 255));
+			dyingRight.AddBitmap(star_right_die2, RGB(255, 0, 255));
+			dyingRight.AddBitmap(star_right_die3, RGB(255, 0, 255));
+			dyingRight.AddBitmap(star_right_die4, RGB(255, 0, 255));
+			dyingRight.AddBitmap(star_right_die5, RGB(255, 0, 255));
+			dyingRight.AddBitmap(star_right_die5, RGB(255, 0, 255));
+		}
 	}
 
 	void Monster::OnMove()

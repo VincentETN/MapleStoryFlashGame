@@ -330,11 +330,11 @@ green_right2            BITMAP                  "..\\Resource\\Monster\\green\\g
 
 stage1_text             BITMAP                  "..\\Resource\\stage1text.bmp"
 
-stage2text              BITMAP                  "..\\Resource\\stage2text.bmp"
+stage2_text             BITMAP                  "..\\Resource\\stage2text.bmp"
 
 gameover_background     BITMAP                  "..\\Resource\\gameover.bmp"
 
-stage3text              BITMAP                  "..\\Resource\\stage3text.bmp"
+stage3_text             BITMAP                  "..\\Resource\\stage3text.bmp"
 
 success_background      BITMAP                  "..\\Resource\\success.bmp"
 
@@ -345,6 +345,98 @@ character_left_die2     BITMAP                  "..\\Resource\\Character\\charac
 character_right_die1    BITMAP                  "..\\Resource\\Character\\character_right_die1.bmp"
 
 character_right_die2    BITMAP                  "..\\Resource\\Character\\character_right_die2.bmp"
+
+crab_left_die1          BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_die1.bmp"
+
+crab_left_die2          BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_die2.bmp"
+
+crab_left_die3          BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_die3.bmp"
+
+crab_left_die4          BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_die4.bmp"
+
+crab_left_hurt          BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_hurt.bmp"
+
+crab_left_walk1         BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_walk1.bmp"
+
+crab_left_walk2         BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_walk2.bmp"
+
+crab_left_walk3         BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_walk3.bmp"
+
+crab_left_walk4         BITMAP                  "..\\Resource\\Monster\\crab\\crab_left_walk4.bmp"
+
+crab_left1              BITMAP                  "..\\Resource\\Monster\\crab\\crab_left1.bmp"
+
+crab_left2              BITMAP                  "..\\Resource\\Monster\\crab\\crab_left2.bmp"
+
+crab_right_die1         BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_die1.bmp"
+
+crab_right_die2         BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_die2.bmp"
+
+crab_right_die3         BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_die3.bmp"
+
+crab_right_die4         BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_die4.bmp"
+
+crab_right_hurt         BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_hurt.bmp"
+
+crab_right_walk1        BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_walk1.bmp"
+
+crab_right_walk2        BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_walk2.bmp"
+
+crab_right_walk3        BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_walk3.bmp"
+
+crab_right_walk4        BITMAP                  "..\\Resource\\Monster\\crab\\crab_right_walk4.bmp"
+
+crab_right1             BITMAP                  "..\\Resource\\Monster\\crab\\crab_right1.bmp"
+
+crab_right2             BITMAP                  "..\\Resource\\Monster\\crab\\crab_right2.bmp"
+
+star_left_die1          BITMAP                  "..\\Resource\\Monster\\star\\star_left_die1.bmp"
+
+star_left_die2          BITMAP                  "..\\Resource\\Monster\\star\\star_left_die2.bmp"
+
+star_left_die3          BITMAP                  "..\\Resource\\Monster\\star\\star_left_die3.bmp"
+
+star_left_die4          BITMAP                  "..\\Resource\\Monster\\star\\star_left_die4.bmp"
+
+star_left_die5          BITMAP                  "..\\Resource\\Monster\\star\\star_left_die5.bmp"
+
+star_left_hurt          BITMAP                  "..\\Resource\\Monster\\star\\star_left_hurt.bmp"
+
+star_left_walk1         BITMAP                  "..\\Resource\\Monster\\star\\star_left_walk1.bmp"
+
+star_left_walk2         BITMAP                  "..\\Resource\\Monster\\star\\star_left_walk2.bmp"
+
+star_left_walk3         BITMAP                  "..\\Resource\\Monster\\star\\star_left_walk3.bmp"
+
+star_left_walk4         BITMAP                  "..\\Resource\\Monster\\star\\star_left_walk4.bmp"
+
+star_left_walk5         BITMAP                  "..\\Resource\\Monster\\star\\star_left_walk5.bmp"
+
+star_left_walk6         BITMAP                  "..\\Resource\\Monster\\star\\star_left_walk6.bmp"
+
+star_right_die1         BITMAP                  "..\\Resource\\Monster\\star\\star_right_die1.bmp"
+
+star_right_die2         BITMAP                  "..\\Resource\\Monster\\star\\star_right_die2.bmp"
+
+star_right_die3         BITMAP                  "..\\Resource\\Monster\\star\\star_right_die3.bmp"
+
+star_right_die4         BITMAP                  "..\\Resource\\Monster\\star\\star_right_die4.bmp"
+
+star_right_die5         BITMAP                  "..\\Resource\\Monster\\star\\star_right_die5.bmp"
+
+star_right_hurt         BITMAP                  "..\\Resource\\Monster\\star\\star_right_hurt.bmp"
+
+star_right_walk1        BITMAP                  "..\\Resource\\Monster\\star\\star_right_walk1.bmp"
+
+star_right_walk2        BITMAP                  "..\\Resource\\Monster\\star\\star_right_walk2.bmp"
+
+star_right_walk3        BITMAP                  "..\\Resource\\Monster\\star\\star_right_walk3.bmp"
+
+star_right_walk4        BITMAP                  "..\\Resource\\Monster\\star\\star_right_walk4.bmp"
+
+star_right_walk5        BITMAP                  "..\\Resource\\Monster\\star\\star_right_walk5.bmp"
+
+star_right_walk6        BITMAP                  "..\\Resource\\Monster\\star\\star_right_walk6.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
