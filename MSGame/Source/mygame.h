@@ -102,8 +102,11 @@ namespace game_framework {
 		CPlayer			player;
 		StageMap		map;
 		vector<Monster> *monsters;
+		bool monsterIsAllDead;
 		void CheckStage();
 		void PlayerMonsterInteraction(CPlayer *player, vector<Monster> *monsters);
+		int delayCounter;
+		int trick1;		// shift + z
 	};  
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -121,6 +124,7 @@ namespace game_framework {
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
 		CMovingBitmap success_bg;
+		CMovingBitmap fail_bg;
 		int counter;	// 倒數之計數器
 	};
 	

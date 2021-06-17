@@ -23,10 +23,11 @@ namespace game_framework {
 		//bool isAttacking();
 		/***************狀態設定 set function***************/
 		void setXY(int nx, int ny);		// 設定左上角座標
+		void setSpeed(int nspeed);		// 設定移動速度
 		void setMovingLeft(bool flag);	// 設定是否正在往左移動
 		void setMovingRight(bool flag); // 設定是否正在往右移動
-		void setMovingDown(bool flag);	// 設定是否正在往下移動
 		void setMovingUp(bool flag);	// 設定是否正在往上移動
+		void setMovingDown(bool flag);	// 設定是否正在往下移動
 		void setJumping(bool flag);
 		void setAttacking(bool flag);
 		void setClimbing(bool flag);
@@ -45,10 +46,11 @@ namespace game_framework {
 
 	private:
 		/**************玩家屬性**************/
-		int x, y;				// 玩家左上角座標
-		int hp;					// 生命
-		int instantVX;			// x軸瞬時速度
-		int instantVY;			// y軸瞬時速度
+		int x, y;					// 玩家左上角座標
+		int speed;					// 移動速度
+		int hp;						// 生命
+		int instantVX;				// x軸瞬時速度
+		int instantVY;				// y軸瞬時速度
 		const int g = 3;			// 重力加速度
 		const int jumpInitV = -12;	// 起跳初始速度
 		/**************玩家動畫**************/
@@ -61,8 +63,8 @@ namespace game_framework {
 		/**************玩家狀態**************/
 		bool isMovingLeft;			// 是否正在往左移動
 		bool isMovingRight;			// 是否正在往右移動
-		bool isMovingDown;			// 是否正在往下移動
 		bool isMovingUp;			// 是否正在往上移動
+		bool isMovingDown;			// 是否正在往下移動
 		bool isJumping;
 		bool isAttacking;
 		bool isFacingLeft;

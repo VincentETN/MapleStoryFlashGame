@@ -18,6 +18,8 @@ namespace game_framework {
 		void LoadBitmap();										// 載入圖形
 		void OnMove();											// 移動
 		void OnShow();											// 將圖形貼到畫面
+		/****密技用****/
+		void zeroHP();
 	protected:
 		CAnimation moveLeft, moveRight, getHurtLeft, getHurtRight, dyingLeft, dyingRight;
 		int monsterID, number;

@@ -14,6 +14,7 @@ namespace game_framework {
 		void CreatePlatform();
 		void CreateLadder();
 		void CreateMonsters();
+		void MonsterInit();
 		Platform* GetPlatform();
 		Ladder* GetLadder();
 		vector<Monster>* GetMonsters();

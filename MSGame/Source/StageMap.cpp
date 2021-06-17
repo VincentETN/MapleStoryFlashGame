@@ -18,9 +18,9 @@ namespace game_framework {
 		CreatePlatform();
 		CreateLadder();
 		CreateMonsters();
-		ppointer = &plat1;
-		lpointer = &ladder1;
-		mpointer = &monsters1;
+		//ppointer = &plat1;
+		//lpointer = &ladder1;
+		//mpointer = &monsters1;
 
 		titleShow = true;
 		titleCounter = titleCount;
@@ -121,6 +121,19 @@ namespace game_framework {
 		monsters3.push_back(Monster(6, 2, 40, 600, 240, 211));
 		monsters3.push_back(Monster(6, 3, 40, 600, 300, 106));
 		monsters3.push_back(Monster(5, 4, 40, 600, 125, 137));
+	}
+
+	void StageMap::MonsterInit()
+	{
+		for (size_t i = 0; i < monsters1.size(); i++) {
+			monsters1.at(i).initialize();
+		}
+		for (size_t i = 0; i < monsters2.size(); i++) {
+			monsters2.at(i).initialize();
+		}
+		for (size_t i = 0; i < monsters3.size(); i++) {
+			monsters3.at(i).initialize();
+		}
 	}
 
 	Platform* StageMap::GetPlatform() {

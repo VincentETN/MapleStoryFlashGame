@@ -14,6 +14,16 @@ namespace game_framework {
 
 	void Player::initialize()
 	{
+		x = 504;
+		y = 380;
+		hp = 3;
+		instantVX = 0;
+		instantVY = 0;
+		isMovingLeft = isMovingRight = isMovingUp = isMovingDown = isJumping = isAttacking = false;
+		isClimbing = isInTheAir = false;
+		//isHurt = false;
+		isInSuperState = false;
+		isFacingLeft = isOnTheGround = true;
 	}
 
 	void Player::LoadBitmap()
@@ -48,6 +58,7 @@ namespace game_framework {
 		attackLeft.AddBitmap(character_left_attack1_1, RGB(255, 0, 255));
 		attackLeft.AddBitmap(character_left_attack1_2, RGB(255, 0, 255));
 		attackLeft.AddBitmap(character_left_attack1_2, RGB(255, 0, 255));	//判斷用，不會顯示
+
 		attackRight.AddBitmap(character_right_attack1_1, RGB(255, 0, 255));
 		attackRight.AddBitmap(character_right_attack1_2, RGB(255, 0, 255));
 		attackRight.AddBitmap(character_right_attack1_2, RGB(255, 0, 255));	//判斷用，不會顯示
@@ -55,6 +66,54 @@ namespace game_framework {
 
 	void Player::OnMove()
 	{
+		if (getMidX() + instantVX > 40 && getMidX() + instantVX < 600) {
+			x += instantVX;
+		}
+		y += instantVY;
+		if (isMovingLeft) {
+			setFacingLeft(true);
+			if (isInTheAir && instantVX >= 0) {
+				instantVX -= 1;
+			}
+			else {
+				instantVX = -speed;
+			}
+		}
+
+		if (isMovingRight) {
+			setFacingLeft(false);
+			if (isInTheAir && instantVX <= 0) {
+				instantVX += 1;
+			}
+			else {
+				instantVX = speed;
+			}
+		}
+
+		if (isClimbing) {
+			instantVX = 0;
+			if (isJumping && isMovingLeft || isJumping && isMovingRight) {
+				instantVX = speed;
+				instantVY = -10;
+				//SetIsClimbing(false);
+			}
+			if (isMovingUp) {
+
+			}
+		}
+
+		if (isJumping) {
+			if (isOnTheGround) {
+				instantVY = jumpInitV;
+			}
+			else if (isClimbing) {
+				if (isMovingLeft) {
+
+				}
+			}
+		}
+
+
 	}
 
 	void Player::OnShow()
@@ -96,6 +155,11 @@ namespace game_framework {
 		x = nx; y = ny;
 	}
 
+	void Player::setSpeed(int nspeed)
+	{
+		speed = nspeed;
+	}
+
 	void Player::setMovingLeft(bool flag)
 	{
 		isMovingLeft = flag;
@@ -106,14 +170,14 @@ namespace game_framework {
 		isMovingRight = flag;
 	}
 
-	void Player::setMovingDown(bool flag)
-	{
-		isMovingDown = flag;
-	}
-
 	void Player::setMovingUp(bool flag)
 	{
 		isMovingUp = flag;
+	}
+
+	void Player::setMovingDown(bool flag)
+	{
+		isMovingDown = flag;
 	}
 
 	void Player::setJumping(bool flag)

@@ -484,6 +484,8 @@ void CGameState::OnCycle() // Template Method
 	OnShow();
 }
 
+boolean CGameState::SUCCESS;
+
 /////////////////////////////////////////////////////////////////////////////
 // CGame: Game Class
 // 這個class是遊戲的facade，是MFC與各個遊戲狀態的橋樑，如果不增加或減少

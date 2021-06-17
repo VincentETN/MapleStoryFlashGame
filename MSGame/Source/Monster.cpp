@@ -27,6 +27,9 @@ namespace game_framework {
 
 	void Monster::initialize()
 	{
+		HP = 30;
+		isAlive = true;
+		isDead = false;
 	}
 
 	int Monster::GetX1()
@@ -306,5 +309,9 @@ namespace game_framework {
 				}
 			}
 		}
+	}
+	void Monster::zeroHP()
+	{
+		HP = 0;
 	}
 }

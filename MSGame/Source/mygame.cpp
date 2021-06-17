@@ -172,7 +172,7 @@ void CGameStateOver::OnMove()
 
 void CGameStateOver::OnBeginState()
 {
-	counter = 30 * 5; // 5 seconds
+	counter = 30 * 3; // 5 seconds
 }
 
 void CGameStateOver::OnInit()
@@ -187,6 +187,7 @@ void CGameStateOver::OnInit()
 	//
 	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	success_bg.LoadBitmap(success_background);
+	fail_bg.LoadBitmap(gameover_background);
 	//
 	// 最終進度為100%
 	//
@@ -195,19 +196,25 @@ void CGameStateOver::OnInit()
 
 void CGameStateOver::OnShow()
 {
-	success_bg.SetTopLeft(40, 0);
-	success_bg.ShowBitmap();
-	CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
-	CFont f,*fp;
-	f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字
-	fp=pDC->SelectObject(&f);					// 選用 font f
-	pDC->SetBkColor(RGB(0,0,0));
-	pDC->SetTextColor(RGB(255,255,0));
-	char str[80];								// Demo 數字對字串的轉換
-	sprintf(str, "Game Over ! (%d)", counter / 30);
-	pDC->TextOut(240,210,str);
-	pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
-	CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
+	if (SUCCESS) {
+		success_bg.SetTopLeft(40, 0);
+		success_bg.ShowBitmap();
+	}
+	else {
+		fail_bg.SetTopLeft(40, 0);
+		fail_bg.ShowBitmap();
+	}
+	//CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
+	//CFont f,*fp;
+	//f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字
+	//fp=pDC->SelectObject(&f);					// 選用 font f
+	//pDC->SetBkColor(RGB(0,0,0));
+	//pDC->SetTextColor(RGB(255,255,0));
+	//char str[80];								// Demo 數字對字串的轉換
+	//sprintf(str, "Game Over ! (%d)", counter / 30);
+	//pDC->TextOut(240,210,str);
+	//pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
+	//CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -232,7 +239,12 @@ void CGameStateRun::OnBeginState()
 	//CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
 	//CAudio::Instance()->Play(AUDIO_DING, false);		// 撥放 WAVE
 	//CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
+	map.ChangeStage(1);
 	player.Initialize();
+	map.MonsterInit();
+	monsterIsAllDead = false;
+	delayCounter = 30;
+	trick1 = 0;
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
@@ -243,6 +255,20 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
 	//
 	CheckStage();
+	if (map.GetStage() == 3 && monsterIsAllDead) {
+		delayCounter--;
+		if (delayCounter < 0) {
+			SUCCESS = true;
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
+	else if (!player.IsAlive()) {
+		delayCounter--;
+		if (delayCounter < 0) {
+			SUCCESS = false;
+			GotoGameState(GAME_STATE_OVER);
+		}
+	}
 	map.OnMove();
 	player.OnMove();
 	for (vector<Monster>::iterator m = monsters->begin(); m != monsters->end(); m++) {
@@ -254,6 +280,13 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 			m->GetHurt(1);*/
 	}
 	PlayerMonsterInteraction(&player, monsters);
+
+	if (trick1 == 2) {
+		for (size_t i = 0; i < monsters->size(); i++) {
+			monsters->at(i).zeroHP();
+		}
+		trick1 = 0;
+	}
 }
 
 void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
@@ -299,6 +332,7 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_DOWN  = 0x28; // keyboard下箭頭
 	const char KEY_SPACE = 0x20;
 	const char KEY_Z	 = 0x5A;
+	const char KEY_SHIFT = 0x10;
 	
 	if (nChar == KEY_LEFT) {
 		player.SetMovingLeft(true);
@@ -318,6 +352,16 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		player.SetAttackKey(true);
 		player.SetAttacking(true);
 	}
+
+	if (nChar == KEY_SHIFT) {
+		trick1++;
+	}
+
+	if (trick1 == 1) {
+		if (nChar == KEY_Z) {
+			trick1++;
+		}
+	}
 }
 
 void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
@@ -328,6 +372,7 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_DOWN  = 0x28; // keyboard下箭頭
 	const char KEY_SPACE = 0x20;
 	const char KEY_Z	 = 0x5A;
+	const char KEY_SHIFT = 0x10;
 
 	if (nChar == KEY_LEFT) {
 		player.SetMovingLeft(false);
@@ -341,8 +386,15 @@ void CGameStateRun::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 		player.SetMovingDown(false);
 	if (nChar == KEY_SPACE)
 		player.SetJumping(false);
-	if (nChar == KEY_Z)
+	if (nChar == KEY_Z) {
 		player.SetAttackKey(false);
+		if (trick1 > 0)
+			trick1--;
+	}
+	if (nChar == KEY_SHIFT) {
+		if(trick1 > 0)
+			trick1--;
+	}
 }
 
 void CGameStateRun::OnLButtonDown(UINT nFlags, CPoint point)  // 處理滑鼠的動作
@@ -386,26 +438,21 @@ void CGameStateRun::OnShow()
 
 void CGameStateRun::CheckStage()
 {
-	bool isAllDead = false;
 	for (auto m = monsters->begin(); m != monsters->end(); m++) {
 		if (!m->IsDead()) {
-			isAllDead = false;
+			monsterIsAllDead = false;
 			break;
 		}
 		else {
-			isAllDead = true;
+			monsterIsAllDead = true;
 		}
 	}
-	if (isAllDead) {
+	if (monsterIsAllDead && map.GetStage() < 3) {
 		map.ChangeStage(map.GetStage()+1);
 		monsters = map.GetMonsters();
 		player.SetMap(map.GetPlatform(), map.GetLadder());
-		player.Initialize();
-		isAllDead = false;
-	}
-	if (map.GetStage() > 3) {
-		map.ChangeStage(1);
-		GotoGameState(GAME_STATE_OVER);
+		player.SetXY(504, 380);
+		monsterIsAllDead = false;
 	}
 }
 
@@ -413,8 +460,10 @@ void CGameStateRun::PlayerMonsterInteraction(CPlayer * player, vector<Monster>* 
 {
 	tuple<int, int, int, int> playerAR = player->GetAttackRange();
 	for (auto m = monsters->begin(); m != monsters->end(); m++) {
-		if (m->isCollision(player->GetX1(), player->GetY1(), player->GetX2(), player->GetY2())) {
-			player->SetGetHurt(true);
+		if (!player->IsInSuperState()) {
+			if (m->isCollision(player->GetX1(), player->GetY1(), player->GetX2(), player->GetY2())) {
+				player->SetGetHurt(true);
+			}
 		}
 		if (player->Attacking()) {
 			if (m->isCollision(get<0>(playerAR), get<1>(playerAR), get<2>(playerAR), get<3>(playerAR))) {

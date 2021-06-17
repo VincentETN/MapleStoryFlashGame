@@ -35,10 +35,13 @@ namespace game_framework {
 		bool IsInTheAir();
 		bool IsOnTheGround();
 		bool Attacking();
+		bool IsInSuperState();
+		bool IsAlive();
 		tuple<int, int, int, int> GetAttackRange();
 		void SetMap(Platform *plat, Ladder *lad);
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
+		CMovingBitmap dieLeft, dieRight;
 		int x, y;			// 玩家左上角座標
 		int hp;
 		bool isMovingDown;			// 是否正在往下移動
@@ -56,6 +59,8 @@ namespace game_framework {
 		bool rising;			// true表上升、false表下降
 		bool isHurt;
 		bool superState;
+		//bool isAlive;
+
 		int jumpVel;		// 起跳初始速度
 		int instantVelX;	// x軸瞬時速度
 		int instantVelY;	// y軸瞬時速度

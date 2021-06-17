@@ -99,122 +99,140 @@ namespace game_framework {
 		attackRight.AddBitmap(character_right_attack1_1, RGB(255, 0, 255));
 		attackRight.AddBitmap(character_right_attack1_2, RGB(255, 0, 255));
 		attackRight.AddBitmap(character_right_attack1_2, RGB(255, 0, 255));	//判斷用，不會顯示
+
+		dieLeft.LoadBitmap(character_left_die2, RGB(255, 0, 255));
+		dieRight.LoadBitmap(character_right_die2, RGB(255, 0, 255));
 	}		
 
 	void CPlayer::OnMove()	//移動
 	{
-		climb.OnMove();
-		attackLeft.OnMove();
-		attackRight.OnMove();
-		walkLeft.OnMove();
-		walkRight.OnMove();
 		int STEP_SIZE = floors->movingSpeed();
-		if (GetMidX()+instantVelX > 40 && GetMidX()+instantVelX < 600) {
-			x += instantVelX;
-		}
-		y += instantVelY;
-		if (IsInTheAir()) {  // 當y座標還沒碰到地板
-			//y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
-			if (instantVelY < 20) {
-				instantVelY += g;		// 受重力影響，下次的下降速度增加
+		if (IsAlive()) {
+			if (GetMidX() + instantVelX > 40 && GetMidX() + instantVelX < 600) {
+				x += instantVelX;
 			}
-			if (instantVelY > 0) {
-				rising = false;
+			y += instantVelY;
+
+			if (IsInTheAir()) {  // 當y座標還沒碰到地板
+				//y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
+				if (instantVelY < 20) {
+					instantVelY += g;		// 受重力影響，下次的下降速度增加
+				}
+				if (instantVelY > 0) {
+					rising = false;
+				}
 			}
-		}
-		else if (isClimbing) {
-			instantVelX = 0;
-			if (isJumping && isMovingLeft || isJumping && isMovingRight) {
+			else if (isClimbing) {
+				climb.OnMove();
+				instantVelX = 0;
+				if (isJumping && isMovingLeft || isJumping && isMovingRight) {
+					instantVelY = -10;
+					SetIsClimbing(false);
+				}
+			}
+
+			if (IsOnTheGround()) {
+				instantVelY = 0;
+				y = floors->getStandPointY(GetMidX()) - idleLeft.Height();
+				if (!isMovingLeft && !isMovingRight) {
+					instantVelX = 0;
+				}
+			}
+
+			if (isMovingLeft) {
+				SetFacingLeft(true);
+				if (isInTheAir && instantVelX >= 0) {
+					instantVelX -= 1;
+				}
+				else if (!isClimbing && !isAttacking) {
+					//x -= STEP_SIZE;
+					//SetFacingRight(false);
+					if (!isHurt)
+						walkLeft.OnMove();
+						instantVelX = -STEP_SIZE;
+				}
+			}
+
+			if (isMovingRight) {
+				SetFacingLeft(false);
+				if (isInTheAir && instantVelX <= 0) {
+					instantVelX += 1;
+				}
+				else if (!isClimbing && !isAttacking) {
+					//x += STEP_SIZE;
+					//SetFacingRight(true);
+					if (!isHurt)
+						walkRight.OnMove();
+						instantVelX = STEP_SIZE;
+				}
+			}
+
+			if (isMovingUp) {
+				if (ladder->isLadder(GetMidX(), GetMidY())) {
+					SetIsClimbing(true);
+					x = (ladder->getX1() + ladder->getX2()) / 2 - idleLeft.Width() / 2;
+					y -= 4;
+					instantVelY = 0;
+				}
+				else if (isClimbing && ladder->onTheTop(GetMidY())) {
+					SetIsClimbing(false);
+					y = ladder->getY1() - idleLeft.Height();
+				}
+			}
+
+			if (isMovingDown) {
+				//SetJumping(false);		//暫不能往下跳
+				if (ladder->isLadder(GetMidX(), GetY2())) {
+					SetIsClimbing(true);
+					x = (ladder->getX1() + ladder->getX2()) / 2 - idleLeft.Width() / 2;
+					y += 4;
+					instantVelY = 0;
+				}
+				else if (isClimbing && ladder->atTheBottom(GetY2())) {
+					SetIsClimbing(false);
+				}
+			}
+
+			if (isJumping) {
+				if (IsOnTheGround()) {
+					instantVelY = jumpVel;
+					y += instantVelY;
+					rising = true;
+				}
+			}
+
+			if (isHurt) {
+				superState = true;
+				superStateCounter = superStateCount;
 				instantVelY = -10;
-				SetIsClimbing(false);
+				//y += instantVelY;
+				//rising = true;
+				if (isFacingLeft) {
+					instantVelX = 7;
+				}
+				else {
+					instantVelX = -7;
+				}
+				hp -= 1;
 			}
-		}
-		
-		if(IsOnTheGround()){
-			instantVelY = 0;
-			y = floors->getStandPointY(GetMidX()) - idleLeft.Height();
-			if(!isMovingLeft && !isMovingRight){
+
+			if (superState) {
+				isHurt = false;
+			}
+
+			if (--superStateCounter <= 0) {
+				superState = false;
+			}
+
+			if (isAttacking) {
+				if (isFacingLeft) {
+					attackLeft.OnMove();
+				}
+				else {
+					attackRight.OnMove();
+				}
 				instantVelX = 0;
 			}
-		}
-
-		if (isMovingLeft) {
-			if (!isClimbing && !isAttacking) {
-				//x -= STEP_SIZE;
-				SetFacingLeft(true);
-				//SetFacingRight(false);
-				if (!isHurt)
-					instantVelX = -STEP_SIZE;
-			}
-		}
-
-		if (isMovingRight) {
-			if (!isClimbing && !isAttacking) {
-				//x += STEP_SIZE;
-				SetFacingLeft(false);
-				//SetFacingRight(true);
-				if (!isHurt)
-					instantVelX = STEP_SIZE;
-			}
-		}
-
-		if (isMovingUp) {
-			if (ladder->isLadder(GetMidX(), GetMidY())) {
-				SetIsClimbing(true);
-				x = (ladder->getX1() + ladder->getX2()) / 2 - idleLeft.Width() / 2;
-				y -= 4;
-				instantVelY = 0;
-			}
-			else if (isClimbing && ladder->onTheTop(GetMidY())) {
-				SetIsClimbing(false);
-				y = ladder->getY1() - idleLeft.Height();
-			}
-		}
-
-		if (isMovingDown) {
-			//SetJumping(false);		//暫不能往下跳
-			if (ladder->isLadder(GetMidX(), GetY2())) {
-				SetIsClimbing(true);
-				x = (ladder->getX1() + ladder->getX2()) / 2 - idleLeft.Width() / 2;
-				y += 4;
-				instantVelY = 0;
-			}
-			else if (isClimbing && ladder->atTheBottom(GetY2())) {
-				SetIsClimbing(false);
-			}
-		}
-
-		if (isJumping) {
-			if (IsOnTheGround()) {
-				instantVelY = jumpVel;
-				y += instantVelY;
-				rising = true;
-			}
-		}
-
-		if (!superState && isHurt) {
-			superState = true;
-			superStateCounter = superStateCount;
-			instantVelY = -6;
-			y += instantVelY;
-			//rising = true;
-			if (isFacingLeft) {
-				instantVelX = STEP_SIZE;
-			}
-			else {
-				instantVelX = -STEP_SIZE;
-			}
-		}
-		else if (superState) {
-			isHurt = false;
-		}
-
-		if (--superStateCounter <= 0) {
-			superState = false;
-		}
-
-		if (isAttacking) {
-			instantVelX = 0;
 		}
 	}
 
@@ -275,7 +293,17 @@ namespace game_framework {
 
 	void CPlayer::OnShow()
 	{
-		if (isInTheAir) {
+		if (!IsAlive()) {
+			if (isFacingLeft) {
+				dieLeft.SetTopLeft(x, y+18);
+				dieLeft.ShowBitmap();
+			}
+			else {
+				dieRight.SetTopLeft(x, y + 18);
+				dieRight.ShowBitmap();
+			}
+		}
+		else if (isInTheAir) {
 			if (isFacingLeft) {
 				jumpLeft.SetTopLeft(x, y);
 				jumpLeft.OnShow();
@@ -359,6 +387,16 @@ namespace game_framework {
 	void CPlayer::SetIsClimbing(bool flag) 
 	{
 		isClimbing = flag;
+	}
+
+	bool CPlayer::IsInSuperState()
+	{
+		return superState;
+	}
+
+	bool CPlayer::IsAlive()
+	{
+		return hp > 0;
 	}
 	
 	bool CPlayer::IsInTheAir()
