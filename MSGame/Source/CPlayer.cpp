@@ -1,3 +1,4 @@
+#include "mygame.h"
 #include "stdafx.h"
 #include "Resource.h"
 #include <mmsystem.h>
@@ -102,6 +103,11 @@ namespace game_framework {
 
 		dieLeft.LoadBitmap(character_left_die2, RGB(255, 0, 255));
 		dieRight.LoadBitmap(character_right_die2, RGB(255, 0, 255));
+
+		hp_3.LoadBitmap(hp3, RGB(255, 0, 255));\
+		hp_2.LoadBitmap(hp2, RGB(255, 0, 255));
+		hp_1.LoadBitmap(hp1, RGB(255, 0, 255));
+		hp_0.LoadBitmap(hp0, RGB(255, 0, 255));
 	}		
 
 	void CPlayer::OnMove()	//²¾°Ê
@@ -214,6 +220,8 @@ namespace game_framework {
 					instantVelX = -7;
 				}
 				hp -= 1;
+				
+			
 			}
 
 			if (superState) {
@@ -294,6 +302,8 @@ namespace game_framework {
 	void CPlayer::OnShow()
 	{
 		if (!IsAlive()) {
+			hp_0.SetTopLeft(50, 455);
+			hp_0.ShowBitmap();
 			if (isFacingLeft) {
 				dieLeft.SetTopLeft(x, y+18);
 				dieLeft.ShowBitmap();
@@ -303,7 +313,20 @@ namespace game_framework {
 				dieRight.ShowBitmap();
 			}
 		}
-		else if (isInTheAir) {
+		else {
+			if (hp == 3) {
+				hp_3.SetTopLeft(50, 455);
+				hp_3.ShowBitmap();
+			}
+			else if (hp == 2) {
+				hp_2.SetTopLeft(50, 455);
+				hp_2.ShowBitmap();
+			}
+			else if (hp == 1) {
+				hp_1.SetTopLeft(50, 455);
+				hp_1.ShowBitmap();
+			}
+		if (isInTheAir) {
 			if (isFacingLeft) {
 				jumpLeft.SetTopLeft(x, y);
 				jumpLeft.OnShow();
@@ -375,6 +398,8 @@ namespace game_framework {
 				idleRight.SetTopLeft(x, y);
 				idleRight.OnShow();
 			}
+		}
+		
 		}
 	}
 

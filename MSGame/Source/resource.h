@@ -258,6 +258,15 @@
 #define star_right_walk4                365
 #define star_right_walk5                366
 #define star_right_walk6                367
+#define about_window1                   372
+#define about_window2                   373
+#define menu_background1                374
+#define menu_background2                375
+#define hp0                             376
+#define IDB_BITMAP9                     377
+#define hp1                             377
+#define hp2                             378
+#define hp3                             379
 #define IDC_README                      1001
 #define ID_FILE_PAUSE                   32771
 #define ID_TOGGLE_FULLSCREEN            32772
@@ -270,7 +279,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        369
+#define _APS_NEXT_RESOURCE_VALUE        380
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           101

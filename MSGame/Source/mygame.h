@@ -72,9 +72,10 @@ namespace game_framework {
 	protected:
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		CMovingBitmap menu_bg, start, start2;								// csie的logo
+		CMovingBitmap menu_bg, menu_bg1, menu_bg2, start, start2, about1, about2;
 		bool isLButtonUp;
-		bool isOnStartButton;							
+		bool isOnStartButton, isOnAboutButton, isOnBackButton = false;
+		bool isAboutOpen = false;
 	};
 
 	/////////////////////////////////////////////////////////////////////////////

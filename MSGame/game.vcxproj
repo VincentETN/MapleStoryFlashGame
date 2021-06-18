@@ -359,6 +359,10 @@
     <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk3.bmp" />
     <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk4.bmp" />
     <Image Include="..\..\Desktop\lives.bmp" />
+    <Image Include="Resource\about1.bmp" />
+    <Image Include="Resource\about2.bmp" />
+    <Image Include="Resource\about_window1.bmp" />
+    <Image Include="Resource\about_window2.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack1_1.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack1_2.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack1_3.bmp" />
@@ -390,8 +394,15 @@
     <Image Include="Resource\Character\character_right_walk1.bmp" />
     <Image Include="Resource\Character\character_right_walk2.bmp" />
     <Image Include="Resource\gameover.bmp" />
+    <Image Include="Resource\hp0.bmp" />
+    <Image Include="Resource\hp1.bmp" />
+    <Image Include="Resource\hp2.bmp" />
+    <Image Include="Resource\hp3.bmp" />
+    <Image Include="Resource\lives.bmp" />
     <Image Include="Resource\maple.ico" />
     <Image Include="Resource\menu.bmp" />
+    <Image Include="Resource\menu1.bmp" />
+    <Image Include="Resource\menu2.bmp" />
     <Image Include="Resource\Monster\crab\crab_left1.bmp" />
     <Image Include="Resource\Monster\crab\crab_left2.bmp" />
     <Image Include="Resource\Monster\crab\crab_left_die1.bmp" />

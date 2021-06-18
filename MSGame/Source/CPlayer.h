@@ -1,6 +1,7 @@
 #include "Platform.h"
 #include "Ladder.h"
 
+
 namespace game_framework {
 	class CPlayer
 	{
@@ -41,7 +42,7 @@ namespace game_framework {
 		void SetMap(Platform *plat, Ladder *lad);
 	protected:
 		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
-		CMovingBitmap dieLeft, dieRight;
+		CMovingBitmap dieLeft, dieRight, hp_3, hp_2, hp_1, hp_0;
 		int x, y;			// 玩家左上角座標
 		int hp;
 		bool isMovingDown;			// 是否正在往下移動

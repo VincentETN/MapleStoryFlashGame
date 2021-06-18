@@ -438,6 +438,22 @@ star_right_walk5        BITMAP                  "..\\Resource\\Monster\\star\\st
 
 star_right_walk6        BITMAP                  "..\\Resource\\Monster\\star\\star_right_walk6.bmp"
 
+about_window1           BITMAP                  "..\\Resource\\about_window1.bmp"
+
+about_window2           BITMAP                  "..\\Resource\\about_window2.bmp"
+
+menu_background1        BITMAP                  "..\\Resource\\menu1.bmp"
+
+menu_background2        BITMAP                  "..\\Resource\\menu2.bmp"
+
+hp0                     BITMAP                  "..\\Resource\\hp0.bmp"
+
+hp1                     BITMAP                  "..\\Resource\\hp1.bmp"
+
+hp2                     BITMAP                  "..\\Resource\\hp2.bmp"
+
+hp3                     BITMAP                  "..\\Resource\\hp3.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

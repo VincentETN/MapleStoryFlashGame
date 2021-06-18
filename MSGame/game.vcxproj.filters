@@ -1,815 +1,286 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{1a913106-0be0-4476-b0ce-2aa855072614}</UniqueIdentifier>
-      <Extensions>ico;cur;bmp;dlg;rc2;rct;bin;cnt;rtf;gif;jpg;jpeg;jpe</Extensions>
-    </Filter>
-    <Filter Include="MFC">
-      <UniqueIdentifier>{da904ee8-7f59-4a6c-b3ff-b91b6fb6d0ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GameLibrary">
-      <UniqueIdentifier>{df7aa532-3fdf-46a0-b3fc-8f5922e8d9e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="MyGame">
-      <UniqueIdentifier>{0c798913-b7d2-4e26-8241-0f83266cd626}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="Source\audio.cpp" />
+    <ClCompile Include="Source\CBall.cpp" />
+    <ClCompile Include="Source\CBouncingBall.cpp" />
+    <ClCompile Include="Source\CEraser.cpp" />
+    <ClCompile Include="Source\CPlayer.cpp" />
+    <ClCompile Include="Source\game.cpp" />
+    <ClCompile Include="Source\gameDoc.cpp" />
+    <ClCompile Include="Source\gameView.cpp" />
+    <ClCompile Include="Source\Ladder.cpp" />
+    <ClCompile Include="Source\MainFrm.cpp" />
+    <ClCompile Include="Source\Monster.cpp" />
+    <ClCompile Include="Source\Platform.cpp" />
+    <ClCompile Include="Source\Player.cpp" />
+    <ClCompile Include="Source\StageMap.cpp" />
+    <ClCompile Include="Source\StdAfx.cpp" />
+    <ClCompile Include="Source\gamelib.cpp" />
+    <ClCompile Include="Source\mygame.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Res\ball.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp0.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp1.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp10.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp2.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp3.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp4.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp5.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp6.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp7.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp8.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\bmp9.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\center.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\continue.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Res\corner.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\eraser1.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\eraser2.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\eraser3.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\game.rc2">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\gamecurs.cur">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\gameDoc.ico">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\help.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\loading.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="RES\ntutcsie.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\Toolbar.bmp">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="res\cursor1.cur">
-      <Filter>Resource Files</Filter>
-    </None>
+    <ClInclude Include="Source\audio.h" />
+    <ClInclude Include="Source\CBall.h" />
+    <ClInclude Include="Source\CBouncingBall.h" />
+    <ClInclude Include="Source\CEraser.h" />
+    <ClInclude Include="Source\CPlayer.h" />
+    <ClInclude Include="Source\game.h" />
+    <ClInclude Include="Source\gameDoc.h" />
+    <ClInclude Include="Source\gameView.h" />
+    <ClInclude Include="Source\Ladder.h" />
+    <ClInclude Include="Source\MainFrm.h" />
+    <ClInclude Include="Source\Monster.h" />
+    <ClInclude Include="Source\Platform.h" />
+    <ClInclude Include="Source\Player.h" />
+    <ClInclude Include="Source\Resource.h" />
+    <ClInclude Include="Source\StageMap.h" />
+    <ClInclude Include="Source\StdAfx.h" />
+    <ClInclude Include="Source\gamelib.h" />
+    <ClInclude Include="Source\mygame.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\audio.cpp">
-      <Filter>GameLibrary</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\game.cpp">
-      <Filter>MFC</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\gameDoc.cpp">
-      <Filter>MFC</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\gamelib.cpp">
-      <Filter>GameLibrary</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\gameView.cpp">
-      <Filter>MFC</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\MainFrm.cpp">
-      <Filter>MFC</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\StdAfx.cpp">
-      <Filter>MFC</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\mygame.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CEraser.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CBall.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CBouncingBall.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CPlayer.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Platform.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Ladder.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Monster.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\StageMap.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Player.cpp">
-      <Filter>MyGame</Filter>
-    </ClCompile>
+    <ResourceCompile Include="Source\game.rc" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\audio.h">
-      <Filter>GameLibrary</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\game.h">
-      <Filter>MFC</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\gameDoc.h">
-      <Filter>MFC</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\gamelib.h">
-      <Filter>GameLibrary</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\gameView.h">
-      <Filter>MFC</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\MainFrm.h">
-      <Filter>MFC</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Resource.h">
-      <Filter>MFC</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\StdAfx.h">
-      <Filter>MFC</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\mygame.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CEraser.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CBall.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CBouncingBall.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\CPlayer.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Platform.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Ladder.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Monster.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\StageMap.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Player.h">
-      <Filter>MyGame</Filter>
-    </ClInclude>
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left1.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left2.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die1.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die2.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die3.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die4.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_hurt.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk1.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk2.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk3.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk4.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right1.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right2.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die1.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die2.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die3.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die4.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_hurt.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk1.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk2.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk3.bmp" />
+    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk4.bmp" />
+    <Image Include="..\..\Desktop\lives.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack1_1.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack1_2.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack1_3.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack2_1.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack2_2.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack3_1.bmp" />
+    <Image Include="Resource\Character\attack\character_left_attack3_2.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack1_1.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack1_2.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack1_3.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack2_1.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack2_2.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack3_1.bmp" />
+    <Image Include="Resource\Character\attack\character_right_attack3_2.bmp" />
+    <Image Include="Resource\Character\character_climb1.bmp" />
+    <Image Include="Resource\Character\character_climb2.bmp" />
+    <Image Include="Resource\Character\character_left_die1.bmp" />
+    <Image Include="Resource\Character\character_left_die2.bmp" />
+    <Image Include="Resource\Character\character_left_jump.bmp" />
+    <Image Include="Resource\Character\character_left_lie.bmp" />
+    <Image Include="Resource\Character\character_left_stand.bmp" />
+    <Image Include="Resource\Character\character_left_walk1.bmp" />
+    <Image Include="Resource\Character\character_left_walk2.bmp" />
+    <Image Include="Resource\Character\character_right_die1.bmp" />
+    <Image Include="Resource\Character\character_right_die2.bmp" />
+    <Image Include="Resource\Character\character_right_jump.bmp" />
+    <Image Include="Resource\Character\character_right_lie.bmp" />
+    <Image Include="Resource\Character\character_right_stand.bmp" />
+    <Image Include="Resource\Character\character_right_walk1.bmp" />
+    <Image Include="Resource\Character\character_right_walk2.bmp" />
+    <Image Include="Resource\gameover.bmp" />
+    <Image Include="Resource\maple.ico" />
+    <Image Include="Resource\menu.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left1.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left2.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_die1.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_die2.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_die3.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_die4.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_hurt.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_walk1.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_walk2.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_walk3.bmp" />
+    <Image Include="Resource\Monster\crab\crab_left_walk4.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right1.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right2.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_die1.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_die2.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_die3.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_die4.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_hurt.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_walk1.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_walk2.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_walk3.bmp" />
+    <Image Include="Resource\Monster\crab\crab_right_walk4.bmp" />
+    <Image Include="Resource\Monster\green\green_left1.bmp" />
+    <Image Include="Resource\Monster\green\green_left2.bmp" />
+    <Image Include="Resource\Monster\green\green_left_die1.bmp" />
+    <Image Include="Resource\Monster\green\green_left_die2.bmp" />
+    <Image Include="Resource\Monster\green\green_left_die3.bmp" />
+    <Image Include="Resource\Monster\green\green_left_die4.bmp" />
+    <Image Include="Resource\Monster\green\green_left_hurt.bmp" />
+    <Image Include="Resource\Monster\green\green_left_walk1.bmp" />
+    <Image Include="Resource\Monster\green\green_left_walk2.bmp" />
+    <Image Include="Resource\Monster\green\green_left_walk3.bmp" />
+    <Image Include="Resource\Monster\green\green_left_walk4.bmp" />
+    <Image Include="Resource\Monster\green\green_left_walk5.bmp" />
+    <Image Include="Resource\Monster\green\green_left_walk6.bmp" />
+    <Image Include="Resource\Monster\green\green_left_walk7.bmp" />
+    <Image Include="Resource\Monster\green\green_right1.bmp" />
+    <Image Include="Resource\Monster\green\green_right2.bmp" />
+    <Image Include="Resource\Monster\green\green_right_die1.bmp" />
+    <Image Include="Resource\Monster\green\green_right_die2.bmp" />
+    <Image Include="Resource\Monster\green\green_right_die3.bmp" />
+    <Image Include="Resource\Monster\green\green_right_die4.bmp" />
+    <Image Include="Resource\Monster\green\green_right_hurt.bmp" />
+    <Image Include="Resource\Monster\green\green_right_walk1.bmp" />
+    <Image Include="Resource\Monster\green\green_right_walk2.bmp" />
+    <Image Include="Resource\Monster\green\green_right_walk3.bmp" />
+    <Image Include="Resource\Monster\green\green_right_walk4.bmp" />
+    <Image Include="Resource\Monster\green\green_right_walk5.bmp" />
+    <Image Include="Resource\Monster\green\green_right_walk6.bmp" />
+    <Image Include="Resource\Monster\green\green_right_walk7.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left1.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left2.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left_die1.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left_die2.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left_die3.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left_hurt.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left_walk1.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left_walk2.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_left_walk3.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right1.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right2.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right_die1.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right_die2.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right_die3.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right_hurt.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right_walk1.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right_walk2.bmp" />
+    <Image Include="Resource\Monster\mushroom\mushroom_right_walk3.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_die1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_die2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_die3.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_hurt.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_walk1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_walk2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_left_walk3.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_die1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_die2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_die3.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_hurt.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_walk1.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_walk2.bmp" />
+    <Image Include="Resource\Monster\snail\snail_right_walk3.bmp" />
+    <Image Include="Resource\Monster\snail_left.bmp" />
+    <Image Include="Resource\Monster\snail_right.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left1.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left2.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left_die1.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left_die2.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left_die3.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left_hurt.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left_walk1.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left_walk2.bmp" />
+    <Image Include="Resource\Monster\snake\snake_left_walk3.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right1.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right2.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right_die1.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right_die2.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right_die3.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right_hurt.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right_walk1.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right_walk2.bmp" />
+    <Image Include="Resource\Monster\snake\snake_right_walk3.bmp" />
+    <Image Include="Resource\Monster\snake_left.bmp" />
+    <Image Include="Resource\Monster\snake_right.bmp" />
+    <Image Include="Resource\Monster\star\star_left_die1.bmp" />
+    <Image Include="Resource\Monster\star\star_left_die2.bmp" />
+    <Image Include="Resource\Monster\star\star_left_die3.bmp" />
+    <Image Include="Resource\Monster\star\star_left_die4.bmp" />
+    <Image Include="Resource\Monster\star\star_left_die5.bmp" />
+    <Image Include="Resource\Monster\star\star_left_hurt.bmp" />
+    <Image Include="Resource\Monster\star\star_left_walk1.bmp" />
+    <Image Include="Resource\Monster\star\star_left_walk2.bmp" />
+    <Image Include="Resource\Monster\star\star_left_walk3.bmp" />
+    <Image Include="Resource\Monster\star\star_left_walk4.bmp" />
+    <Image Include="Resource\Monster\star\star_left_walk5.bmp" />
+    <Image Include="Resource\Monster\star\star_left_walk6.bmp" />
+    <Image Include="Resource\Monster\star\star_right_die1.bmp" />
+    <Image Include="Resource\Monster\star\star_right_die2.bmp" />
+    <Image Include="Resource\Monster\star\star_right_die3.bmp" />
+    <Image Include="Resource\Monster\star\star_right_die4.bmp" />
+    <Image Include="Resource\Monster\star\star_right_die5.bmp" />
+    <Image Include="Resource\Monster\star\star_right_hurt.bmp" />
+    <Image Include="Resource\Monster\star\star_right_walk1.bmp" />
+    <Image Include="Resource\Monster\star\star_right_walk2.bmp" />
+    <Image Include="Resource\Monster\star\star_right_walk3.bmp" />
+    <Image Include="Resource\Monster\star\star_right_walk4.bmp" />
+    <Image Include="Resource\Monster\star\star_right_walk5.bmp" />
+    <Image Include="Resource\Monster\star\star_right_walk6.bmp" />
+    <Image Include="Resource\Stage1BG.bmp" />
+    <Image Include="Resource\stage1text.bmp" />
+    <Image Include="Resource\Stage2BG.bmp" />
+    <Image Include="Resource\stage2text.bmp" />
+    <Image Include="Resource\Stage3BG.bmp" />
+    <Image Include="Resource\stage3text.bmp" />
+    <Image Include="Resource\startbutton.bmp" />
+    <Image Include="Resource\startbutton2.bmp" />
+    <Image Include="Resource\success.bmp" />
+    <Image Include="res\bitmap3.bmp" />
+    <Image Include="res\bitmap7.bmp" />
+    <Image Include="res\game.ico" />
+    <Image Include="Resource\lives.bmp" />
+    <Image Include="Resource\about1.bmp" />
+    <Image Include="Resource\about2.bmp" />
+    <Image Include="Resource\about_window1.bmp" />
+    <Image Include="Resource\about_window2.bmp" />
+    <Image Include="Resource\menu1.bmp" />
+    <Image Include="Resource\menu2.bmp" />
+    <Image Include="Resource\hp0.bmp" />
+    <Image Include="Resource\hp1.bmp" />
+    <Image Include="Resource\hp2.bmp" />
+    <Image Include="Resource\hp3.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="Source\game.rc">
-      <Filter>MFC</Filter>
-    </ResourceCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="res\game.ico">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Stage1BG.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_left_stand.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_right_stand.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_left_lie.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_right_lie.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\bitmap3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_left_jump.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_right_jump.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail_left.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail_right.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake_left.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake_right.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_climb1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_climb2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_left_attack1_1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_left_attack1_2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_left_attack1_3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_left_attack2_1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_left_attack2_2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_left_attack3_1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_left_attack3_2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_left_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snail\snail_right_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_right_attack1_1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_right_attack1_2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_right_attack1_3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_right_attack2_1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_right_attack2_2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_right_attack3_1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\attack\character_right_attack3_2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Stage2BG.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Stage3BG.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\menu.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\startbutton.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\startbutton2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="res\bitmap7.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_left2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\snake\snake_right2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_left2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\mushroom\mushroom_right2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_walk5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_walk6.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left_walk7.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_left2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_walk5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_walk6.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right_walk7.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\green\green_right2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\stage1text.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\stage2text.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\gameover.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\stage3text.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\success.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Character\character_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_left2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="..\..\Desktop\3_19\mons\crab\crab_right2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_left2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\crab\crab_right2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_die5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_walk5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_left_walk6.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_die1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_die2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_die3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_die4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_die5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_hurt.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_walk1.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_walk2.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_walk3.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_walk4.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_walk5.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="Resource\Monster\star\star_right_walk6.bmp">
-      <Filter>Resource Files</Filter>
-    </Image>
-<<<<<<< HEAD
-    <Image Include="..\..\Desktop\lives.bmp">
-=======
-    <Image Include="Resource\maple.ico">
->>>>>>> 66bf45ba6a2dcc33e9572903704492043ce2630d
-      <Filter>Resource Files</Filter>
-    </Image>
+    <None Include="Res\ball.bmp" />
+    <None Include="RES\bmp0.bmp" />
+    <None Include="RES\bmp1.bmp" />
+    <None Include="RES\bmp10.bmp" />
+    <None Include="RES\bmp2.bmp" />
+    <None Include="RES\bmp3.bmp" />
+    <None Include="RES\bmp4.bmp" />
+    <None Include="RES\bmp5.bmp" />
+    <None Include="RES\bmp6.bmp" />
+    <None Include="RES\bmp7.bmp" />
+    <None Include="RES\bmp8.bmp" />
+    <None Include="RES\bmp9.bmp" />
+    <None Include="RES\center.bmp" />
+    <None Include="RES\continue.bmp" />
+    <None Include="Res\corner.bmp" />
+    <None Include="res\cursor1.cur" />
+    <None Include="RES\eraser1.bmp" />
+    <None Include="RES\eraser2.bmp" />
+    <None Include="RES\eraser3.bmp" />
+    <None Include="res\game.rc2" />
+    <None Include="RES\gamecurs.cur" />
+    <None Include="res\gameDoc.ico" />
+    <None Include="RES\help.bmp" />
+    <None Include="RES\loading.bmp" />
+    <None Include="RES\ntutcsie.bmp" />
+    <None Include="res\Toolbar.bmp" />
   </ItemGroup>
 </Project>

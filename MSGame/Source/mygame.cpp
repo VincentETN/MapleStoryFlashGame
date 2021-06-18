@@ -81,6 +81,10 @@ void CGameStateInit::OnInit()
 	// 開始載入資料
 	//
 	menu_bg.LoadBitmap(menu_background);
+	menu_bg1.LoadBitmap(menu_background1);
+	menu_bg2.LoadBitmap(menu_background2);
+	about1.LoadBitmap(about_window1, 0x00FF00FF);
+	about2.LoadBitmap(about_window2, 0x00FF00FF);
 	start.LoadBitmap(start_button, 0x00FF00FF);
 	start2.LoadBitmap(start_button2, 0x00FF00FF);
 	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
@@ -98,7 +102,7 @@ void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_ESC = 27;
 	const char KEY_SPACE = ' ';
 	if (nChar == KEY_SPACE)
-		GotoGameState(GAME_STATE_RUN);						// 切換至GAME_STATE_RUN
+		;//GotoGameState(GAME_STATE_RUN);						// 切換至GAME_STATE_RUN
 	else if (nChar == KEY_ESC)								// Demo 關閉遊戲的方法
 		PostMessage(AfxGetMainWnd()->m_hWnd, WM_CLOSE,0,0);	// 關閉遊戲
 }
@@ -106,8 +110,17 @@ void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 void CGameStateInit::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	isLButtonUp = true;
-	if (isOnStartButton) 
-		GotoGameState(GAME_STATE_RUN);		// 切換至GAME_STATE_RUN
+	if (isOnStartButton)
+		GotoGameState(GAME_STATE_RUN);
+	if (!isAboutOpen) {
+		if(isOnAboutButton)
+			isAboutOpen = true;
+	}
+	else {
+		if (isOnBackButton)
+			isAboutOpen = false;
+	}
+
 }
 
 void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)
@@ -117,18 +130,52 @@ void CGameStateInit::OnLButtonDown(UINT nFlags, CPoint point)
 
 void CGameStateInit::OnMouseMove(UINT nFlags, CPoint point)
 {
-	if (point.x > 420 && point.x < 500 && point.y > 415 && point.y < 435)
-		isOnStartButton = true;
-	else
-		isOnStartButton = false;
+	if (!isAboutOpen) {
+		if (point.x > 420 && point.x < 500 && point.y > 415 && point.y < 435)
+			isOnStartButton = true;
+		else
+			isOnStartButton = false;
+
+		if (point.x > 105 && point.x < 160 && point.y > 420 && point.y < 440)
+			isOnAboutButton = true;
+		else
+			isOnAboutButton = false;
+	}
+
+	if (isAboutOpen){
+		if (point.x > 275 && point.x < 335 && point.y > 255 && point.y < 280)
+			isOnBackButton = true;
+		else
+			isOnBackButton = false;
+	}
+
 }
 
 void CGameStateInit::OnShow()
 {
-	menu_bg.SetTopLeft(40, 0);
-	menu_bg.ShowBitmap();
+	menu_bg1.SetTopLeft(40, 0);
+	menu_bg2.SetTopLeft(40, 0);
+	about1.SetTopLeft(155, 125);
+	about2.SetTopLeft(155, 125);
 	start.SetTopLeft(424, 419);
 	start2.SetTopLeft(424, 419);
+
+
+
+	if (isAboutOpen) {
+		menu_bg1.ShowBitmap();
+		about1.ShowBitmap();
+		if (isOnBackButton) {
+			menu_bg1.ShowBitmap();
+			about2.ShowBitmap();
+		}			
+	}
+	else if(isOnAboutButton) {
+			menu_bg2.ShowBitmap();
+	}
+	else
+			menu_bg1.ShowBitmap();
+
 	if (isOnStartButton)
 		start.ShowBitmap();
 	else
