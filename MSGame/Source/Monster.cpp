@@ -5,6 +5,7 @@
 #include "audio.h"
 #include "gamelib.h"
 #include "Monster.h"
+#include "mygame.h"
 //#include "CPlayer.h"
 
 namespace game_framework {
@@ -64,8 +65,11 @@ namespace game_framework {
 
 	void Monster::GetHurt(int dmg)
 	{
+		CAudio::Instance()->Play(AUDIO_HIT);
 		HP -= dmg;
 		isHurt = true;
+		if (HP == 0)
+			CAudio::Instance()->Play(AUDIO_DEAD);
 	}
 
 	bool Monster::IsAlive()

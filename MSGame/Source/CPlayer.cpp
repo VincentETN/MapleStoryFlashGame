@@ -299,7 +299,7 @@ namespace game_framework {
 				dieLeft.ShowBitmap();
 			}
 			else {
-				dieRight.SetTopLeft(x, y + 18);
+				dieRight.SetTopLeft(x, y+18);
 				dieRight.ShowBitmap();
 			}
 		}

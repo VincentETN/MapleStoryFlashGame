@@ -206,7 +206,6 @@
 #define stage2text                      292
 #define stage2_text                     292
 #define gameover_background             293
-#define stage3text                      294
 #define stage3_text                     294
 #define success_background              295
 #define character_left_die1             296
@@ -271,7 +270,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_3D_CONTROLS                     1
-#define _APS_NEXT_RESOURCE_VALUE        368
+#define _APS_NEXT_RESOURCE_VALUE        369
 #define _APS_NEXT_COMMAND_VALUE         32776
 #define _APS_NEXT_CONTROL_VALUE         1003
 #define _APS_NEXT_SYMED_VALUE           101

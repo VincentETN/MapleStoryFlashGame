@@ -358,6 +358,7 @@
     <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk2.bmp" />
     <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk3.bmp" />
     <Image Include="..\..\Desktop\3_19\mons\crab\crab_right_walk4.bmp" />
+    <Image Include="..\..\Desktop\lives.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack1_1.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack1_2.bmp" />
     <Image Include="Resource\Character\attack\character_left_attack1_3.bmp" />
