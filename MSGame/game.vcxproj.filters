@@ -804,5 +804,8 @@
     <Image Include="Resource\Monster\star\star_right_walk6.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+    <Image Include="Resource\maple.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
