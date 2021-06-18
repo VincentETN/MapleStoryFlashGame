@@ -146,7 +146,7 @@ namespace game_framework {
 		case 3:
 			return &plat3;
 		default:
-			return &plat1;
+			return NULL;
 		}
 		//return ppointer;
 	}
@@ -161,7 +161,7 @@ namespace game_framework {
 		case 3:
 			return &ladder3;
 		default:
-			return &ladder1;
+			return NULL;
 		}
 		//return lpointer;
 	}
@@ -174,7 +174,7 @@ namespace game_framework {
 		else if (stage == 3)
 			return &monsters3;
 		else
-			return &monsters1;
+			return NULL;
 		//return mpointer;
 	}
 	

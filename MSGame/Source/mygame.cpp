@@ -240,6 +240,8 @@ void CGameStateRun::OnBeginState()
 	//CAudio::Instance()->Play(AUDIO_DING, false);		// ¼·©ñ WAVE
 	//CAudio::Instance()->Play(AUDIO_NTUT, true);			// ¼·©ñ MIDI
 	map.ChangeStage(1);
+	monsters = map.GetMonsters();
+	player.SetMap(map.GetPlatform(), map.GetLadder());
 	player.Initialize();
 	map.MonsterInit();
 	monsterIsAllDead = false;
