@@ -804,7 +804,11 @@
     <Image Include="Resource\Monster\star\star_right_walk6.bmp">
       <Filter>Resource Files</Filter>
     </Image>
+<<<<<<< HEAD
     <Image Include="..\..\Desktop\lives.bmp">
+=======
+    <Image Include="Resource\maple.ico">
+>>>>>>> 66bf45ba6a2dcc33e9572903704492043ce2630d
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>

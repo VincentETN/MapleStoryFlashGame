@@ -390,6 +390,7 @@
     <Image Include="Resource\Character\character_right_walk1.bmp" />
     <Image Include="Resource\Character\character_right_walk2.bmp" />
     <Image Include="Resource\gameover.bmp" />
+    <Image Include="Resource\maple.ico" />
     <Image Include="Resource\menu.bmp" />
     <Image Include="Resource\Monster\crab\crab_left1.bmp" />
     <Image Include="Resource\Monster\crab\crab_left2.bmp" />
