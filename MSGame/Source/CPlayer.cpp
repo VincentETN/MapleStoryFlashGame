@@ -159,7 +159,12 @@ namespace game_framework {
 			else if (isClimbing) {
 				climb.OnMove();
 				instantVelX = 0;
-				if (isJumping && isMovingLeft || isJumping && isMovingRight) {
+				if (isJumping && isMovingLeft) {
+					instantVelX = -STEP_SIZE;
+					instantVelY = -10;
+					SetIsClimbing(false);
+				}else if (isJumping && isMovingRight) {
+					instantVelX = STEP_SIZE;
 					instantVelY = -10;
 					SetIsClimbing(false);
 				}
