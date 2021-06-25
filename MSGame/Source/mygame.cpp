@@ -87,7 +87,8 @@ void CGameStateInit::OnInit()
 	about2.LoadBitmap(about_window2, 0x00FF00FF);
 	start.LoadBitmap(start_button, 0x00FF00FF);
 	start2.LoadBitmap(start_button2, 0x00FF00FF);
-	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
+	
+	ShowInitProgress(60);
 	//
 	// 此OnInit動作會接到CGameStaterRun::OnInit()，所以進度還沒到100%
 	//
@@ -323,19 +324,14 @@ void CGameStateRun::OnMove()							// 移動遊戲元素
 	player.OnMove();
 	for (vector<Monster>::iterator m = monsters->begin(); m != monsters->end(); m++) {
 		m->OnMove();
-		/*if (m->isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2())) {
-			player.SetGetHurt(true);
-		}
-		if (player.Attacking() && m->isCollision(player.GetX1(), player.GetY1(), player.GetX2(), player.GetY2()))
-			m->GetHurt(1);*/
 	}
 	PlayerMonsterInteraction(&player, monsters);
 
 	if (trick1 == 2) {
 		for (size_t i = 0; i < monsters->size(); i++) {
 			monsters->at(i).zeroHP();
-			CAudio::Instance()->Play(AUDIO_DEAD);
 		}
+		CAudio::Instance()->Play(AUDIO_DEAD);
 		trick1 = 0;
 	}
 }
@@ -356,20 +352,16 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	map.LoadMonsterBitmap();
 	player.SetMap(map.GetPlatform(), map.GetLadder());
 	monsters = map.GetMonsters();
-	/*for (size_t i = 0; i < monsters->size(); i++) {
-		monsters->at(i).LoadBitmap();
-	}*/
 	//
 	// 完成部分Loading動作，提高進度
 	//
 	ShowInitProgress(50);
-	//Sleep(500); // 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	//
 	// 繼續載入其他資料
 	//									
-	CAudio::Instance()->Load(AUDIO_HIT,  "sounds\\hit.wav");	// 載入編號0的聲音ding.wav
-	CAudio::Instance()->Load(AUDIO_DEAD, "sounds\\dead.wav");	// 載入編號0的聲音ding.wav
-	CAudio::Instance()->Load(AUDIO_HURT, "sounds\\hurt.wav");	// 載入編號0的聲音ding.wav
+	CAudio::Instance()->Load(AUDIO_HIT,  "sounds\\hit.wav");
+	CAudio::Instance()->Load(AUDIO_DEAD, "sounds\\dead.wav");
+	CAudio::Instance()->Load(AUDIO_HURT, "sounds\\hurt.wav");
 	//
 	// 此OnInit動作會接到CGameStaterOver::OnInit()，所以進度還沒到100%
 	//
@@ -490,7 +482,7 @@ void CGameStateRun::OnShow()
 void CGameStateRun::CheckStage()
 {
 	for (auto m = monsters->begin(); m != monsters->end(); m++) {
-		if (!m->IsDead()) {
+		if (!m->IsDisappear()) {
 			monsterIsAllDead = false;
 			break;
 		}
@@ -514,15 +506,18 @@ void CGameStateRun::PlayerMonsterInteraction(CPlayer * player, vector<Monster>* 
 		if (!player->IsInSuperState()) {
 			if (m->isCollision(player->GetX1(), player->GetY1(), player->GetX2(), player->GetY2())) {
 				player->SetGetHurt(true);
+				CAudio::Instance()->Play(AUDIO_HURT);
 			}
 		}
 		if (player->Attacking()) {
 			if (m->isCollision(get<0>(playerAR), get<1>(playerAR), get<2>(playerAR), get<3>(playerAR))) {
 				m->GetHurt(1);
+				CAudio::Instance()->Play(AUDIO_HIT);
+				if (!m->IsAlive() && !m->IsDisappear()) {
+					CAudio::Instance()->Play(AUDIO_DEAD);
+				}
 			}
 		}
 	}
-
 }
-
 }

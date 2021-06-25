@@ -1,4 +1,3 @@
-#include "mygame.h"
 #include "stdafx.h"
 #include "Resource.h"
 #include <mmsystem.h>
@@ -6,7 +5,6 @@
 #include "audio.h"
 #include "gamelib.h"
 #include "CPlayer.h"
-#include "Monster.h"
 
 namespace game_framework {
 	/////////////////////////////////////////////////////////////////////////////
@@ -119,6 +117,36 @@ namespace game_framework {
 			}
 			y += instantVelY;
 
+			if (isMovingLeft) {
+				if (!isAttacking) {
+					SetFacingLeft(true);
+					if (IsInTheAir() && instantVelX >= 0) {
+						instantVelX -= 1;
+					}
+					else if (isOnTheGround) {
+						if (!isHurt) {
+							walkLeft.OnMove();
+							instantVelX = -STEP_SIZE;
+						}
+					}
+				}
+			}
+
+			if (isMovingRight) {
+				if (!isAttacking) {
+					SetFacingLeft(false);
+					if (isInTheAir && instantVelX <= 0) {
+						instantVelX += 1;
+					}
+					else if (isOnTheGround) {
+						if (!isHurt) {
+							walkRight.OnMove();
+							instantVelX = STEP_SIZE;
+						}
+					}
+				}
+			}
+
 			if (IsInTheAir()) {  // 當y座標還沒碰到地板
 				//y += instantVelY;	// y軸下降(移動velocity個點，velocity的單位為 點/次)
 				if (instantVelY < 20) {
@@ -142,34 +170,6 @@ namespace game_framework {
 				y = floors->getStandPointY(GetMidX()) - idleLeft.Height();
 				if (!isMovingLeft && !isMovingRight) {
 					instantVelX = 0;
-				}
-			}
-
-			if (isMovingLeft) {
-				SetFacingLeft(true);
-				if (isInTheAir && instantVelX >= 0) {
-					instantVelX -= 1;
-				}
-				else if (!isClimbing && !isAttacking) {
-					//x -= STEP_SIZE;
-					//SetFacingRight(false);
-					if (!isHurt)
-						walkLeft.OnMove();
-						instantVelX = -STEP_SIZE;
-				}
-			}
-
-			if (isMovingRight) {
-				SetFacingLeft(false);
-				if (isInTheAir && instantVelX <= 0) {
-					instantVelX += 1;
-				}
-				else if (!isClimbing && !isAttacking) {
-					//x += STEP_SIZE;
-					//SetFacingRight(true);
-					if (!isHurt)
-						walkRight.OnMove();
-						instantVelX = STEP_SIZE;
 				}
 			}
 
@@ -210,18 +210,16 @@ namespace game_framework {
 			if (isHurt) {
 				superState = true;
 				superStateCounter = superStateCount;
-				instantVelY = -10;
-				//y += instantVelY;
-				//rising = true;
-				if (isFacingLeft) {
-					instantVelX = 7;
-				}
-				else {
-					instantVelX = -7;
+				if (!isClimbing) {
+					instantVelY = -10;
+					if (isFacingLeft) {
+						instantVelX = 7;
+					}
+					else {
+						instantVelX = -7;
+					}
 				}
 				hp -= 1;
-				
-			
 			}
 
 			if (superState) {
@@ -239,7 +237,9 @@ namespace game_framework {
 				else {
 					attackRight.OnMove();
 				}
-				instantVelX = 0;
+				if (isOnTheGround) {
+					instantVelX = 0;
+				}
 			}
 		}
 	}
@@ -263,11 +263,6 @@ namespace game_framework {
 	{
 		isFacingLeft = flag;
 	}
-	
-	//void CPlayer::SetFacingRight(bool flag)
-	//{
-	//	isFacingRight = flag;
-	//}
 	
 	void CPlayer::SetMovingUp(bool flag)
 	{

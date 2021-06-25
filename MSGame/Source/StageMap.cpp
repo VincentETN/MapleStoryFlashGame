@@ -105,14 +105,14 @@ namespace game_framework {
 	void StageMap::CreateMonsters()
 	{
 		monsters1.push_back(Monster(2, 1, 40, 315, 200, 390));		//f2
-		monsters1.push_back(Monster(1, 2, 320, 600, 350, 248));	//f5
+		monsters1.push_back(Monster(1, 2, 320, 600, 500, 248));		//f5
 		monsters1.push_back(Monster(1, 3, 40, 290, 50, 248));		//f6
-		monsters1.push_back(Monster(2, 4, 170, 465, 400, 145));	//f8
+		monsters1.push_back(Monster(2, 4, 170, 465, 400, 145));		//f8
 		monsters1.push_back(Monster(1, 5, 320, 600, 350, 39));		//f10
-		monsters1.push_back(Monster(2, 6, 40, 285, 60, 41));		//f11
+		monsters1.push_back(Monster(2, 6, 40, 285, 250, 41));		//f11
 
 		monsters2.push_back(Monster(4, 1, 40, 600, 380, 405));		//f1
-		monsters2.push_back(Monster(3, 2, 180, 250, 210, 340));	//f2
+		monsters2.push_back(Monster(3, 2, 180, 250, 210, 340));		//f2
 		monsters2.push_back(Monster(4, 3, 40, 400, 120, 233));		//f7
 		monsters2.push_back(Monster(3, 4, 40, 230, 190, 132));		//f8
 		monsters2.push_back(Monster(3, 5, 250, 600, 500, 132));		//f9

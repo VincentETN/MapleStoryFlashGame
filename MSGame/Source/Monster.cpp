@@ -5,8 +5,6 @@
 #include "audio.h"
 #include "gamelib.h"
 #include "Monster.h"
-#include "mygame.h"
-//#include "CPlayer.h"
 
 namespace game_framework {
 	Monster::Monster(int id, int num, int lb, int rb, int x, int y)
@@ -23,14 +21,14 @@ namespace game_framework {
 		isFacingRight = false;
 		isHurt = false;
 		isAlive = true;
-		isDead = false;
+		isDisappear = false;
 	}
 
 	void Monster::initialize()
 	{
 		HP = 30;
 		isAlive = true;
-		isDead = false;
+		isDisappear = false;
 	}
 
 	int Monster::GetX1()
@@ -57,7 +55,7 @@ namespace game_framework {
 	{
 		if (!IsAlive())
 			return false;
-		if (GetX1() <= tx2 && GetY1() <= ty2 && GetX2() >= tx1 && GetY2() >= ty1)
+		if (GetX1()+6 <= tx2 && GetY1()+6 <= ty2 && GetX2()-6 >= tx1 && GetY2()-6 >= ty1)
 			return true;
 		else
 			return false;
@@ -65,11 +63,8 @@ namespace game_framework {
 
 	void Monster::GetHurt(int dmg)
 	{
-		CAudio::Instance()->Play(AUDIO_HIT);
 		HP -= dmg;
 		isHurt = true;
-		if (HP == 0)
-			CAudio::Instance()->Play(AUDIO_DEAD);
 	}
 
 	bool Monster::IsAlive()
@@ -77,9 +72,9 @@ namespace game_framework {
 		return HP > 0;
 	}
 
-	bool Monster::IsDead()
+	bool Monster::IsDisappear()
 	{
-		return isDead;
+		return isDisappear;
 	}
 
 	void Monster::SetXY(int nx, int ny)
@@ -266,7 +261,7 @@ namespace game_framework {
 
 	void Monster::OnShow()
 	{
-		if (!isDead) {
+		if (!isDisappear) {
 			if (IsAlive()) {
 				if (isFacingRight) {
 					if (isHurt) {
@@ -300,7 +295,7 @@ namespace game_framework {
 					dyingRight.SetDelayCount(10);
 					dyingRight.OnShow();
 					if (dyingRight.IsFinalBitmap()) {
-						isDead = true;
+						isDisappear = true;
 					}
 				}
 				else {
@@ -308,7 +303,7 @@ namespace game_framework {
 					dyingLeft.SetDelayCount(10);
 					dyingLeft.OnShow();
 					if (dyingLeft.IsFinalBitmap()) {
-						isDead = true;
+						isDisappear = true;
 					}
 				}
 			}
