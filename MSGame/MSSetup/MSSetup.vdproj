@@ -5182,9 +5182,9 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MapleStoryFlashGame"
-        "ProductCode" = "8:{5844CB8D-ACCF-457B-A854-4383B2A2574A}"
+        "ProductCode" = "8:{F311A5E4-562C-47D1-AE96-DB5E5F67E5F9}"
         "PackageCode" = "8:{84A5F5BB-5498-4739-8654-3B29EACE3A34}"
-        "UpgradeCode" = "8:{93BED920-6C07-460A-BC59-B0F44038BD77}"
+        "UpgradeCode" = "8:{D369A9D2-FD0C-4344-AD11-7843587D095F}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
