@@ -318,9 +318,9 @@ void CGameStateRun::OnInit()  								// 遊戲的初值及圖形設定
 	//
 	// 繼續載入其他資料
 	//									
-	CAudio::Instance()->Load(AUDIO_HIT,  "sounds\\hit.wav");
-	CAudio::Instance()->Load(AUDIO_DEAD, "sounds\\dead.wav");
-	CAudio::Instance()->Load(AUDIO_HURT, "sounds\\hurt.wav");
+	CAudio::Instance()->Load(AUDIO_HIT,  "Sounds\\hit.wav");
+	CAudio::Instance()->Load(AUDIO_DEAD, "Sounds\\dead.wav");
+	CAudio::Instance()->Load(AUDIO_HURT, "Sounds\\hurt.wav");
 	//
 	// 此OnInit動作會接到CGameStaterOver::OnInit()，所以進度還沒到100%
 	//
