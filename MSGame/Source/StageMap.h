@@ -9,15 +9,18 @@ namespace game_framework {
 	public:
 		StageMap();
 		void MapInit();
-		int GetStage();
+		void MonsterInit();
 		void ChangeStage(int s);
+		/*create function*/
 		void CreatePlatform();
 		void CreateLadder();
 		void CreateMonsters();
-		void MonsterInit();
+		/*get function*/
+		int GetStage();
 		Platform* GetPlatform();
 		Ladder* GetLadder();
 		vector<Monster>* GetMonsters();
+		/*game function*/
 		void LoadBitmap();
 		void LoadMonsterBitmap();
 		void OnMove();
@@ -44,7 +47,7 @@ namespace game_framework {
 		vector<Monster> monsters2;
 		vector<Monster> monsters3;
 
-		const int titleCount = 20;	// 2¬í
+		const int titleCount = 20;
 		int titleCounter;
 		bool titleShow;
 	};

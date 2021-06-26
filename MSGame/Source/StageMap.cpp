@@ -11,6 +11,7 @@ namespace game_framework {
 	StageMap::StageMap() {
 		monsters1.reserve(10);
 		monsters2.reserve(10);
+		monsters3.reserve(10);
 	}
 
 	void StageMap::MapInit() {
@@ -18,10 +19,6 @@ namespace game_framework {
 		CreatePlatform();
 		CreateLadder();
 		CreateMonsters();
-		//ppointer = &plat1;
-		//lpointer = &ladder1;
-		//mpointer = &monsters1;
-
 		titleShow = true;
 		titleCounter = titleCount;
 	}
@@ -104,21 +101,22 @@ namespace game_framework {
 
 	void StageMap::CreateMonsters()
 	{
+		// stage1 monsters
 		monsters1.push_back(Monster(2, 1, 40, 315, 200, 390));		//f2
 		monsters1.push_back(Monster(1, 2, 320, 600, 500, 248));		//f5
 		monsters1.push_back(Monster(1, 3, 40, 290, 50, 248));		//f6
 		monsters1.push_back(Monster(2, 4, 170, 465, 400, 145));		//f8
 		monsters1.push_back(Monster(1, 5, 320, 600, 350, 39));		//f10
 		monsters1.push_back(Monster(2, 6, 40, 285, 250, 41));		//f11
-
+		// stage2 monsters
 		monsters2.push_back(Monster(4, 1, 40, 600, 380, 405));		//f1
 		monsters2.push_back(Monster(3, 2, 180, 250, 210, 340));		//f2
 		monsters2.push_back(Monster(4, 3, 40, 400, 120, 233));		//f7
 		monsters2.push_back(Monster(3, 4, 40, 230, 190, 132));		//f8
 		monsters2.push_back(Monster(3, 5, 250, 600, 500, 132));		//f9
-
+		// stage3 monsters
 		monsters3.push_back(Monster(5, 1, 40, 600, 380, 414));		//f1
-		monsters3.push_back(Monster(6, 2, 40, 600, 240, 211));
+		monsters3.push_back(Monster(6, 2, 40, 600, 200, 211));
 		monsters3.push_back(Monster(6, 3, 40, 600, 300, 106));
 		monsters3.push_back(Monster(5, 4, 40, 600, 125, 137));
 	}
@@ -148,7 +146,6 @@ namespace game_framework {
 		default:
 			return NULL;
 		}
-		//return ppointer;
 	}
 	Ladder * StageMap::GetLadder()
 	{
@@ -163,7 +160,6 @@ namespace game_framework {
 		default:
 			return NULL;
 		}
-		//return lpointer;
 	}
 	vector<Monster>* StageMap::GetMonsters()
 	{
@@ -175,7 +171,6 @@ namespace game_framework {
 			return &monsters3;
 		else
 			return NULL;
-		//return mpointer;
 	}
 	
 	void StageMap::LoadBitmap()
@@ -183,7 +178,6 @@ namespace game_framework {
 		background1.LoadBitmap(stage1_background);
 		background2.LoadBitmap(stage2_background);
 		background3.LoadBitmap(stage3_background);
-
 		stageTitle1.LoadBitmap(stage1_text, RGB(255, 0, 255));
 		stageTitle2.LoadBitmap(stage2_text, RGB(255, 0, 255));
 		stageTitle3.LoadBitmap(stage3_text, RGB(255, 0, 255));
@@ -239,6 +233,5 @@ namespace game_framework {
 		default:
 			break;
 		}
-
 	}
 }

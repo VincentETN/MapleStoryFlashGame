@@ -101,10 +101,7 @@ void CGameStateInit::OnBeginState()
 void CGameStateInit::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 	const char KEY_ESC = 27;
-	const char KEY_SPACE = ' ';
-	if (nChar == KEY_SPACE)
-		;//GotoGameState(GAME_STATE_RUN);						// 切換至GAME_STATE_RUN
-	else if (nChar == KEY_ESC)								// Demo 關閉遊戲的方法
+	if (nChar == KEY_ESC)								// Demo 關閉遊戲的方法
 		PostMessage(AfxGetMainWnd()->m_hWnd, WM_CLOSE,0,0);	// 關閉遊戲
 }
 
@@ -181,25 +178,6 @@ void CGameStateInit::OnShow()
 		start.ShowBitmap();
 	else
 		start2.ShowBitmap();
-	//
-	// 貼上logo
-	//
-	//
-	// Demo螢幕字型的使用，不過開發時請盡量避免直接使用字型，改用CMovingBitmap比較好
-	//
-	//CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
-	//CFont f,*fp;
-	//f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字
-	//fp=pDC->SelectObject(&f);					// 選用 font f
-	//pDC->SetBkColor(RGB(0,0,0));
-	//pDC->SetTextColor(RGB(255,255,0));
-	//pDC->TextOut(120,220,"Please click mouse or press SPACE to begin.");
-	//pDC->TextOut(5,395,"Press Ctrl-F to switch in between window mode and full screen mode.");
-	//if (ENABLE_GAME_PAUSE)
-	//	pDC->TextOut(5,425,"Press Ctrl-Q to pause the Game.");
-	//pDC->TextOut(5,455,"Press Alt-F4 or ESC to Quit.");
-	//pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
-	//CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
 }								
 
 /////////////////////////////////////////////////////////////////////////////
@@ -232,8 +210,6 @@ void CGameStateOver::OnInit()
 	ShowInitProgress(66);	// 接個前一個狀態的進度，此處進度視為66%
 	//
 	// 開始載入資料
-	//
-	Sleep(300);				// 放慢，以便看清楚進度，實際遊戲請刪除此Sleep
 	success_bg.LoadBitmap(success_background);
 	fail_bg.LoadBitmap(gameover_background);
 	//
@@ -252,17 +228,6 @@ void CGameStateOver::OnShow()
 		fail_bg.SetTopLeft(40, 0);
 		fail_bg.ShowBitmap();
 	}
-	//CDC *pDC = CDDraw::GetBackCDC();			// 取得 Back Plain 的 CDC 
-	//CFont f,*fp;
-	//f.CreatePointFont(160,"Times New Roman");	// 產生 font f; 160表示16 point的字
-	//fp=pDC->SelectObject(&f);					// 選用 font f
-	//pDC->SetBkColor(RGB(0,0,0));
-	//pDC->SetTextColor(RGB(255,255,0));
-	//char str[80];								// Demo 數字對字串的轉換
-	//sprintf(str, "Game Over ! (%d)", counter / 30);
-	//pDC->TextOut(240,210,str);
-	//pDC->SelectObject(fp);						// 放掉 font f (千萬不要漏了放掉)
-	//CDDraw::ReleaseBackCDC();					// 放掉 Back Plain 的 CDC
 }
 
 /////////////////////////////////////////////////////////////////////////////
@@ -282,12 +247,6 @@ void CGameStateRun::OnBeginState()
 {
 	const int BACKGROUND_X = 40;
 	const int ANIMATION_SPEED = 15;
-	//background.SetTopLeft(BACKGROUND_X,0);				// 設定背景的起始座標
-
-	//CAudio::Instance()->Play(AUDIO_LAKE, true);			// 撥放 WAVE
-	//CAudio::Instance()->Play(AUDIO_HIT, false);		// 撥放 WAVE
-	//CAudio::Instance()->Play(AUDIO_DEAD, false);		// 撥放 WAVE
-	//CAudio::Instance()->Play(AUDIO_NTUT, true);			// 撥放 MIDI
 	map.ChangeStage(1);
 	monsters = map.GetMonsters();
 	player.SetMap(map.GetPlatform(), map.GetLadder());
@@ -296,11 +255,11 @@ void CGameStateRun::OnBeginState()
 	monsterIsAllDead = false;
 	delayCounter = 30;
 	trick1 = 0;
+	trick2 = false;
 }
 
 void CGameStateRun::OnMove()							// 移動遊戲元素
 {
-	//
 	// 如果希望修改cursor的樣式，則將下面程式的commment取消即可
 	//
 	// SetCursor(AfxGetApp()->LoadCursor(IDC_GAMECURSOR));
@@ -376,6 +335,7 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 	const char KEY_SPACE = 0x20;
 	const char KEY_Z	 = 0x5A;
 	const char KEY_SHIFT = 0x10;
+	const char KEY_S	 = 0x53;
 	
 	if (nChar == KEY_LEFT) {
 		player.SetMovingLeft(true);
@@ -404,6 +364,10 @@ void CGameStateRun::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		if (nChar == KEY_Z) {
 			trick1++;
 		}
+	}
+
+	if (nChar == KEY_S) {
+		trick2 = !trick2;
 	}
 }
 
@@ -499,17 +463,17 @@ void CGameStateRun::CheckStage()
 	}
 }
 
-void CGameStateRun::PlayerMonsterInteraction(CPlayer * player, vector<Monster>* monsters)
+void CGameStateRun::PlayerMonsterInteraction(Player * player, vector<Monster>* monsters)
 {
 	tuple<int, int, int, int> playerAR = player->GetAttackRange();
 	for (auto m = monsters->begin(); m != monsters->end(); m++) {
-		if (!player->IsInSuperState()) {
+		if (!player->IsInSuperState() && !trick2) {
 			if (m->isCollision(player->GetX1(), player->GetY1(), player->GetX2(), player->GetY2())) {
 				player->SetGetHurt(true);
 				CAudio::Instance()->Play(AUDIO_HURT);
 			}
 		}
-		if (player->Attacking()) {
+		if (player->IsAttacking()) {
 			if (m->isCollision(get<0>(playerAR), get<1>(playerAR), get<2>(playerAR), get<3>(playerAR))) {
 				m->GetHurt(1);
 				CAudio::Instance()->Play(AUDIO_HIT);

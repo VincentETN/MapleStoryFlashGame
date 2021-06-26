@@ -1,85 +1,69 @@
-#pragma once
+#include "Platform.h"
+#include "Ladder.h"
 
 namespace game_framework {
 	class Player
 	{
 	public:
 		Player();
-		/***************遊戲進行***************/
-		void initialize();				// 設定初始值
-		void LoadBitmap();				// 載入圖形
-		void OnMove();					// 移動
-		void OnShow();					// 將圖形貼到畫面
-		/***************取得屬性 get function***************/
-		int getX1();					// 玩家左上角 x 座標
-		int getY1();					// 玩家左上角 y 座標
-		int getX2();					// 玩家右下角 x 座標
-		int getY2();					// 玩家右下角 y 座標
-		int getMidX();					// 玩家中心 x 座標
-		int getMidY();					// 玩家中心 y 座標
-		int getHP();
-		tuple<int, int, int, int> getAttackRange();
-		/***************取得狀態 is function***************/
-		//bool isAttacking();
-		/***************狀態設定 set function***************/
-		void setXY(int nx, int ny);		// 設定左上角座標
-		void setSpeed(int nspeed);		// 設定移動速度
-		void setMovingLeft(bool flag);	// 設定是否正在往左移動
-		void setMovingRight(bool flag); // 設定是否正在往右移動
-		void setMovingUp(bool flag);	// 設定是否正在往上移動
-		void setMovingDown(bool flag);	// 設定是否正在往下移動
-		void setJumping(bool flag);
-		void setAttacking(bool flag);
-		void setClimbing(bool flag);
-		void setOnTheGround(bool flag);
-		void setInTheAir(bool flag);
-
-		//void setAttackKey(bool flag);
-		//void setGetHurt(bool flag);
-
-
-		//void SetMap(Platform *plat, Ladder *lad);
-
+		void Initialize();				// 初始化
+		/*************get function************************/
+		int  GetX1();									// 玩家左上角 x 座標
+		int  GetY1();									// 玩家左上角 y 座標
+		int  GetX2();									// 玩家右下角 x 座標
+		int  GetY2();									// 玩家右下角 y 座標
+		int  GetMidX();									// 玩家中心 x 座標
+		int  GetMidY();									// 玩家中心 y 座標
+		tuple<int, int, int, int> GetAttackRange();
+		/*************game function***********************/
+		void LoadBitmap();
+		void OnMove();
+		void OnShow();
+		/*************set function************************/
+		void SetMovingDown(bool flag);					// 設定是否正在往下移動
+		void SetMovingLeft(bool flag);					// 設定是否正在往左移動
+		void SetMovingRight(bool flag);					// 設定是否正在往右移動
+		void SetMovingUp(bool flag);					// 設定是否正在往上移動
+		void SetFacingLeft(bool flag);
+		void SetJumping(bool flag);
+		void SetAttackKey(bool flag);
+		void SetAttacking(bool flag);
+		void SetGetHurt(bool flag);
+		void SetXY(int nx, int ny);						// 設定左上角座標
+		void SetIsClimbing(bool flag);
+		void SetMap(Platform *plat, Ladder *lad);
+		/*************is function*************************/
+		bool IsInTheAir();
+		bool IsOnTheGround();
+		bool IsAttacking();
+		bool IsInSuperState();
+		bool IsAlive();
 	protected:
-		/***************被動狀態設定 set function***************/
-		void setFacingLeft(bool flag);
-
-	private:
-		/**************玩家屬性**************/
+		CAnimation idleLeft, idleRight, lieLeft, lieRight, jumpLeft, jumpRight, walkLeft, walkRight, climb, ladderIdle, attackLeft, attackRight;		// 角色的動畫
+		CMovingBitmap dieLeft, dieRight, hp_3, hp_2, hp_1, hp_0;
 		int x, y;					// 玩家左上角座標
-		int speed;					// 移動速度
-		int hp;						// 生命
-		int instantVX;				// x軸瞬時速度
-		int instantVY;				// y軸瞬時速度
-		const int g = 3;			// 重力加速度
-		const int jumpInitV = -12;	// 起跳初始速度
-		/**************玩家動畫**************/
-		CAnimation idleLeft, idleRight;
-		CAnimation lieLeft, lieRight;
-		CAnimation jumpLeft, jumpRight;
-		CAnimation walkLeft, walkRight;
-		CAnimation climb, climbIdle;
-		CAnimation attackLeft, attackRight;
-		/**************玩家狀態**************/
+		int hp;
+		int jumpVel;				// 起跳初始速度
+		int instantVelX;			// x軸瞬時速度
+		int instantVelY;			// y軸瞬時速度
+		int g;						// 加速度
+		const int superStateCount = 50;
+		int superStateCounter;
+		Platform *floors;
+		Ladder *ladder;
+		/*************state variable***************/
+		bool isMovingDown;			// 是否正在往下移動
 		bool isMovingLeft;			// 是否正在往左移動
 		bool isMovingRight;			// 是否正在往右移動
 		bool isMovingUp;			// 是否正在往上移動
-		bool isMovingDown;			// 是否正在往下移動
-		bool isJumping;
-		bool isAttacking;
 		bool isFacingLeft;
+		bool isJumping;
 		bool isClimbing;
 		bool isOnTheGround;
 		bool isInTheAir;
-		bool isInSuperState;
-		const int superStateCount = 50;	// 無敵狀態時間
-		int superStateCounter;		// 無敵狀態計時
-		//bool attackKeyDown;
-		//bool rising;			// true表上升、false表下降
-		//bool isHurt;
-
-		//Platform *floors;
-		//Ladder *ladder;
-
+		bool attackKeyDown;
+		bool isAttacking;
+		bool isHurt;
+		bool superState;
 	};
 }

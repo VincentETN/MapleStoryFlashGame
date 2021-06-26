@@ -38,9 +38,7 @@
  *      3. Use ShowInitProgress(percent) to display loading progress.
 */
 
-#include "CPlayer.h"
-#include "CBall.h"
-#include "CBouncingBall.h"
+#include "Player.h"
 #include "Monster.h"
 #include "StageMap.h"
 
@@ -100,14 +98,16 @@ namespace game_framework {
 		void OnMove();									// 移動遊戲元素
 		void OnShow();									// 顯示這個狀態的遊戲畫面
 	private:
-		CPlayer			player;
+		void CheckStage();
+		void PlayerMonsterInteraction(Player *player, vector<Monster> *monsters);
+		
+		Player			player;
 		StageMap		map;
 		vector<Monster> *monsters;
 		bool monsterIsAllDead;
-		void CheckStage();
-		void PlayerMonsterInteraction(CPlayer *player, vector<Monster> *monsters);
 		int delayCounter;
-		int trick1;		// shift + z
+		int trick1;		// shift + Z
+		bool trick2;	// S
 	};  
 
 	/////////////////////////////////////////////////////////////////////////////
@@ -128,5 +128,4 @@ namespace game_framework {
 		CMovingBitmap fail_bg;
 		int counter;	// 倒數之計數器
 	};
-	
 }

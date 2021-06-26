@@ -309,6 +309,7 @@ namespace game_framework {
 			}
 		}
 	}
+
 	void Monster::zeroHP()
 	{
 		HP = 0;
