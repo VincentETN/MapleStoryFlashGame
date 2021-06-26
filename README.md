@@ -1,4 +1,3 @@
-# MapleStory-project
+# 2021 ntut OOPLAB team 19
 Maplestory flash game
 
-2021 ntut OOPLAB team 19
