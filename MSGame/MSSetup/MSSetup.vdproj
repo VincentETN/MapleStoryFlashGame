@@ -87,7 +87,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_1F15941ED5A24863B555ABA58EAF02A0"
+        "MsmKey" = "8:_1E36EFC4C3574BB3A150A5B3FB6860BE"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -148,6 +148,12 @@
         "Entry"
         {
         "MsmKey" = "8:_25A42FEBFBA14AD3B68398F4D643C8D3"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2967E55577B848AFAD41601FFF60FABD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -219,6 +225,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_389E9ED957044C0CBEBA28CDD65C6F7D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_38A1842E7B824B0BA65C1A9952F83011"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -274,6 +286,12 @@
         "Entry"
         {
         "MsmKey" = "8:_4719C63A22454ECAABAABC6C49E54AAD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_478E39DAAC4B4B389C77741A5A1292FC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -495,6 +513,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_7E78992E606A4C9DAD85C935230D779A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_7E87B7B5CE994F47960B7F24667C0EE5"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -585,6 +609,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8F583AF6412547A18636E579F101F4F0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_903F5C60C3AA4C1E955F051412E0A225"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -658,6 +688,12 @@
         "Entry"
         {
         "MsmKey" = "8:_A0F5415C201A464EAF58432FAAC5F305"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A13FEA76301640EEAE86DF21C0B61117"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -808,6 +844,12 @@
         "Entry"
         {
         "MsmKey" = "8:_BAE4C90F632E4CAEB9BFE71D771FD9B7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BC1EDA94589742C086387A23614FC68E"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -999,6 +1041,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_E2A8DB050953458F8A0E861235100BF4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_E372A9DDE541464BB84B4EEF2A377719"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -1139,7 +1187,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\MapleStory.msi"
+        "OutputFilename" = "8:Release\\MapleStoryFlashGame.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -1426,10 +1474,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1F15941ED5A24863B555ABA58EAF02A0"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E36EFC4C3574BB3A150A5B3FB6860BE"
             {
-            "SourcePath" = "8:..\\Resource\\menu.bmp"
-            "TargetName" = "8:menu.bmp"
+            "SourcePath" = "8:..\\Resource\\hp3.bmp"
+            "TargetName" = "8:hp3.bmp"
             "Tag" = "8:"
             "Folder" = "8:_716FF9F922DE434F8B487F5CCF6B555F"
             "Condition" = "8:"
@@ -1632,6 +1680,26 @@
             "TargetName" = "8:crab_right_walk3.bmp"
             "Tag" = "8:"
             "Folder" = "8:_F865DE480CD540E6BFBF2D951C7A7229"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2967E55577B848AFAD41601FFF60FABD"
+            {
+            "SourcePath" = "8:..\\Sounds\\dead.wav"
+            "TargetName" = "8:dead.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_A269B457B6734ED68E2FB7910A7C82BE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1866,6 +1934,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_389E9ED957044C0CBEBA28CDD65C6F7D"
+            {
+            "SourcePath" = "8:..\\Resource\\menu1.bmp"
+            "TargetName" = "8:menu1.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_716FF9F922DE434F8B487F5CCF6B555F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_38A1842E7B824B0BA65C1A9952F83011"
             {
             "SourcePath" = "8:..\\Resource\\Monster\\star\\star_right2.bmp"
@@ -2052,6 +2140,26 @@
             "TargetName" = "8:character_right_die2.bmp"
             "Tag" = "8:"
             "Folder" = "8:_8D0A815E59954BC9A53B385F031DF95D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_478E39DAAC4B4B389C77741A5A1292FC"
+            {
+            "SourcePath" = "8:..\\Sounds\\hit.wav"
+            "TargetName" = "8:hit.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_A269B457B6734ED68E2FB7910A7C82BE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -2766,6 +2874,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7E78992E606A4C9DAD85C935230D779A"
+            {
+            "SourcePath" = "8:..\\Resource\\hp0.bmp"
+            "TargetName" = "8:hp0.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_716FF9F922DE434F8B487F5CCF6B555F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7E87B7B5CE994F47960B7F24667C0EE5"
             {
             "SourcePath" = "8:..\\Resource\\Monster\\crab\\crab_left_die4.bmp"
@@ -3066,6 +3194,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8F583AF6412547A18636E579F101F4F0"
+            {
+            "SourcePath" = "8:..\\Sounds\\hurt.wav"
+            "TargetName" = "8:hurt.wav"
+            "Tag" = "8:"
+            "Folder" = "8:_A269B457B6734ED68E2FB7910A7C82BE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_903F5C60C3AA4C1E955F051412E0A225"
             {
             "SourcePath" = "8:..\\Resource\\Monster\\mushroom\\mushroom_right_walk1.bmp"
@@ -3312,6 +3460,26 @@
             "TargetName" = "8:green_right_walk4.bmp"
             "Tag" = "8:"
             "Folder" = "8:_C5EF5D5F13244A2F8EE5B5E7480877E1"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A13FEA76301640EEAE86DF21C0B61117"
+            {
+            "SourcePath" = "8:..\\Resource\\menu2.bmp"
+            "TargetName" = "8:menu2.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_716FF9F922DE434F8B487F5CCF6B555F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -3812,6 +3980,26 @@
             "TargetName" = "8:snake_right1.bmp"
             "Tag" = "8:"
             "Folder" = "8:_C39DBEE110D1449D9A8296CCF06C8649"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC1EDA94589742C086387A23614FC68E"
+            {
+            "SourcePath" = "8:..\\Resource\\hp1.bmp"
+            "TargetName" = "8:hp1.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_716FF9F922DE434F8B487F5CCF6B555F"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -4446,6 +4634,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E2A8DB050953458F8A0E861235100BF4"
+            {
+            "SourcePath" = "8:..\\Resource\\hp2.bmp"
+            "TargetName" = "8:hp2.bmp"
+            "Tag" = "8:"
+            "Folder" = "8:_716FF9F922DE434F8B487F5CCF6B555F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E372A9DDE541464BB84B4EEF2A377719"
             {
             "SourcePath" = "8:..\\Resource\\MAPLE.ICO"
@@ -4973,10 +5181,10 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:MapleFlash"
-        "ProductCode" = "8:{B1A70925-570C-4885-AAA2-1C3D0F8EE884}"
+        "ProductName" = "8:MapleStoryFlashGame"
+        "ProductCode" = "8:{5844CB8D-ACCF-457B-A854-4383B2A2574A}"
         "PackageCode" = "8:{84A5F5BB-5498-4739-8654-3B29EACE3A34}"
-        "UpgradeCode" = "8:{E538B19F-FA87-4CDD-A715-4ED37B7993EC}"
+        "UpgradeCode" = "8:{93BED920-6C07-460A-BC59-B0F44038BD77}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
@@ -4986,11 +5194,11 @@
         "Manufacturer" = "8:NTUT-CSIE-2021Games"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:MapleFlash"
+        "Title" = "8:MapleStoryFlashGame"
         "Subject" = "8:"
         "ARPCONTACT" = "8:Alan & Vincent"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:Copy the game for learning OOP"
+        "ARPCOMMENTS" = "8:MapleStory Old Flash Game"
         "ARPURLINFOABOUT" = "8:"
         "ARPPRODUCTICON" = "8:"
         "ARPIconIndex" = "3:0"
